@@ -1,2 +1,2 @@
 # p1-yasaswini-godavarthi
-A sample file for git repository
+This is code for my project1 in training
