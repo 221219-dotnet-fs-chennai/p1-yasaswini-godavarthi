@@ -12,9 +12,8 @@ code
 - read -p "enter dob:" dob
 - echo "$firstname $lastname"
 - echo $dob
-
--esc , :wq
--touch activity1.md
--vi activity1.md
+- esc , :wq
+- touch activity1.md
+- vi activity1.md
 - "enter all the commands"
--esc :wq
+- esc, :wq
