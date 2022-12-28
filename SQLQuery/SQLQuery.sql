@@ -17,7 +17,7 @@ CREATE TABLE Employee(
 CREATE TABLE Employee_Details(
     Id int PRIMARY KEY,
     Emp_id int FOREIGN KEY REFERENCES Employee(Id),
-    Salery int,
+    Salery int ,
     AddressLine1 varchar(20),
     AddressLine2 varchar(20),
     City VARCHAR(20),
@@ -33,7 +33,7 @@ INSERT into Employee VALUES(1234,'yash','aswini',125478963,112),(2134,'priya','x
 
 select * from Employee;
 
-INSERT into Employee_Details VALUES(213,2134,25000,'main line','hightech city','hyd','Telangana','India'),
+INSERT into Employee_Details VALUES(220,2134,25000,'main line','hightech city','hyd','Telangana','India'),
 (215,2345,27000,'it park','ragiv gandhi road','chennai','Tamil nadu','India'),
 (219,1234,25000,'cross road','near gardens','Bangalore','Karnataka','India');
 
@@ -57,5 +57,9 @@ select Count(e.Id) as 'Total_employees',d.FullName as 'Department' from Employee
 UPDATE Employee_Details set Salery = 90000 from Employee e inner join Employee_Details ed on e.Id = ed.Emp_id where e.FirstName='Tina'; 
 
 SELECT * from Employee_Details;
+ 
+------ Marketing employee names----
+
+select FirstName,LastName from Employee inner join Department on Employee.DeptiD = Department.Dept_Id where Fullname ='Marketing';
 
 
