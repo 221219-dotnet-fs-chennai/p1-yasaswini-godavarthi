@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console
+namespace UI_Console
 {
     public interface IAlldetails
     { 

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainersData", "TrainersData\TrainersData.csproj", "{B83B05B7-A58A-4AE8-BC71-BDDF13A32B5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{ECDC5D54-590C-4E7E-8673-19CD4C9A4161}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI_Console", "Console\UI_Console.csproj", "{ECDC5D54-590C-4E7E-8673-19CD4C9A4161}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Console
+namespace UI_Console
 {
     public class AddTrainer : IAlldetails
     {
@@ -27,7 +27,7 @@ namespace Console
                     System.Console.WriteLine("Wrong Choice! Try again...");
                     System.Console.WriteLine("Enter to Continue...");
                     System.Console.ReadLine();
-                    return "TrainerMenu";
+                    return "AddTrainer";
             }
         }
     }

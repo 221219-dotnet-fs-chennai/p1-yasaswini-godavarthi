@@ -1,5 +1,5 @@
 ﻿
-using Console;
+using UI_Console;
 using TrainersData;
 
 public class Login : IAlldetails

@@ -1,7 +1,7 @@
 ﻿using TrainersData;
 using System;
 
-namespace Console
+namespace UI_Console
 {
     public class GetAllTrainers : IAlldetails
     {

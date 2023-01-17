@@ -1,6 +1,6 @@
 ﻿using TrainersData;
 
-namespace Console
+namespace UI_Console
 {
     class UserInteraction : IAlldetails
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console
+namespace UI_Console
 {
     /*
      MainMenu inherits IMenu interface but since it is a class it needs to give actual implementation details to the methods

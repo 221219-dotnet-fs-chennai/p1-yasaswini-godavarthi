@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TrainersData;
 
-namespace Console
+namespace UI_Console
 {
     internal class SignUp : IAlldetails
     {

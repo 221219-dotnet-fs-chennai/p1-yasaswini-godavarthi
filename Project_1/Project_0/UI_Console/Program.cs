@@ -3,14 +3,14 @@ using TrainersData;
 using System;
 using System.Data.SqlClient;
 
-namespace Console
+namespace UI_Console
 {
     internal class Program : SignUp
     {
         static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-                .WriteTo.File(@"..\..\..\..\Logs\logs.txt", rollingInterval: RollingInterval.Day, rollOnFileSizeLimit: true)
+                .WriteTo.File(@"..\..\..\Logs\logs.txt", rollingInterval: RollingInterval.Day, rollOnFileSizeLimit: true)
                 .CreateLogger();
 
             Log.Logger.Information("-------Program starts-------");
