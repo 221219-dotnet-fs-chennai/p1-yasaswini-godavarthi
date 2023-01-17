@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "FullName": "John",
+    "Gender": "Male",
+    "Age": 23,
+    "Phone":"7869564789",
+    "Email": "john@trainer.in",
+    "Website": "https://johnswebsite.in"
+  },
+  {
+    "Id": 2,
+    "FullName": "Dora",
+    "Gender": "Female",
+    "Age": 22,
+    "Phone": "9898786645",
+    "Email": "dora.trainer@gmail.com",
+    "Website": "https://doraswebsite.in"
+  }
+]
