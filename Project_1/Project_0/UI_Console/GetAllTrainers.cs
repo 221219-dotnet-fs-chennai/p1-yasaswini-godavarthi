@@ -9,16 +9,16 @@ namespace UI_Console
 
         public void Display()
         {
-            System.Console.WriteLine("Please select an option to filter the Trainers database");
-            System.Console.WriteLine("[2] to Login");
-            System.Console.WriteLine("[1] to Signup");
-            System.Console.WriteLine("[0] Go back");
+            Console.WriteLine("Please select an option to filter the Trainers database");
+            Console.WriteLine("[2] to Login");
+            Console.WriteLine("[1] to Signup");
+            Console.WriteLine("[0] Go back");
         }
 
         public string UserChoice()
         {
             System.Console.Write("Enter your choice: ");
-            string userChoice = System.Console.ReadLine();
+            string userChoice = Console.ReadLine();
 
             switch (userChoice)
             {
@@ -29,9 +29,9 @@ namespace UI_Console
                 case "2":
                     return "Login";
                 default:
-                    System.Console.WriteLine("Wrong Choice! Try again...");
-                    System.Console.WriteLine("Enter to Continue...");
-                    System.Console.ReadLine();
+                    Console.WriteLine("Wrong Choice! Try again...");
+                    Console.WriteLine("Enter to Continue...");
+                    Console.ReadLine();
                     return "GetAllTrainers";
 
             }
