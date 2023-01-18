@@ -35,7 +35,7 @@ namespace TrainersData
             get;
             set;
         }
-        public string Mobile_Number
+        public string Mobile_number
         {
             get;
             set;
@@ -45,7 +45,7 @@ namespace TrainersData
             get;
             set;
         }
-        public string Skill_Name
+        public string Skill_name
         {
             get;
             set;
@@ -117,7 +117,7 @@ namespace TrainersData
 
         public string TrainerDetails()
         {
-            return $@"{Email}, {Full_name}, {Age}, {Gender}, {Mobile_Number}, {Website}, {Skill_Name}, {Skill_Type}, {Skill_Level}, {Company_name}, {Company_type}, {Experience}, {Company_Description}, {Highest_Graduation}, {Institute}, {Department}, {Start_year}, {End_year}";
+            return $@"{Email}, {Full_name}, {Age}, {Gender}, {Mobile_number}, {Website}, {Skill_name}, {Skill_Type}, {Skill_Level}, {Company_name}, {Company_type}, {Experience}, {Company_Description}, {Highest_Graduation}, {Institute}, {Department}, {Start_year}, {End_year}";
         }
     }
 }

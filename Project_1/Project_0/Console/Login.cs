@@ -23,15 +23,16 @@ public class Login : IAlldetails
         switch (userChoice)
         {
             case "0":
-                return "UserInteraction";
+                return "MainMenu";
             case "1":
                 System.Console.Write("Enter your Email ID: ");
                 string Email = System.Console.ReadLine();
                 bool ans = repo.login(Email);
                 if (ans)
                 {
-                    SignUp trainerLogin = new SignUp(repo.GetAllTrainer(Email));
-                    return "UserInteraction";
+                    SignUp TrainerLogin = new SignUp(repo.GetAllTrainer(Email));
+                    System.Console.WriteLine(TrainerLogin);
+                    return "MainMenu";
                 }
                 else
                 {

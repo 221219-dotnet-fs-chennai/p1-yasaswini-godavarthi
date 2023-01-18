@@ -25,11 +25,11 @@ namespace Console
             switch (userChoice)
             {
                 case "0":
-                    return "Alldetails";
+                    return "Menu";
                 case "1":
-                    return "SignUp";
+                    return "AddTrainer";
                 case "2":
-                    return "Login";
+                    return "AddTrainer";
                 case "3":
                     Log.Information("Getting all trainers");
                     var listOfTrainers = repo.GetAllTrainersDisconnected();

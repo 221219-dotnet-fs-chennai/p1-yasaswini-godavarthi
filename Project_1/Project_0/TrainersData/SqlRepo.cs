@@ -23,41 +23,41 @@ namespace TrainersData
             connection.Open();
 
 
-            string query = @"insert into Trainer_Detailes(User_id, Email, Password, Full_name, Age, Gender, Mobile_Number, Website) values (@user_id, @Email, @Full_name, @Age, @Gender, @Mobile_Number, @Website)";
+            string query = @"insert into Trainer_Detailes(Email, Password, Full_name, Age, Gender, Mobile_number, Website) values (@Email,@Password, @Full_name, @Age, @Gender, @Mobile_number, @Website)";
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@user_ID", details.user_id);
-            command.Parameters.AddWithValue("Password", details.Password);
-            command.Parameters.AddWithValue("@Email_ID", details.Email);
-            command.Parameters.AddWithValue("@Fname", details.Full_name);
+            //command.Parameters.AddWithValue("@user_id", details.user_id);
+            command.Parameters.AddWithValue("@Password", details.Password);
+            command.Parameters.AddWithValue("@Email", details.Email);
+            command.Parameters.AddWithValue("@Full_name", details.Full_name);
             command.Parameters.AddWithValue("@Age", Convert.ToInt32(details.Age));
             command.Parameters.AddWithValue("@gender", details.Gender);
-            command.Parameters.AddWithValue("@Phone_number", details.Mobile_Number);
-            command.Parameters.AddWithValue("@City", details.Website);
+            command.Parameters.AddWithValue("@Mobile_number", details.Mobile_number);
+            command.Parameters.AddWithValue("@Website", details.Website);
             command.ExecuteNonQuery();
 
 
-            string query1 = @"insert into Skills(Skill_id, Skill_Name, Skill_Type, Skill_Level) values (@Skill_id, @Skill_Name, @Skill_Type, @Skill_Level)";
+            string query1 = @"insert into Skills(Skill_name, Skill_Type, Skill_Level) values (@Skill_Name, @Skill_Type, @Skill_Level)";
             SqlCommand command1 = new SqlCommand(query1, connection);
 
-            command1.Parameters.AddWithValue("@Skill_ID", details.Skill_id);
-            command1.Parameters.AddWithValue("@Ug_collage", details.Skill_Name);
-            command1.Parameters.AddWithValue("@Ug_stream", details.Skill_Type);
-            command1.Parameters.AddWithValue("@Ug_Percentage", details.Skill_Type);
+           // command1.Parameters.AddWithValue("@Skill_id", details.Skill_id);
+            command1.Parameters.AddWithValue("@Skill_name", details.Skill_name);
+            command1.Parameters.AddWithValue("@Skill_Type", details.Skill_Type);
+            command1.Parameters.AddWithValue("@Skill_Level", details.Skill_Level);
 
             command1.ExecuteNonQuery();
 
-            string query2 = @"insert into Company(Id, Company_name, Company_type, Experience, Company_Description) values(@Id, @Company_name, @Company_type, @Experience, @Company_Description)";
+            string query2 = @"insert into Company( Company_name, Company_type, Experience, Company_Description) values(@Company_name, @Company_type, @Experience, @Company_Description)";
             SqlCommand command2 = new SqlCommand(query2, connection);
 
             
             if (string.IsNullOrEmpty(details.Company_name))
             {
-                command2.Parameters.AddWithValue("@Company_Name", "Null");
+                command2.Parameters.AddWithValue("@Company_name", "Null");
             }
             else
             {
-                command2.Parameters.AddWithValue("@Company_Name", details.Company_name);
+                command2.Parameters.AddWithValue("@Company_name", details.Company_name);
             }
             if (string.IsNullOrEmpty(details.Company_type))
             {
@@ -87,10 +87,10 @@ namespace TrainersData
 
             command2.ExecuteNonQuery();
 
-            string query3 = @"insert into Education_Details(Edu_id, Highest_Graduation, Institute, Department, Start_year , End_year) values (@Edu_id, @Highest_Graduation, @Institute, @Department, @Start_year, @End_year)";
+            string query3 = @"insert into Education_Details(Highest_Graduation, Institute, Department, Start_year , End_year) values ( @Highest_Graduation, @Institute, @Department, @Start_year, @End_year)";
             SqlCommand command3 = new SqlCommand(query3, connection);
 
-            command3.Parameters.AddWithValue("@Edu_id", details.Edu_id);
+            //command3.Parameters.AddWithValue("@Edu_id", details.Edu_id);
             command3.Parameters.AddWithValue("@Highest_Graduation", details.Highest_Graduation);
             command3.Parameters.AddWithValue("@Institute", details.Institute);
             command3.Parameters.AddWithValue("@Department", details.Department);
@@ -120,12 +120,12 @@ namespace TrainersData
             {
 
                 string query4 = @"Select Trainer_Detailes.user_id, Trainer_Detailes.Full_name, Trainer_Detailes.Email, Trainer_Detailes.Age, Trainer_Detailes.Gender, 
-                Trainer_Detailes.Mobile_Number, Trainer_Detailes.Website,Education_Details.Edu_id, Education_Details.Highest_Graduation, Education_Details.Institute, 
+                Trainer_Detailes.Mobile_number, Trainer_Detailes.Website,Education_Details.Edu_id, Education_Details.Highest_Graduation, Education_Details.Institute, 
                 Education_Details.Department, Education_Details.Start_year, Education_Details.End_year,Skills.Skill_id, Skills.Skill_name, Skills.Skill_Type,Skills.Skill_Level,
                 Company.Id,Company.Company_name, Company.Company_type, Company.Experience, Company.Company_Description From Trainer_Detailes
-                join Education_Details on Trainer_Detailes.user_ID = Education_Details.Edu_id
+                join Education_Details on Trainer_Detailes.user_id = Education_Details.Edu_id
                 join Skills on Education_Details.Edu_id = Skills.Skill_id
-                join Company on Skills.Skill_id = Company.Id;";
+                join Company on Skills.Skill_id = Company.Id where Trainer_Detailes.Email = email;";
 
                 SqlCommand command = new SqlCommand(query4, con);
 
@@ -140,7 +140,7 @@ namespace TrainersData
                         Full_name = reader.GetString(1),
                         Age = reader.GetInt32(3),
                         Gender = reader.GetString(4),
-                        Mobile_Number = reader.GetString(5),
+                        Mobile_number = reader.GetString(5),
                         Website = reader.GetString(6),
                         Edu_id = reader.GetInt32(7),
                         Highest_Graduation = reader.GetString(8),
@@ -149,7 +149,7 @@ namespace TrainersData
                         Start_year = reader.GetString(11),
                         End_year = reader.GetString(12),
                         Skill_id = reader.GetInt32(13),
-                        Skill_Name = reader.GetString(14),
+                        Skill_name = reader.GetString(14),
                         Skill_Type = reader.GetString(15),
                         Skill_Level = reader.GetString(16),
                         Id = reader.GetInt32(17),
@@ -176,7 +176,7 @@ namespace TrainersData
             SqlConnection con = new SqlConnection(connectionString);
 
             string query5= @"Select Trainer_Detailes.user_id, Trainer_Detailes.Full_name, Trainer_Detailes.Email, Trainer_Detailes.Age, Trainer_Detailes.Gender, 
-                Trainer_Detailes.Mobile_Number, Trainer_Detailes.Website,Education_Details.Edu_id, Education_Details.Highest_Graduation, Education_Details.Institute, 
+                Trainer_Detailes.Mobile_number, Trainer_Detailes.Website,Education_Details.Edu_id, Education_Details.Highest_Graduation, Education_Details.Institute, 
                 Education_Details.Department, Education_Details.Start_year, Education_Details.End_year,Skills.Skill_id, Skills.Skill_name, Skills.Skill_Type,Skills.Skill_Level,
                 Company.Id,Company.Company_name, Company.Company_type, Company.Experience, Company.Company_Description From Trainer_Detailes
                 join Education_Details on Trainer_Detailes.user_id = Education_Details.Edu_id
@@ -199,7 +199,7 @@ namespace TrainersData
                     Full_name = (string)row[1],
                     Age = (int)row[3],
                     Gender = (string)row[4],
-                    Mobile_Number = (string)row[5],
+                    Mobile_number = (string)row[5],
                     Website = (string)row[6],
                     Edu_id = (int)row[7],
                     Highest_Graduation = (string)row[8],
@@ -208,7 +208,7 @@ namespace TrainersData
                     Start_year = (string)row[11],
                     End_year = (string)row[12],
                     Skill_id = (int)row[13],
-                    Skill_Name = (string)row[14],
+                    Skill_name = (string)row[14],
                     Skill_Type = (string)row[15],
                     Skill_Level = (string)row[16],
                     Id = (int)row[17],

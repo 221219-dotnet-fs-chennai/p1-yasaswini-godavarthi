@@ -20,7 +20,7 @@ namespace Console
                 case "1":
                     return "Login";
                 case "2":
-                    return "SignUp";
+                    return "Signup";
                 case "3":
                     return "MainMenu";
                 default:

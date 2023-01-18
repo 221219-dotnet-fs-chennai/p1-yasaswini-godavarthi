@@ -36,9 +36,9 @@ namespace Console
             System.Console.WriteLine("[4] Fullname         : " + details.Full_name);
             System.Console.WriteLine("[5] Age              : " + details.Age);
             System.Console.WriteLine("[6] Gender           : " + details.Gender);
-            System.Console.WriteLine("[7] Phone number     : " + details.Mobile_Number);
+            System.Console.WriteLine("[7] Phone number     : " + details.Mobile_number);
             System.Console.WriteLine("[8] Website          : " + details.Website);
-            System.Console.WriteLine("[9] Skill name       : " + details.Skill_Name);
+            System.Console.WriteLine("[9] Skill name       : " + details.Skill_name);
             System.Console.WriteLine("[10]Skill Type       : " + details.Skill_Type);
             System.Console.WriteLine("[11]Skill Level      : " + details.Skill_Level);
             System.Console.WriteLine("[12]Company_name     : " + details.Company_name);
@@ -60,7 +60,7 @@ namespace Console
             switch (userchoice)
             {
                 case "0":
-                    return "Alldetails";
+                    return "MainMenu";
                 case "1":
                     try
                     {
@@ -80,15 +80,15 @@ namespace Console
                 case "2":
                     System.Console.Write("Enter your Email ID: ");
                     details.Email = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
                 case "3":
                     System.Console.Write("Enter your Password: ");
                     details.Password = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
                 case "4":
                     System.Console.Write("Enter your Fullname: ");
                     details.Full_name = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
                 case "5":
                     try
                     {
@@ -101,11 +101,11 @@ namespace Console
                         System.Console.WriteLine(ex.Message);
                         System.Console.ReadLine();
                     }
-                    return "SignUp";
+                    return "Signup";
                 case "6":
                     System.Console.Write("Enter your Gender: ");
                     details.Gender = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
 
                 case "7":
                     System.Console.Write("Enter your Mobile number: ");
@@ -115,76 +115,76 @@ namespace Console
 
                     if (Regex.IsMatch(phone_number, pattern))
                     {
-                        details.Mobile_Number = phone_number;
+                        details.Mobile_number = phone_number;
                     }
                     else
                     {
                         System.Console.WriteLine("Wrong pattern try again...");
                         System.Console.ReadLine();
                     }
-                    return "SignUp";
+                    return "Signup";
 
                 case "8":
                     System.Console.Write("Enter you Website: ");
                     details.Website = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
 
                 case "9":
                     System.Console.Write("Enter your Skill name: ");
-                    details.Skill_Name = System.Console.ReadLine();
-                    return "SignUp";
+                    details.Skill_name = System.Console.ReadLine();
+                    return "Signup";
 
                 case "10":
                     System.Console.Write("Enter your Skill type: ");
                     details.Skill_Type = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
 
                 case "11":
                     System.Console.Write("Enter your Skill level: ");
                     details.Skill_Level = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
                 case "12":
                     System.Console.Write("Enter your Company name: ");
                     details.Company_name = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
                 case "13":
                     System.Console.Write("Enter your Company type: ");
                     details.Company_type = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
                 case "14":
                     System.Console.Write("Enter your Experience: ");
                     details.Experience = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
                 case "15":
                     System.Console.Write("Enter your Company description: ");
                     details.Company_Description = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
                 case "16":
                     System.Console.Write("Enter your Highest Qualification: ");
                     details.Highest_Graduation = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
                 case "17":
                     System.Console.Write("Enter your Institute: ");
                     details.Institute = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
                 case "18":
                     System.Console.Write("Enter your department: ");
                     details.Department = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
                 case "19":
                     System.Console.Write("Enter your start year: ");
                     details.Start_year = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
                 case "20":
                     System.Console.Write("Enter your End year: ");
                     details.End_year = System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
                 default:
                     System.Console.WriteLine("------------------------------");
                     System.Console.WriteLine("Wrong choice, Try again!");
                     System.Console.WriteLine("Enter to continue");
                     System.Console.ReadLine();
-                    return "SignUp";
+                    return "Signup";
 
             }
         }

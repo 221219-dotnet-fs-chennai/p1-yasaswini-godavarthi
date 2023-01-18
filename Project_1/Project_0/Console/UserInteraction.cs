@@ -12,6 +12,7 @@ namespace Console
         public UserInteraction(Details trainer)
         {
             trainerProfile = trainer;
+            System.Console.WriteLine(trainerProfile.ToString());
         }
         public void Display()
         {
@@ -55,9 +56,9 @@ namespace Console
             System.Console.WriteLine("Full_name            : " + trainerProfile.Full_name);
             System.Console.WriteLine("Age                  : " + trainerProfile.Age);
             System.Console.WriteLine("Gender               : " + trainerProfile.Gender);
-            System.Console.WriteLine("Phone number         : " + trainerProfile.Mobile_Number);
+            System.Console.WriteLine("Phone number         : " + trainerProfile.Mobile_number);
             System.Console.WriteLine("Website              : " + trainerProfile.Website);
-            System.Console.WriteLine("Skill_name           : " + trainerProfile.Skill_Name);
+            System.Console.WriteLine("Skill_name           : " + trainerProfile.Skill_name);
             System.Console.WriteLine("Skill_Type           : " + trainerProfile.Skill_Type);
             System.Console.WriteLine("Skill level          : " + trainerProfile.Skill_Level);
             System.Console.WriteLine("Company name         : " + trainerProfile.Company_name);
