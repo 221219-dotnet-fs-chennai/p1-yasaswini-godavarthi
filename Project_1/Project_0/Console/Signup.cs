@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TrainersData;
 
-namespace Console
+namespace Console1
 {
     internal class SignUp : IAlldetails
     {
@@ -60,7 +60,7 @@ namespace Console
             switch (userchoice)
             {
                 case "0":
-                    return "MainMenu";
+                    return "Menu";
                 case "1":
                     try
                     {
@@ -79,11 +79,36 @@ namespace Console
                     return "AddTrainer";
                 case "2":
                     System.Console.Write("Enter your Email ID: ");
-                    details.Email = System.Console.ReadLine();
+                    string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+
+                    string Email = System.Console.ReadLine();
+
+                    if (Regex.IsMatch(Email, pattern))
+                    {
+                        details.Email = Email;
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("Wrong pattern try again...");
+                        System.Console.ReadLine();
+                    }
                     return "Signup";
                 case "3":
+                    System.Console.WriteLine("At least one lower case letter,\r\nAt least one upper case letter,\r\nAt least 4 character,\r\nAt least one number\r\nAt most 8 characters length");
                     System.Console.Write("Enter your Password: ");
-                    details.Password = System.Console.ReadLine();
+                    string pattern1 = @"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$";
+
+                    string password = System.Console.ReadLine();
+
+                    if (Regex.IsMatch(password, pattern1))
+                    {
+                        details.Password = password;
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("Wrong pattern try again...");
+                        System.Console.ReadLine();
+                    }
                     return "Signup";
                 case "4":
                     System.Console.Write("Enter your Fullname: ");
@@ -109,11 +134,11 @@ namespace Console
 
                 case "7":
                     System.Console.Write("Enter your Mobile number: ");
-                    string pattern = @"\(?\d{3}\)?(-|.|\s)?\d{3}(-|.)?\d{4}";
+                    string pattern2 = @"\(?\d{3}\)?(-|.|\s)?\d{3}(-|.)?\d{4}";
 
                     string phone_number = System.Console.ReadLine();
 
-                    if (Regex.IsMatch(phone_number, pattern))
+                    if (Regex.IsMatch(phone_number, pattern2))
                     {
                         details.Mobile_number = phone_number;
                     }

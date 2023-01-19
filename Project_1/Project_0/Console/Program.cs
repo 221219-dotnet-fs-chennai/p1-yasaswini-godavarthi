@@ -3,7 +3,7 @@ using TrainersData;
 using System;
 using System.Data.SqlClient;
 
-namespace Console
+namespace Console1
 {
     internal class Program : SignUp
     {
@@ -29,21 +29,25 @@ namespace Console
 
                 switch (reply)
                 {
-                    case "Menu":
-                        Log.Logger.Information("Display menu to the user");
-                        menu = new Alldetails();
-                        break;
-
                     case "GetAllTrainers":
                         menu = new GetAllTrainers();
                         break;
-
+                    case "Menu":
+                        menu = new Alldetails();
+                        break;
+                    case "Signup":
+                        menu = new SignUp();
+                        break;
                     case "AddTrainer":
+                        Log.Logger.Information("User select trainer Add trainer");
+                        menu = new AddTrainer();
+                        break;
+
+                    case "Login":
 
                         Log.Logger.Information("User select trainer");
+                        menu = new Login();
                         value2 = true;
-
-                        menu = new AddTrainer();
 
                         while (value2)
                         {
@@ -53,13 +57,10 @@ namespace Console
 
                             switch (Choice)
                             {
-                                case "Login":
-                                    Log.Logger.Information("User select trainer login");
-                                    menu = new Login();
-                                    break;
-                                case "Signup":
-                                    Log.Logger.Information("User select trainer signup");
-                                    menu = new SignUp();
+                                case "UpdateTrainer":
+                                    //System.Console.WriteLine("You must need to login to update");
+                                    Log.Logger.Information("user select update trainer");
+                                    menu = new TrainerUpdate();
                                     break;
                                 case "MainMenu":
                                     Log.Logger.Information("User select Main menu");
@@ -71,7 +72,7 @@ namespace Console
                                     menu = new AddTrainer();
                                     break;
                                 default:
-                                    System.Console.WriteLine("Wrong Choice! Try again...");
+                                    System.Console.WriteLine("Wrong Choice... Try again...");
                                     System.Console.WriteLine("Enter to Continue...");
                                     System.Console.ReadLine();
                                     break;
@@ -87,7 +88,7 @@ namespace Console
                         break;
 
                     default:
-                        System.Console.WriteLine("DataBase Does not exist");
+                        System.Console.WriteLine("DataBase not exist");
                         System.Console.WriteLine("Press Enter to continue...");
                         System.Console.ReadLine();
                         break;

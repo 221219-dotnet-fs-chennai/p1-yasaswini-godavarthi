@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console
+namespace Console1
 {
     /*
      MainMenu inherits IMenu interface but since it is a class it needs to give actual implementation details to the methods
@@ -15,9 +15,9 @@ namespace Console
         public void Display()
         {
             System.Console.WriteLine("Welcome to Trainers page!");
-            System.Console.WriteLine("What would you like to do?");
-            System.Console.WriteLine("[2] Get all Trainers details");
-            System.Console.WriteLine("[1] Add a new Trainer");
+            System.Console.WriteLine("[3] get all trainers");
+            System.Console.WriteLine("[2] Login");
+            System.Console.WriteLine("[1] Signup");
             System.Console.WriteLine("[0] Exit");
         }
 
@@ -31,12 +31,14 @@ namespace Console
                 case "0":
                     return "Exit";
                 case "1":
-                    return "AddTrainer";
+                    return "Signup";
                 case "2":
+                    return "Login";
+                case "3":
                     return "GetAllTrainers";
                 default:
-                    System.Console.WriteLine("Please input a valid response");
-                    System.Console.WriteLine("Please press Enter to continue");
+                    System.Console.WriteLine("Enter a valid response");
+                    System.Console.WriteLine("press Enter to continue");
                     System.Console.ReadLine();
                     return "Alldetails";
             }

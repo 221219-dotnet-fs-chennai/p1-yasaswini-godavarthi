@@ -18,8 +18,17 @@ namespace TrainersData
         /// <summary>
         /// Will return all restaurants in the Restaurant.json file
         /// </summary>
-        /// <returns>List of all restaurants objects in the collection of Type List<Restaurant></returns>
+        /// <returns>List of all trainer objects in the collection of Type List<traiiner></returns>
         Details GetAllTrainer(string eMail);
         List<Details> GetAllTrainersDisconnected();
+        /// <summary>
+        /// update trainer details in the database
+        /// </summary>
+        void UpdateTrainer(string tableName, string columnName,string newValue, int user_id);
+
+        /// <summary>
+        /// delete the particular trainer details from database
+        /// </summary>
+        void DeleteTrainer(string eMail);
     }
 }

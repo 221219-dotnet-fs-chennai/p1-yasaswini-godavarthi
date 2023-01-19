@@ -1,7 +1,7 @@
 ﻿using TrainersData;
 using System;
 
-namespace Console
+namespace Console1
 {
     internal class GetAllTrainers : IAlldetails
     {
@@ -11,9 +11,7 @@ namespace Console
         public void Display()
         {
             System.Console.WriteLine("Please select an option to filter the Trainers database");
-            System.Console.WriteLine("[3] to get all trainers");
-            System.Console.WriteLine("[2] to Login");
-            System.Console.WriteLine("[1] to Signup");
+            System.Console.WriteLine("[1] Proceed to get all trainers");
             System.Console.WriteLine("[0] Go back");
         }
 
@@ -27,10 +25,6 @@ namespace Console
                 case "0":
                     return "Menu";
                 case "1":
-                    return "AddTrainer";
-                case "2":
-                    return "AddTrainer";
-                case "3":
                     Log.Information("Getting all trainers");
                     var listOfTrainers = repo.GetAllTrainersDisconnected();
                     Log.Information($"Got list of {listOfTrainers.Count} restaurants");

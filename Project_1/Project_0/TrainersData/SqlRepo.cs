@@ -1,7 +1,10 @@
-﻿using System.ComponentModel.Design;
+﻿using Serilog;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Data.SqlClient;
+using System.Reflection.Metadata.Ecma335;
 using System.Reflection.PortableExecutable;
+
 
 namespace TrainersData
 {
@@ -15,9 +18,6 @@ namespace TrainersData
         }
         public Details Add(Details details)
         {
-            //String[] userID_array = details.Email.Split("@");
-            //string User_ID = userID_array[0];
-            //details.User_id = User_ID;
 
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
@@ -103,6 +103,11 @@ namespace TrainersData
             Console.ReadLine();
 
             return details;
+        }
+
+        public void DeleteTrainer(string eMail)
+        {
+            throw new NotImplementedException();
         }
 
         public Details GetAllTrainer(string email)
@@ -237,16 +242,17 @@ namespace TrainersData
                 string password = System.Console.ReadLine();
                 string query8 = $"select Email from Trainer_Detailes where Password='{password}';";
                 SqlCommand command2 = new SqlCommand(query8, con);
-                using SqlDataReader reader1 = command2.ExecuteReader();
-                if (reader1.Read())
+                using SqlDataReader read1 = command2.ExecuteReader();
+                if (read1.Read())
                 {
                     Console.WriteLine("Login Success");
+                    Console.ReadLine();
                     return true;
                 }
                 else
                 {
                     Console.WriteLine("Wrong Password");
-                    reader1.Close();
+                    read1.Close();
                     return false;
                 }
             }
@@ -256,6 +262,53 @@ namespace TrainersData
                 Console.ReadLine();
                 return false;
             }
+        }
+
+        public void UpdateTrainer(string tableName, string columnName, string newValue, int user_id)
+        {
+            using SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            if (tableName is "Trainer_Detailes") {
+                if (columnName is "Age")
+                {
+                    int newvalue = Convert.ToInt32(newValue);
+                    string query = $"update '{tableName}' set '{columnName}' = '{newvalue}' where user_id = '{user_id}'";
+                    SqlCommand command1 = new SqlCommand(query, con);
+                    Log.Information($"{user_id} is this");
+                    command1.ExecuteNonQuery();
+                    Console.WriteLine("Data updated");
+                }
+                else
+                {
+                    string query = $"update '{tableName}' set '{columnName}' = '{newValue}' where user_id = '{user_id}'";
+                    SqlCommand command1 = new SqlCommand(query, con);
+                    command1.ExecuteNonQuery();
+                    Console.WriteLine("Data updated");
+                }
+            }
+            if (tableName is "Skills")
+            {
+                string query = $"update '{tableName}' set '{columnName}' = '{newValue}' where user_id = details.Skill_id";
+                SqlCommand command1 = new SqlCommand(query, con);
+                command1.ExecuteNonQuery();
+                Console.WriteLine("Data updated");
+            }
+            if (tableName is "Company")
+            {
+                string query = $"update '{tableName}' set '{columnName}' = '{newValue}' where user_id = details.Id'";
+                SqlCommand command1 = new SqlCommand(query, con);
+                command1.ExecuteNonQuery();
+                Console.WriteLine("Data updated");
+            }
+            if (tableName is "Education_Details")
+            {
+                string query = $"update '{tableName}' set '{columnName}' = '{newValue}' where user_id = details.Edu_id";
+                SqlCommand command1 = new SqlCommand(query, con);
+                command1.ExecuteNonQuery();
+                Console.WriteLine("Data updated");
+            }
+            Console.WriteLine("Data updated Successfully");
+
         }
     }
 }

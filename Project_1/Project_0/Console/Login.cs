@@ -1,5 +1,6 @@
 ﻿
-using Console;
+using System;
+using Console1;
 using TrainersData;
 
 public class Login : IAlldetails
@@ -31,7 +32,14 @@ public class Login : IAlldetails
                 if (ans)
                 {
                     SignUp TrainerLogin = new SignUp(repo.GetAllTrainer(Email));
-                    System.Console.WriteLine(TrainerLogin);
+                    Console.WriteLine("if you want to update your data enter: 'yes'");
+                    string value = System.Console.ReadLine();
+                    if (value is "yes")
+                    {
+                        return "UpdateTrainer";
+                    }
+                    System.Console.WriteLine("Press Enter to continue");
+                    System.Console.ReadLine();
                     return "MainMenu";
                 }
                 else

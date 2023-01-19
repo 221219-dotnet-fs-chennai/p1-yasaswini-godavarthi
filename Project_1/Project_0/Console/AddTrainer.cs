@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Console
+namespace Console1
 {
     public class AddTrainer : IAlldetails
     {
