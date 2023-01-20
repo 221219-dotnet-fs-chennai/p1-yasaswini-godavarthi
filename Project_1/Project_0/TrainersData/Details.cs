@@ -10,10 +10,7 @@ namespace TrainersData
         }
 
         public int user_id { get; set; }
-        public string Password { get; set; }
-        public int Skill_id { get; set; }
-        public int Id { get; set; }
-        public int Edu_id { get; set; }
+        public string PASSWORD { get; set; }
 
         public string Email
         {
@@ -113,6 +110,22 @@ namespace TrainersData
         {
             get;
             set;
+        }
+        public string detail()
+        {
+            return $@"{user_id},{Email}, {Full_name}, {Age}, {Gender}, {Mobile_number}, {Website},{PASSWORD}";
+        }
+        public string skills()
+        {
+            return $@"{user_id},{Skill_name}, {Skill_Type}, {Skill_Level}";
+        }
+        public string company()
+        {
+            return $@"{user_id},{Company_name}, {Company_type}, {Experience}, {Company_Description}";
+        }
+        public string edu()
+        {
+            return $@"{user_id},{Highest_Graduation}, {Institute}, {Department}, {Start_year}, {End_year}";
         }
 
         public string TrainerDetails()

@@ -42,9 +42,12 @@ namespace Console1
                         Log.Logger.Information("User select trainer Add trainer");
                         menu = new AddTrainer();
                         break;
+                    case "ShowDetails":
+                        Log.Logger.Information("user select showing details");
+                        menu = new TrainerUpdate();
+                        break;
 
                     case "Login":
-
                         Log.Logger.Information("User select trainer");
                         menu = new Login();
                         value2 = true;
@@ -57,7 +60,7 @@ namespace Console1
 
                             switch (Choice)
                             {
-                                case "UpdateTrainer":
+                                case "TrainerUpdate":
                                     //System.Console.WriteLine("You must need to login to update");
                                     Log.Logger.Information("user select update trainer");
                                     menu = new TrainerUpdate();
@@ -66,6 +69,10 @@ namespace Console1
                                     Log.Logger.Information("User select Main menu");
                                     menu = new Alldetails();
                                     value2 = false;
+                                    break;
+                                case "ShowDetails":
+                                    Log.Logger.Information("user select showing details");
+                                    menu = new UserInteraction(details);
                                     break;
                                 case "Exit":
                                     Log.Logger.Information("To exit");
@@ -81,6 +88,7 @@ namespace Console1
                         break;
 
                     case "Exit":
+                        System.Console.WriteLine("------Thank You :)---------");
                         System.Console.WriteLine("Exiting...");
                         Log.Logger.Information("-------Program ends-------");
                         Log.CloseAndFlush();

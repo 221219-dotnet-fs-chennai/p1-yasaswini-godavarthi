@@ -24,7 +24,7 @@ public class Login : IAlldetails
         switch (userChoice)
         {
             case "0":
-                return "MainMenu";
+                return "Menu";
             case "1":
                 System.Console.Write("Enter your Email ID: ");
                 string Email = System.Console.ReadLine();
@@ -32,15 +32,8 @@ public class Login : IAlldetails
                 if (ans)
                 {
                     SignUp TrainerLogin = new SignUp(repo.GetAllTrainer(Email));
-                    Console.WriteLine("if you want to update your data enter: 'yes'");
-                    string value = System.Console.ReadLine();
-                    if (value is "yes")
-                    {
-                        return "UpdateTrainer";
-                    }
-                    System.Console.WriteLine("Press Enter to continue");
-                    System.Console.ReadLine();
-                    return "MainMenu";
+                    TrainerUpdate up = new TrainerUpdate();
+                    return "TrainerUpdate";
                 }
                 else
                 {
@@ -53,7 +46,7 @@ public class Login : IAlldetails
                 System.Console.WriteLine("Wrong choice try again...");
                 System.Console.WriteLine("Press Enter to continue...");
                 System.Console.ReadLine();
-                return "trainerLogin";
+                return "Login";
         }
     }
 }

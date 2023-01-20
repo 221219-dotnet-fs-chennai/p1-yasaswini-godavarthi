@@ -32,7 +32,7 @@ namespace Console1
             System.Console.WriteLine("[0] Menu");
             System.Console.WriteLine("[1] Save");
             System.Console.WriteLine("[2] Email            : " + details.Email);
-            System.Console.WriteLine("[3] Password         : " + details.Password);
+            System.Console.WriteLine("[3] Password         : " + details.PASSWORD);
             System.Console.WriteLine("[4] Fullname         : " + details.Full_name);
             System.Console.WriteLine("[5] Age              : " + details.Age);
             System.Console.WriteLine("[6] Gender           : " + details.Gender);
@@ -76,7 +76,7 @@ namespace Console1
                         System.Console.WriteLine("Press Enter to continue");
                         System.Console.ReadLine();
                     }
-                    return "AddTrainer";
+                    return "ShowDetails";
                 case "2":
                     System.Console.Write("Enter your Email ID: ");
                     string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
@@ -102,7 +102,7 @@ namespace Console1
 
                     if (Regex.IsMatch(password, pattern1))
                     {
-                        details.Password = password;
+                        details.PASSWORD = password;
                     }
                     else
                     {
