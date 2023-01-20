@@ -145,11 +145,6 @@ namespace TrainersData
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// ////////////////////////////////////////////////////////
-        /// </summary>
-        /// <param name="i"></param>
-        /// <returns></returns>
         public List<Details> GetAllTrainerDetails(int i)
         {
             List<Details> details = new List<Details>();
