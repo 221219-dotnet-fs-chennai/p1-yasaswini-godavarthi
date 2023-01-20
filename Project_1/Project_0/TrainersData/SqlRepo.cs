@@ -91,11 +91,48 @@ namespace TrainersData
             SqlCommand command3 = new SqlCommand(query3, connection);
 
             //command3.Parameters.AddWithValue("@Edu_id", details.Edu_id);
-            command3.Parameters.AddWithValue("@Highest_Graduation", details.Highest_Graduation);
-            command3.Parameters.AddWithValue("@Institute", details.Institute);
-            command3.Parameters.AddWithValue("@Department", details.Department);
-            command3.Parameters.AddWithValue("@Start_year", details.Start_year);
-            command3.Parameters.AddWithValue("@End_year", details.End_year);
+            if (string.IsNullOrEmpty(details.Highest_Graduation))
+            {
+                command2.Parameters.AddWithValue("@Highest_Graduation", "Null");
+            }
+            else
+            {
+                command2.Parameters.AddWithValue("@Highest_Graduation", details.Highest_Graduation);
+            }
+            if (string.IsNullOrEmpty(details.Institute))
+            {
+                command2.Parameters.AddWithValue("@@Institute", "Null");
+            }
+            else
+            {
+                command2.Parameters.AddWithValue("@@Institute", details.Institute);
+            }
+            if (string.IsNullOrEmpty(details.Department))
+            {
+                command2.Parameters.AddWithValue("@Department", "Null");
+            }
+            else
+            {
+                command2.Parameters.AddWithValue("@Department", details.Department);
+            }
+
+            if (string.IsNullOrEmpty(details.Start_year))
+            {
+                command2.Parameters.AddWithValue("@Start_year", "Null");
+            }
+            else
+            {
+                command2.Parameters.AddWithValue("@Start_year", details.Start_year);
+            }
+
+            if (string.IsNullOrEmpty(details.End_year))
+            {
+                command2.Parameters.AddWithValue("@End_year", "Null");
+            }
+            else
+            {
+                command2.Parameters.AddWithValue("@End_year", details.End_year);
+            }
 
             command3.ExecuteNonQuery();
 
@@ -114,9 +151,6 @@ namespace TrainersData
         {
             Details detail = new Details();
 
-            //string[] emailarr = email.Split("@");
-            //detail.user_id = emailarr[0];
-
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             List<Details> details = new List<Details>();
@@ -124,13 +158,13 @@ namespace TrainersData
             try
             {
 
-                string query4 = @"Select Trainer_Detailes.user_id, Trainer_Detailes.Full_name, Trainer_Detailes.Email, Trainer_Detailes.Age, Trainer_Detailes.Gender, 
+                string query4 = $@"Select Trainer_Detailes.user_id, Trainer_Detailes.Full_name, Trainer_Detailes.Email, Trainer_Detailes.Age, Trainer_Detailes.Gender, 
                 Trainer_Detailes.Mobile_number, Trainer_Detailes.Website,Education_Details.Edu_id, Education_Details.Highest_Graduation, Education_Details.Institute, 
                 Education_Details.Department, Education_Details.Start_year, Education_Details.End_year,Skills.Skill_id, Skills.Skill_name, Skills.Skill_Type,Skills.Skill_Level,
                 Company.Id,Company.Company_name, Company.Company_type, Company.Experience, Company.Company_Description From Trainer_Detailes
                 join Education_Details on Trainer_Detailes.user_id = Education_Details.Edu_id
                 join Skills on Education_Details.Edu_id = Skills.Skill_id
-                join Company on Skills.Skill_id = Company.Id where Trainer_Detailes.Email = email;";
+                join Company on Skills.Skill_id = Company.Id where Trainer_Detailes.Email = '{email}';";
 
                 SqlCommand command = new SqlCommand(query4, con);
 
@@ -197,31 +231,38 @@ namespace TrainersData
 
             foreach (DataRow row in dtTrainer.Rows)
             {
-                details.Add(new Details()
+                try
                 {
-                    user_id = (int) row[0],
-                    Email = (string)row[2],
-                    Full_name = (string)row[1],
-                    Age = (int)row[3],
-                    Gender = (string)row[4],
-                    Mobile_number = (string)row[5],
-                    Website = (string)row[6],
-                    Edu_id = (int)row[7],
-                    Highest_Graduation = (string)row[8],
-                    Institute = (string)row[9],
-                    Department = (string)row[10],
-                    Start_year = (string)row[11],
-                    End_year = (string)row[12],
-                    Skill_id = (int)row[13],
-                    Skill_name = (string)row[14],
-                    Skill_Type = (string)row[15],
-                    Skill_Level = (string)row[16],
-                    Id = (int)row[17],
-                    Company_name = (string)row[18],
-                    Company_type = (string)row[19],
-                    Experience = (string)row[20],
-                    Company_Description = (string)row[21]
-                });
+                    details.Add(new Details()
+                    {
+                        user_id = (int)row[0],
+                        Email = (string)row[2],
+                        Full_name = (string)row[1],
+                        Age = (int)row[3],
+                        Gender = (string)row[4],
+                        Mobile_number = (string)row[5],
+                        Website = (string)row[6],
+                        Edu_id = (int)row[7],
+                        Highest_Graduation = (string)row[8],
+                        Institute = (string)row[9],
+                        Department = (string)row[10],
+                        Start_year = (string)row[11],
+                        End_year = (string)row[12],
+                        Skill_id = (int)row[13],
+                        Skill_name = (string)row[14],
+                        Skill_Type = (string)row[15],
+                        Skill_Level = (string)row[16],
+                        Id = (int)row[17],
+                        Company_name = (string)row[18],
+                        Company_type = (string)row[19],
+                        Experience = (string)row[20],
+                        Company_Description = (string)row[21]
+                    });
+                }
+                catch(Exception e)
+                {
+                    System.Console.WriteLine(e);
+                }
             }
 
             return details;
@@ -268,8 +309,8 @@ namespace TrainersData
         {
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            if (tableName is "Trainer_Detailes") {
-                if (columnName is "Age")
+            if (tableName == "Trainer_Detailes") {
+                if (columnName == "Age")
                 {
                     int newvalue = Convert.ToInt32(newValue);
                     string query = $"update '{tableName}' set '{columnName}' = '{newvalue}' where user_id = '{user_id}'";
@@ -286,23 +327,23 @@ namespace TrainersData
                     Console.WriteLine("Data updated");
                 }
             }
-            if (tableName is "Skills")
+            if (tableName == "Skills")
             {
-                string query = $"update '{tableName}' set '{columnName}' = '{newValue}' where user_id = details.Skill_id";
+                string query = $"update '{tableName}' set '{columnName}' = '{newValue}' where Skill_id = '{user_id}";
                 SqlCommand command1 = new SqlCommand(query, con);
                 command1.ExecuteNonQuery();
                 Console.WriteLine("Data updated");
             }
-            if (tableName is "Company")
+            if (tableName == "Company")
             {
-                string query = $"update '{tableName}' set '{columnName}' = '{newValue}' where user_id = details.Id'";
+                string query = $"update '{tableName}' set '{columnName}' = '{newValue}' where Id = '{user_id}'";
                 SqlCommand command1 = new SqlCommand(query, con);
                 command1.ExecuteNonQuery();
                 Console.WriteLine("Data updated");
             }
-            if (tableName is "Education_Details")
+            if (tableName == "Education_Details")
             {
-                string query = $"update '{tableName}' set '{columnName}' = '{newValue}' where user_id = details.Edu_id";
+                string query = $"update '{tableName}' set '{columnName}' = '{newValue}' where Edu_id = '{user_id}";
                 SqlCommand command1 = new SqlCommand(query, con);
                 command1.ExecuteNonQuery();
                 Console.WriteLine("Data updated");

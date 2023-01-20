@@ -9,14 +9,14 @@ namespace TrainersData
     public interface IData
     {
         /// <summary>
-        /// Add the details into the Details.json File
+        /// Add the details 
         /// </summary>
         /// <param name="details"></param>
         /// <returns>Returns the Trainer Details which was added</returns>
         Details Add(Details details);
         bool login(string email);
         /// <summary>
-        /// Will return all restaurants in the Restaurant.json file
+        /// Will return all trainers 
         /// </summary>
         /// <returns>List of all trainer objects in the collection of Type List<traiiner></returns>
         Details GetAllTrainer(string eMail);

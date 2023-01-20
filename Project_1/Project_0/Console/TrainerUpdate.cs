@@ -48,7 +48,7 @@ namespace Console1
             switch (userchoice)
             {
                 case "0":
-                    return "Login";
+                    return "MainMenu";
                 case "1":
                     System.Console.Write("Enter your Password to update: ");
                     string pattern1 = @"^.* (?=.{ 8,})(?=.*\d)(?=.*[a - z])(?=.*[A - Z])(?=.*[!*@#$%^&+=]).*$";

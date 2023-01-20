@@ -21,7 +21,7 @@ namespace TrainersData
             set;
         }
 
-        public string Full_name
+        public string Full_name 
         {
             get;
             set;
