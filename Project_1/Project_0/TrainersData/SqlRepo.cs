@@ -87,51 +87,51 @@ namespace TrainersData
 
             command2.ExecuteNonQuery();
 
-            string query3 = @"insert into Education_Details(Highest_Graduation, Institute, Department, Start_year , End_year) values ( @Highest_Graduation, @Institute, @Department, @Start_year, @End_year)";
+            string query3 = @"insert into Education_Details( Highest_Graduation, Institute, Department, Start_year , End_year) values ( @Highest_Graduation, @Institute, @Department, @Start_year, @End_year)";
             SqlCommand command3 = new SqlCommand(query3, connection);
 
             //command3.Parameters.AddWithValue("@Edu_id", details.Edu_id);
             if (string.IsNullOrEmpty(details.Highest_Graduation))
             {
-                command2.Parameters.AddWithValue("@Highest_Graduation", "Null");
+                command3.Parameters.AddWithValue("@Highest_Graduation", "Null");
             }
             else
             {
-                command2.Parameters.AddWithValue("@Highest_Graduation", details.Highest_Graduation);
+                command3.Parameters.AddWithValue("@Highest_Graduation", details.Highest_Graduation);
             }
             if (string.IsNullOrEmpty(details.Institute))
             {
-                command2.Parameters.AddWithValue("@@Institute", "Null");
+                command3.Parameters.AddWithValue("@Institute", "Null");
             }
             else
             {
-                command2.Parameters.AddWithValue("@@Institute", details.Institute);
+                command3.Parameters.AddWithValue("@Institute", details.Institute);
             }
             if (string.IsNullOrEmpty(details.Department))
             {
-                command2.Parameters.AddWithValue("@Department", "Null");
+                command3.Parameters.AddWithValue("@Department", "Null");
             }
             else
             {
-                command2.Parameters.AddWithValue("@Department", details.Department);
+                command3.Parameters.AddWithValue("@Department", details.Department);
             }
 
             if (string.IsNullOrEmpty(details.Start_year))
             {
-                command2.Parameters.AddWithValue("@Start_year", "Null");
+                command3.Parameters.AddWithValue("@Start_year", "Null");
             }
             else
             {
-                command2.Parameters.AddWithValue("@Start_year", details.Start_year);
+                command3.Parameters.AddWithValue("@Start_year", details.Start_year);
             }
 
             if (string.IsNullOrEmpty(details.End_year))
             {
-                command2.Parameters.AddWithValue("@End_year", "Null");
+                command3.Parameters.AddWithValue("@End_year", "Null");
             }
             else
             {
-                command2.Parameters.AddWithValue("@End_year", details.End_year);
+                command3.Parameters.AddWithValue("@End_year", details.End_year);
             }
 
             command3.ExecuteNonQuery();
@@ -174,28 +174,28 @@ namespace TrainersData
                 {
                     details.Add(new Details()
                     {
-                        user_id = reader.GetInt32(0),
-                        Email = reader.GetString(2),
-                        Full_name = reader.GetString(1),
-                        Age = reader.GetInt32(3),
-                        Gender = reader.GetString(4),
-                        Mobile_number = reader.GetString(5),
-                        Website = reader.GetString(6),
-                        Edu_id = reader.GetInt32(7),
-                        Highest_Graduation = reader.GetString(8),
-                        Institute = reader.GetString(9),
-                        Department = reader.GetString(10),
-                        Start_year = reader.GetString(11),
-                        End_year = reader.GetString(12),
-                        Skill_id = reader.GetInt32(13),
-                        Skill_name = reader.GetString(14),
-                        Skill_Type = reader.GetString(15),
-                        Skill_Level = reader.GetString(16),
-                        Id = reader.GetInt32(17),
-                        Company_name = reader.GetString(18),
-                        Company_type = reader.GetString(19),
-                        Experience = reader.GetString(20),
-                        Company_Description= reader.GetString(21)
+                        user_id = reader.GetInt32("user_id"),
+                        Email = reader.GetString("Email"),
+                        Full_name = reader.GetString("Full_name"),
+                        Age = reader.GetInt32("Age"),
+                        Gender = reader.GetString("Gender"),
+                        Mobile_number = reader.GetString("Mobile_number"),
+                        Website = reader.GetString("Website"),
+                        Edu_id = reader.GetInt32("Edu_id"),
+                        Highest_Graduation = reader.GetString("Highest_Graduation"),
+                        Institute = reader.GetString("Institute"),
+                        Department = reader.GetString("Department"),
+                        Start_year = reader.GetString("Start_year"),
+                        End_year = reader.GetString("End_year"),
+                        Skill_id = reader.GetInt32("Skill_id"),
+                        Skill_name = reader.GetString("Skill_name"),
+                        Skill_Type = reader.GetString("Skill_Type"),
+                        Skill_Level = reader.GetString("Skill_Level"),
+                        Id = reader.GetInt32("Id"),
+                        Company_name = reader.GetString("Company_name"),
+                        Company_type = reader.GetString("Company_type"),
+                        Experience = reader.GetString("Experience"),
+                        Company_Description= reader.GetString("Company_Description")
                     });
                 }
                 reader.Close();
@@ -235,29 +235,29 @@ namespace TrainersData
                 {
                     details.Add(new Details()
                     {
-                        user_id = (int)row[0],
-                        Email = (string)row[2],
-                        Full_name = (string)row[1],
-                        Age = (int)row[3],
-                        Gender = (string)row[4],
-                        Mobile_number = (string)row[5],
-                        Website = (string)row[6],
-                        Edu_id = (int)row[7],
-                        Highest_Graduation = (string)row[8],
-                        Institute = (string)row[9],
-                        Department = (string)row[10],
-                        Start_year = (string)row[11],
-                        End_year = (string)row[12],
-                        Skill_id = (int)row[13],
-                        Skill_name = (string)row[14],
-                        Skill_Type = (string)row[15],
-                        Skill_Level = (string)row[16],
-                        Id = (int)row[17],
-                        Company_name = (string)row[18],
-                        Company_type = (string)row[19],
-                        Experience = (string)row[20],
-                        Company_Description = (string)row[21]
-                    });
+                        user_id = (int)row["user_id"],
+                        Email = (string)row["Email"],
+                        Full_name = (string)row["Full_name"],
+                        Age = (int)row["Age"],
+                        Gender = (string)row["Gender"],
+                        Mobile_number = (string)row["Mobile_number"],
+                        Website = (string)row["Website"],
+                        Edu_id = (int)row["Edu_id"],
+                        Highest_Graduation = (string)row["Highest_Graduation"],
+                        Institute = (string)row["Institute"],
+                        Department = (string)row["Department"],
+                        Start_year = (string)row["Start_year"],
+                        End_year = (string)row["End_year"],
+                        Skill_id = (int)row["Skill_id"],
+                        Skill_name = (string)row["Skill_name"],
+                        Skill_Type = (string)row["Skill_Type"],
+                        Skill_Level = (string)row["Skill_Level"],
+                        Id = (int)row["Id"],
+                        Company_name = (string)row["Company_name"],
+                        Company_type = (string)row["Company_type"],
+                        Experience = (string)row["Experience"],
+                        Company_Description = (string)row["Company_Description"]
+                    }); ;
                 }
                 catch(Exception e)
                 {

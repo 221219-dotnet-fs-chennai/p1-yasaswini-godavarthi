@@ -22,7 +22,7 @@ namespace Console1
                 case "2":
                     return "Signup";
                 case "3":
-                    return "MainMenu";
+                    return "Menu";
                 default:
                     System.Console.WriteLine("Wrong Choice! Try again...");
                     System.Console.WriteLine("Enter to Continue...");
