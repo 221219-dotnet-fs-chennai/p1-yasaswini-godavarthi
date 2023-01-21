@@ -27,7 +27,7 @@ namespace Console1
                 case "1":
                     Log.Information("Getting all trainers");
                     var listOfTrainers = repo.GetAllTrainersDisconnected();
-                    Log.Information($"Got list of {listOfTrainers.Count} restaurants");
+                    Log.Information($"Got list of {listOfTrainers.Count} Trainers");
                     Log.Information("Reading Trainers about to start");
                     foreach (var r in listOfTrainers)
                     {
@@ -35,7 +35,7 @@ namespace Console1
                         System.Console.WriteLine(r.ToString());
                         System.Console.WriteLine(r.TrainerDetails());
                     }
-                    Log.Information("Reading restaurants ends");
+                    Log.Information("Reading Trainers ends");
                     System.Console.WriteLine("Please press Enter to continue");
                     System.Console.ReadLine();
 

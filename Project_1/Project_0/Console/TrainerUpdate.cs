@@ -14,7 +14,7 @@ namespace Console1
         static string conStr = File.ReadAllText("../../../connectionString.txt");
 
         IData repo = new SqlRepo(conStr);
-        //public string Content()
+     
         public TrainerUpdate()
         {
 
@@ -82,15 +82,15 @@ namespace Console1
                             System.Console.WriteLine("Wrong pattern try again...");
                             System.Console.ReadLine();
                         }
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                        //System.Console.Write("Enter your user_id to update: ");
+                        //details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Trainer_Detailes", "Password", details.PASSWORD, details.user_id);
                         return "TrainerUpdate";
                     case "2":
                         System.Console.Write("Enter your Fullname to update: ");
                         details.Full_name = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                        //System.Console.Write("Enter your user_id to update: ");
+                        //details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Trainer_Detailes", "Full_name", details.Full_name, details.user_id);
                         return "TrainerUpdate";
                     case "3":
@@ -98,8 +98,8 @@ namespace Console1
                         {
                             System.Console.Write("Enter your Age to update: ");
                             details.Age = Convert.ToInt32(System.Console.ReadLine());
-                            System.Console.Write("Enter your user_id to update: ");
-                            details.user_id = Convert.ToInt32(Console.ReadLine());
+                           // System.Console.Write("Enter your user_id to update: ");
+                            //details.user_id = Convert.ToInt32(Console.ReadLine());
                             repo.UpdateTrainer("Trainer_Detailes", "Age", Convert.ToString(details.Age), details.user_id);
                         }
                         catch (Exception ex)
@@ -112,8 +112,8 @@ namespace Console1
                     case "4":
                         System.Console.Write("Enter your Gender: ");
                         details.Gender = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                        //System.Console.Write("Enter your user_id to update: ");
+                        //details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Trainer_Detailes", "Gender", details.Gender, details.user_id);
                         return "TrainerUpdate";
 
@@ -132,47 +132,47 @@ namespace Console1
                             System.Console.WriteLine("Wrong pattern try again...");
                             System.Console.ReadLine();
                         }
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                        //System.Console.Write("Enter your user_id to update: ");
+                        //details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Trainer_Detailes", "Mobile_number", details.Mobile_number, details.user_id);
                         return "TrainerUpdate";
 
                     case "6":
                         System.Console.Write("Enter you Website to update: ");
                         details.Website = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                        //System.Console.Write("Enter your user_id to update: ");
+                        //details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Trainer_Detailes", "Website", details.Website, details.user_id);
                         return "TrainerUpdate";
 
                     case "7":
                         System.Console.Write("Enter your Skill name to update: ");
                         details.Skill_name = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                        //System.Console.Write("Enter your user_id to update: ");
+                        //details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Skills", "Skill_name", details.Skill_name, details.user_id);
                         return "TrainerUpdate";
 
                     case "8":
                         System.Console.Write("Enter your Skill type to update: ");
                         details.Skill_Type = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                        //System.Console.Write("Enter your user_id to update: ");
+                        //details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Skills", "Skill_Type", details.Skill_Type, details.user_id);
                         return "TrainerUpdate";
 
                     case "9":
                         System.Console.Write("Enter your Skill level to update: ");
                         details.Skill_Level = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                        //System.Console.Write("Enter your user_id to update: ");
+                        //details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Skills", "Skill_Level", details.Skill_Level, details.user_id);
                         return "TrainerUpdate";
                     case "10":
                         System.Console.Write("Enter your Company name to update: ");
                         details.Company_name = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                        //System.Console.Write("Enter your user_id to update: ");
+                        //details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Company", "Company_name", details.Company_name, details.user_id);
                         return "TrainerUpdate";
                     case "11":

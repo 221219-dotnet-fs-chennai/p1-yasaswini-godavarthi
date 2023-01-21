@@ -1,4 +1,5 @@
 ﻿using Serilog;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
 using System.Data;
 using System.Data.SqlClient;
@@ -150,12 +151,23 @@ namespace TrainersData
             List<Details> details = new List<Details>();
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
+            Console.Write("Please Enter your Email to continue:");
+            string Email = Console.ReadLine();
+            int user_id = 0;
+            try
+            {
+                string query1 = $"select user_id From Trainer_Detailes where Email = '{Email}';";
+                SqlCommand command = new SqlCommand(query1, con);
+                user_id = (int)command.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Enter valied EmailAddress");
+            }
 
             if (i == 1)
             {
-                Console.WriteLine("please enter your Email to continue:");
-                string email = Console.ReadLine();
-                string q1 = $@"Select * from Trainer_Detailes where Email = '{email}'";
+                string q1 = $@"Select * from Trainer_Detailes where user_id = '{user_id}'";
                 SqlDataAdapter adapter = new SqlDataAdapter(q1, con);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
@@ -186,11 +198,11 @@ namespace TrainersData
             }
             else
             {
-                Console.WriteLine("please enter your user_id to continue:");
-                string userID = Console.ReadLine();
+                //Console.WriteLine("please enter your user_id to continue:");
+                //string userID = Console.ReadLine();
                 if (i == 2)
                 {
-                    string q2 = $@"Select * from Education_Details where user_id = '{userID}'";
+                    string q2 = $@"Select * from Education_Details where user_id = '{user_id}'";
                     SqlDataAdapter adapt = new SqlDataAdapter(q2, con);
                     DataSet ds1 = new DataSet();
                     adapt.Fill(ds1);
@@ -220,7 +232,7 @@ namespace TrainersData
                 }
                 if (i == 3)
                 {
-                    string q1 = $@"Select * from Skills where user_id = '{userID}'";
+                    string q1 = $@"Select * from Skills where user_id = '{user_id}'";
                     SqlDataAdapter adapter = new SqlDataAdapter(q1, con);
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);
@@ -248,7 +260,7 @@ namespace TrainersData
                 }
                 if (i == 4)
                 {
-                    string q1 = $@"Select * from Company where user_id = '{userID}'";
+                    string q1 = $@"Select * from Company where user_id = '{user_id}'";
                     SqlDataAdapter adapter = new SqlDataAdapter(q1, con);
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);
@@ -433,6 +445,18 @@ namespace TrainersData
         {
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
+            Console.Write("Please Enter your Email to continue:");
+            string Email = Console.ReadLine();
+            try
+            {
+                string query1 = $"select user_id From Trainer_Detailes where Email = '{Email}';";
+                SqlCommand command = new SqlCommand(query1, con);
+                user_id = (int)command.ExecuteScalar();
+            }catch(Exception ex)
+            {
+                Console.WriteLine("Enter valied EmailAddress");
+            }
+            SqlCommand cmd = new SqlCommand();
             try
             {
                 if (tableName == "Trainer_Detailes")
