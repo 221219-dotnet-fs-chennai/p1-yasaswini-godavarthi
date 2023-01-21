@@ -49,7 +49,9 @@ namespace Console1
 
                     case "Login":
                         Log.Logger.Information("User select trainer");
+                        details = new Details();
                         menu = new Login();
+
                         value2 = true;
 
                         while (value2)
@@ -64,6 +66,10 @@ namespace Console1
                                     //System.Console.WriteLine("You must need to login to update");
                                     Log.Logger.Information("user select update trainer");
                                     menu = new TrainerUpdate();
+                                    break;
+                                case "DeleteTrainer":
+                                    Log.Logger.Information("User Select Delete Trainer");
+                                    menu = new DeleteTrainers();
                                     break;
                                 case "MainMenu":
                                     Log.Logger.Information("User select Main menu");

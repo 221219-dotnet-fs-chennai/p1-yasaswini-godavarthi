@@ -24,7 +24,8 @@ namespace Console1
             System.Console.Clear();
             Console.WriteLine("[0] for to show profile data");
             Console.WriteLine("[1] for to update details");
-            Console.WriteLine("[2] To for logout");
+            Console.WriteLine("[2] for to delete details");
+            Console.WriteLine("[3] To for logout");
             
         }
 
@@ -171,64 +172,64 @@ namespace Console1
                     case "10":
                         System.Console.Write("Enter your Company name to update: ");
                         details.Company_name = System.Console.ReadLine();
-                        //System.Console.Write("Enter your user_id to update: ");
+                       // System.Console.Write("Enter your user_id to update: ");
                         //details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Company", "Company_name", details.Company_name, details.user_id);
                         return "TrainerUpdate";
                     case "11":
                         System.Console.Write("Enter your Company type: ");
                         details.Company_type = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                       // System.Console.Write("Enter your user_id to update: ");
+                        //details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Company", "Company_type", details.Company_type, details.user_id);
                         return "TrainerUpdate";
                     case "12":
                         System.Console.Write("Enter your Experience: ");
                         details.Experience = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                       // System.Console.Write("Enter your user_id to update: ");
+                       // details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Company", "Experience", details.Experience, details.user_id);
                         return "TrainerUpdate";
                     case "13":
                         System.Console.Write("Enter your Company description: ");
                         details.Company_Description = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                       // System.Console.Write("Enter your user_id to update: ");
+                       // details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Company", "Company_Description", details.Company_Description, details.user_id);
                         return "TrainerUpdate";
                     case "14":
                         System.Console.Write("Enter your Highest Qualification: ");
                         details.Highest_Graduation = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                       // System.Console.Write("Enter your user_id to update: ");
+                        //details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Education_Details", "Highest_Graduation", details.Highest_Graduation, details.user_id);
                         return "TrainerUpdate";
                     case "15":
                         System.Console.Write("Enter your Institute: ");
                         details.Institute = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                        //System.Console.Write("Enter your user_id to update: ");
+                        //details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Education_Details", "Institute", details.Institute, details.user_id);
                         return "TrainerUpdate";
                     case "16":
                         System.Console.Write("Enter your department: ");
                         details.Department = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                       // System.Console.Write("Enter your user_id to update: ");
+                       // details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Education_Details", "Department", details.Department, details.user_id);
                         return "TrainerUpdate";
                     case "17":
                         System.Console.Write("Enter your start year: ");
                         details.Start_year = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                       // System.Console.Write("Enter your user_id to update: ");
+                       // details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Education_Details", "Start_year", details.Start_year, details.user_id);
                         return "TrainerUpdate";
                     case "18":
                         System.Console.Write("Enter your End year: ");
                         details.End_year = System.Console.ReadLine();
-                        System.Console.Write("Enter your user_id to update: ");
-                        details.user_id = Convert.ToInt32(Console.ReadLine());
+                        //System.Console.Write("Enter your user_id to update: ");
+                       // details.user_id = Convert.ToInt32(Console.ReadLine());
                         repo.UpdateTrainer("Education_Details", "End_year", details.End_year, details.user_id);
                         return "TrainerUpdate";
                     default:
@@ -239,7 +240,11 @@ namespace Console1
                         return "TrainerUpdate";
                 }
             }
-            if (n == 2)
+            if(n == 2)
+            {
+
+            }
+            if (n == 3)
             {
                 Console.WriteLine("Logging Out......\n Hit Enter to Continue");
                 Console.ReadLine();

@@ -20,7 +20,6 @@ namespace TrainersData
         /// </summary>
         /// <returns>List of all trainer objects in the collection of Type List<traiiner></returns>
         Details GetAllTrainer(string eMail);
-        List<Details> GetAllTrainerDetails(int number);
         List<Details> GetAllTrainersDisconnected();
         /// <summary>
         /// update trainer details in the database
@@ -30,6 +29,6 @@ namespace TrainersData
         /// <summary>
         /// delete the particular trainer details from database
         /// </summary>
-        void DeleteTrainer(string eMail);
+        void DeleteTrainer(string col,string table);
     }
 }
