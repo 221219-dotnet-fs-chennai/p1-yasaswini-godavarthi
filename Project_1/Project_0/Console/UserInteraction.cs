@@ -34,13 +34,13 @@ namespace Console1
             switch (userChoice)
             {
                 case "0":
-                    return "MainMenu";
+                    return "TrainerUpdate";
                 case "1":
                     System.Console.WriteLine("--------------------------------------");
                     System.Console.WriteLine("Getting trainer details...");
                     ShowProfile("1");
                     System.Console.ReadLine();
-                    return "UserInteraction";
+                    return "ShowDetails";
                 case "2":
                     System.Console.WriteLine("--------------------------------------");
                     System.Console.WriteLine("Getting trainer Education Details...");
@@ -70,50 +70,37 @@ namespace Console1
         public string ShowProfile(string i)
         {
             Log.Logger.Information("Reading Trainer Details");
-            if(i is "0")
-            {
-                Console.WriteLine("Going back");
-                return "MainMenu";
-            }
             if (i == "1")
             {
                 List<Details> data = repo.GetAllTrainerDetails(1);
                 foreach (Details details in data)
                 {
                     Console.WriteLine(details.detail());
-                    Console.WriteLine(details.ToString());
                 }
-                return "ShowDetails";
             }
             if (i == "3")
             {
                 List<Details> data = repo.GetAllTrainerDetails(3);
                 foreach (Details details in data)
                 {
-                    Console.WriteLine(details.detail());
-                    Console.WriteLine(details.ToString());
+                    Console.WriteLine(details.skills());
                 }
-                return "ShowDetails";
             }
             if (i == "4")
             {
                 List<Details> data = repo.GetAllTrainerDetails(4);
                 foreach (Details details in data)
                 {
-                    Console.WriteLine(details.detail());
-                    Console.WriteLine(details.ToString());
+                    Console.WriteLine(details.company());
                 }
-                return "ShowDetails";
             }
             if (i == "2")
             {
                 List<Details> data = repo.GetAllTrainerDetails(2);
                 foreach (Details details in data)
                 {
-                    Console.WriteLine(details.detail());
-                    Console.WriteLine(details.ToString());
+                    Console.WriteLine(details.edu());
                 }
-                return "ShowDetails";
             }
             return "ShowDetails";
         }

@@ -150,12 +150,13 @@ namespace TrainersData
             List<Details> details = new List<Details>();
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
+
             if (i == 1)
             {
                 Console.WriteLine("please enter your Email to continue:");
                 string email = Console.ReadLine();
                 string q1 = $@"Select * from Trainer_Detailes where Email = '{email}'";
-                SqlDataAdapter adapter = new SqlDataAdapter(q1,con);
+                SqlDataAdapter adapter = new SqlDataAdapter(q1, con);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
 
@@ -177,108 +178,104 @@ namespace TrainersData
                         });
                         Console.WriteLine(row);
                     }
-                    catch(Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                }
-            }
-            if(i == 2)
-            {
-                Console.WriteLine("please enter your Institute to continue:");
-                string insti = Console.ReadLine();
-                string q1 = $@"Select * from Education_Details where Institute = '{insti}'";
-                SqlDataAdapter adapter = new SqlDataAdapter(q1, con);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-
-                DataTable dtTrainer = ds.Tables[0];
-
-                foreach (DataRow row in dtTrainer.Rows)
-                {
-                    try
-                    {
-                        details.Add(new Details()
-                        {
-                            user_id = (int)row["user_id"],
-                            Highest_Graduation = (string)row["Highest_Graduation"],
-                            Institute = (string)row["Institute"],
-                            Department = (string)row["Department"],
-                            Start_year = (string)row["Start_year"],
-                            End_year = (string)row["End_year"]
-                        });
-                        Console.WriteLine(row);
-                    }
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
                     }
                 }
             }
-            if(i == 3)
+            else
             {
-                Console.WriteLine("please enter your Skillname to continue:");
-                string sn = Console.ReadLine();
-                string q1 = $@"Select * from Skills where Skill_name = '{sn}'";
-                SqlDataAdapter adapter = new SqlDataAdapter(q1, con);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-
-                DataTable dtTrainer = ds.Tables[0];
-
-                foreach (DataRow row in dtTrainer.Rows)
+                Console.WriteLine("please enter your user_id to continue:");
+                string userID = Console.ReadLine();
+                if (i == 2)
                 {
-                    try
+                    string q2 = $@"Select * from Education_Details where user_id = '{userID}'";
+                    SqlDataAdapter adapt = new SqlDataAdapter(q2, con);
+                    DataSet ds1 = new DataSet();
+                    adapt.Fill(ds1);
+
+                    DataTable dtTrainer1 = ds1.Tables[0];
+
+                    foreach (DataRow row in dtTrainer1.Rows)
                     {
-                        details.Add(new Details()
+                        try
                         {
-                            user_id = (int)row["user_id"],
-                            Skill_name = (string)row["Skill_name"],
-                            Skill_Type = (string)row["Skill_Type"],
-                            Skill_Level = (string)row["Skill_Level"]
-                        });
-                        Console.WriteLine(row);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
+                            details.Add(new Details()
+                            {
+                                user_id = (int)row["user_id"],
+                                Highest_Graduation = (string)row["Highest_Graduation"],
+                                Institute = (string)row["Institute"],
+                                Department = (string)row["Department"],
+                                Start_year = (string)row["Start_year"],
+                                End_year = (string)row["End_year"]
+                            });
+                            Console.WriteLine(row);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
                     }
                 }
-            }
-            if(i == 4)
-            {
-                Console.WriteLine("please enter your company_name to continue:");
-                string cn = Console.ReadLine();
-                string q1 = $@"Select * from Skills where Company_name = '{cn}'";
-                SqlDataAdapter adapter = new SqlDataAdapter(q1, con);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-
-                DataTable dtTrainer = ds.Tables[0];
-
-                foreach (DataRow row in dtTrainer.Rows)
+                if (i == 3)
                 {
-                    try
+                    string q1 = $@"Select * from Skills where user_id = '{userID}'";
+                    SqlDataAdapter adapter = new SqlDataAdapter(q1, con);
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+
+                    DataTable dtTrainer = ds.Tables[0];
+
+                    foreach (DataRow row in dtTrainer.Rows)
                     {
-                        details.Add(new Details()
+                        try
                         {
-                            user_id = (int)row["user_id"],
-                            Company_name = (string)row["Company_name"],
-                            Company_type = (string)row["Company_type"],
-                            Experience = (string)row["Experience"],
-                            Company_Description = (string)row["Company_Description"]
-                        });
-                        Console.WriteLine(row);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
+                            details.Add(new Details()
+                            {
+                                user_id = (int)row["user_id"],
+                                Skill_name = (string)row["Skill_name"],
+                                Skill_Type = (string)row["Skill_Type"],
+                                Skill_Level = (string)row["Skill_Level"]
+                            });
+                            Console.WriteLine(row);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
                     }
                 }
+                if (i == 4)
+                {
+                    string q1 = $@"Select * from Company where user_id = '{userID}'";
+                    SqlDataAdapter adapter = new SqlDataAdapter(q1, con);
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
 
+                    DataTable dtTrainer = ds.Tables[0];
+
+                    foreach (DataRow row in dtTrainer.Rows)
+                    {
+                        try
+                        {
+                            details.Add(new Details()
+                            {
+                                user_id = (int)row["user_id"],
+                                Company_name = (string)row["Company_name"],
+                                Company_type = (string)row["Company_type"],
+                                Experience = (string)row["Experience"],
+                                Company_Description = (string)row["Company_Description"]
+                            });
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                    }
+                }
             }
             return details;
-
         }
         public Details GetAllTrainer(string email)
         {
@@ -443,7 +440,7 @@ namespace TrainersData
                     if (columnName == "Age")
                     {
                         int newvalue = Convert.ToInt32(newValue);
-                        string query = $"update '{tableName}' set '{columnName}' = '{newvalue}' where user_id = '{user_id}'";
+                        string query = $"UPDATE {tableName} SET {columnName} = '{newvalue}' WHERE user_id = '{user_id}'";
                         SqlCommand command1 = new SqlCommand(query, con);
                         Log.Information($"{user_id} is this");
                         command1.ExecuteNonQuery();
@@ -451,7 +448,7 @@ namespace TrainersData
                     }
                     else
                     {
-                        string query = $"update '{tableName}' set '{columnName}' = '{newValue}' where user_id = '{user_id}'";
+                        string query = $"UPDATE {tableName} SET {columnName} = '{newValue}' WHERE user_id = '{user_id}'";
                         SqlCommand command1 = new SqlCommand(query, con);
                         command1.ExecuteNonQuery();
                         Console.WriteLine("Data updated");
@@ -459,12 +456,13 @@ namespace TrainersData
                 }
                 else
                 {
-                    string query = $"update '{tableName}' set '{columnName}' = '{newValue}' where user_id = '{user_id}";
+                    string query = $"UPDATE {tableName} SEt {columnName} = '{newValue}' WHERE user_id = '{user_id}'";
                     SqlCommand command1 = new SqlCommand(query, con);
                     command1.ExecuteNonQuery();
                     Console.WriteLine("Data updated");
                 }
                 Console.WriteLine("Data updated Successfully");
+                Console.ReadLine();
             }
             catch (Exception e){
                 Console.WriteLine(e);

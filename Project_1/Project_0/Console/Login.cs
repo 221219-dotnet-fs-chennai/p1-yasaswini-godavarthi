@@ -24,7 +24,7 @@ public class Login : IAlldetails
         switch (userChoice)
         {
             case "0":
-                return "Menu";
+                return "MainMenu";
             case "1":
                 System.Console.Write("Enter your Email ID: ");
                 string Email = System.Console.ReadLine();
