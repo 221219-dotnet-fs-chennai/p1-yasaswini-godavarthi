@@ -41,26 +41,50 @@ namespace Console1
             }
             if (n == 1)
             {
+                Console.Clear();
+                Console.WriteLine("********* UPDATE PAGE *********");
+                Console.WriteLine("[0] To go Back");
+                Console.WriteLine("[1] To Update Personal Details");
+                Console.WriteLine("[2] To Update Skills");
+                Console.WriteLine("[3] To Update Company Details");
+                Console.WriteLine("[4] To Update Educational Details");
                 System.Console.WriteLine("\nselect an option to update or go back\n");
-                System.Console.WriteLine("[0] To go back");
-                System.Console.WriteLine("[1] Password            : " + details.PASSWORD);
-                System.Console.WriteLine("[2] Fullname            : " + details.Full_name);
-                System.Console.WriteLine("[3] Age                 : " + details.Age);
-                System.Console.WriteLine("[4] Gender              : " + details.Gender);
-                System.Console.WriteLine("[5] Phone number        : " + details.Mobile_number);
-                System.Console.WriteLine("[6] Website             : " + details.Website);
-                System.Console.WriteLine("[7] Skill name          : " + details.Skill_name);
-                System.Console.WriteLine("[8]Skill Type           : " + details.Skill_Type);
-                System.Console.WriteLine("[9]Skill Level          : " + details.Skill_Level);
-                System.Console.WriteLine("[10]Company_name        : " + details.Company_name);
-                System.Console.WriteLine("[11] Company_Type       : " + details.Company_type);
-                System.Console.WriteLine("[12] Experience         : " + details.Experience);
-                System.Console.WriteLine("[13]Company_Desc        : " + details.Company_Description);
-                System.Console.WriteLine("[14]Highest Qualification : " + details.Highest_Graduation);
-                System.Console.WriteLine("[15] Institute            : " + details.Institute);
-                System.Console.WriteLine("[16] Department           : " + details.Department);
-                System.Console.WriteLine("[17] Start Year           : " + details.Start_year);
-                System.Console.WriteLine("[18] End Year             : " + details.End_year);
+                string name = Console.ReadLine();
+                ///////////////////////////////////////////////////////////////////////////////////
+                if (name == "1")
+                {
+                    System.Console.WriteLine("\nselect an option to update or go back\n");
+                    System.Console.WriteLine("[0] Go Back             : ");
+                    System.Console.WriteLine("[1] Password            : " + details.PASSWORD);
+                    System.Console.WriteLine("[2] Fullname            : " + details.Full_name);
+                    System.Console.WriteLine("[3] Age                 : " + details.Age);
+                    System.Console.WriteLine("[4] Gender              : " + details.Gender);
+                    System.Console.WriteLine("[5] Phone number        : " + details.Mobile_number);
+                    System.Console.WriteLine("[6] Website             : " + details.Website);
+                }
+                if (name == "2") {
+                    System.Console.WriteLine("[0] Go Back             : ");
+                    System.Console.WriteLine("[7] Skill name          : " + details.Skill_name);
+                    System.Console.WriteLine("[8]Skill Type           : " + details.Skill_Type);
+                    System.Console.WriteLine("[9]Skill Level          : " + details.Skill_Level);
+                }
+                if (name == "3")
+                {
+                    System.Console.WriteLine("[0] Go Back             : ");
+                    System.Console.WriteLine("[10]Company_name        : " + details.Company_name);
+                    System.Console.WriteLine("[11] Company_Type       : " + details.Company_type);
+                    System.Console.WriteLine("[12] Experience         : " + details.Experience);
+                    System.Console.WriteLine("[13]Company_Desc        : " + details.Company_Description);
+                }
+                if (name == "4")
+                {
+                    System.Console.WriteLine("[0] Go Back             : ");
+                    System.Console.WriteLine("[14]Highest Qualification : " + details.Highest_Graduation);
+                    System.Console.WriteLine("[15] Institute            : " + details.Institute);
+                    System.Console.WriteLine("[16] Department           : " + details.Department);
+                    System.Console.WriteLine("[17] Start Year           : " + details.Start_year);
+                    System.Console.WriteLine("[18] End Year             : " + details.End_year);
+                }
                 Console.WriteLine("/n---------------------------------------------------------/n");
                 Console.Write("Please Enter Your Choice To Update: ");
                 string userchoice = System.Console.ReadLine();
