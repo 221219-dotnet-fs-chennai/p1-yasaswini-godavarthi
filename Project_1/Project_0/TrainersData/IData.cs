@@ -29,6 +29,6 @@ namespace TrainersData
         /// <summary>
         /// delete the particular trainer details from database
         /// </summary>
-        void DeleteTrainer(string col,string table);
+        void DeleteTrainer(string col,string table, int user);
     }
 }

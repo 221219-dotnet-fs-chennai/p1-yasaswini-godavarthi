@@ -76,7 +76,7 @@ namespace Console1
                         System.Console.WriteLine("Press Enter to continue");
                         System.Console.ReadLine();
                     }
-                    return "ShowDetails";
+                    return "Login";
                 case "2":
                     System.Console.Write("Enter your Email ID: ");
                     string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";

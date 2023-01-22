@@ -364,27 +364,32 @@ namespace TrainersData
             }
 
         }
-        public void DeleteTrainer(string col,string table)
+        public void DeleteTrainer(string col,string table, int user_id)
         {
-            Console.WriteLine("Please enter your email");
-            string Email = Console.ReadLine();
-            SqlConnection con = new SqlConnection();
-            con.Open();
-            int user = 0;
+            using SqlConnection connect = new SqlConnection(connectionString);
+            connect.Open();
             try
             {
-                string query1 = $"select user_id From Trainer_Detailes where Email = '{Email}';";
-                SqlCommand command = new SqlCommand(query1, con);
-                user = (int)command.ExecuteScalar();
-            }
-            catch (Exception ex)
+
+                if (col == "Age")
+                {
+                    string query = $"UPDATE {table} set {col} = 0 where user_id = '{user_id}';";
+                    SqlCommand cmd = new SqlCommand(query, connect);
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    string query = $"UPDATE {table} set {col} = 'Null' where user_id = '{user_id}';";
+                    SqlCommand cmd = new SqlCommand(query, connect);
+                    cmd.ExecuteNonQuery();
+                }
+                Console.WriteLine("________Data deleted successfully_________");
+            } catch (Exception e)
             {
-                Console.WriteLine("Enter valied EmailAddress");
+                Console.WriteLine(e);
             }
-            string query = $"UPDATE {table} set {col} = 'Null' where user_id = '{user}';";
-            SqlCommand cmd = new SqlCommand(query,con);
-            cmd.ExecuteNonQuery();
-            Console.WriteLine("________Data deleted successfully_________");
         }
+
     }
 }
+

@@ -92,7 +92,7 @@ namespace Console1
                 System.Console.WriteLine("Institute             : " + trainerProfile.Institute);
                 System.Console.WriteLine("Department            : " + trainerProfile.Department);
                 System.Console.WriteLine("Start Year            : " + trainerProfile.Start_year);
-                System.Console.WriteLine("nd Year               : " + trainerProfile.End_year);
+                System.Console.WriteLine("End Year               : " + trainerProfile.End_year);
             }
             if (i == "3")
             {
