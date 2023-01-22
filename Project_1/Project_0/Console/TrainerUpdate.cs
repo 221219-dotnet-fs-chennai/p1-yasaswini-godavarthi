@@ -50,10 +50,13 @@ namespace Console1
                 Console.WriteLine("[4] To Update Educational Details");
                 System.Console.WriteLine("\nselect an option to update or go back\n");
                 string name = Console.ReadLine();
-                ///////////////////////////////////////////////////////////////////////////////////
+                if(name == "0")
+                {
+                    Console.Clear();
+                    return "TrainerUpdate";
+                }
                 if (name == "1")
                 {
-                    System.Console.WriteLine("\nselect an option to update or go back\n");
                     System.Console.WriteLine("[0] Go Back             : ");
                     System.Console.WriteLine("[1] Password            : " + details.PASSWORD);
                     System.Console.WriteLine("[2] Fullname            : " + details.Full_name);
