@@ -27,12 +27,11 @@ namespace Console1
 
         public void Display()
         {
-            Console.WriteLine("Please Choose one option to delete the data");
+            System.Console.WriteLine("Please Choose one option to delete the data");
             System.Console.WriteLine("[0] To go back           :");
             System.Console.WriteLine("[1]Fullname              : " + trainerProfile.Full_name);
             System.Console.WriteLine("[2]Age                   : " + trainerProfile.Age);
             System.Console.WriteLine("[3]Gender                : " + trainerProfile.Gender);
-           // System.Console.WriteLine("[4]Phone number        : " + trainerProfile.Mobile_number);
             System.Console.WriteLine("[4]Website               : " + trainerProfile.Website);
             System.Console.WriteLine("[5]Highest Qualification : " + trainerProfile.Highest_Graduation);
             System.Console.WriteLine("[6]Institute             : " + trainerProfile.Institute);

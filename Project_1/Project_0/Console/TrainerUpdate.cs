@@ -25,7 +25,8 @@ namespace Console1
             Console.WriteLine("[0] for to show profile data");
             Console.WriteLine("[1] for to update details");
             Console.WriteLine("[2] for to delete details");
-            Console.WriteLine("[3] To for logout");
+            Console.WriteLine("[3] for to Drop Trainer");
+            Console.WriteLine("[4] To for logout");
             
         }
 
@@ -208,7 +209,11 @@ namespace Console1
             {
                 return "DeleteTrainerdetails";
             }
-            if (n == 3)
+            if(n == 3)
+            {
+                return "DropTrainer";
+            }
+            if (n == 4)
             {
                 Console.WriteLine("Logging Out......\n Hit Enter to Continue");
                 Console.ReadLine();

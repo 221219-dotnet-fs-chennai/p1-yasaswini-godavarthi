@@ -71,6 +71,10 @@ namespace Console1
                                     Log.Logger.Information("User Select Delete Trainer");
                                     menu = new DeleteTrainers(details);
                                     break;
+                                case "DropTrainer":
+                                    Log.Logger.Information("user select Drop");
+                                    menu = new dropTrainer();
+                                    break;
                                 case "MainMenu":
                                     Log.Logger.Information("User select Main menu");
                                     menu = new Alldetails();

@@ -162,8 +162,8 @@ namespace TrainersData
                 {
 
                     detail.user_id = reader.GetInt32(0);
-                    detail.Email = reader.GetString(1);
-                    detail.Full_name = reader.GetString(2);
+                    detail.Email = reader.GetString(2);
+                    detail.Full_name = reader.GetString(1);
                     detail.Age = reader.GetInt32(3);
                     detail.Gender = reader.GetString(4);
                     detail.Mobile_number = reader.GetString(5);
@@ -387,6 +387,35 @@ namespace TrainersData
             } catch (Exception e)
             {
                 Console.WriteLine(e);
+            }
+        }
+
+        public void droptrainer(int userID)
+        {
+            using SqlConnection connect = new SqlConnection(connectionString);
+            connect.Open();
+            try
+            {
+                string query1 = $"Delete from Education_Details where user_id = {userID};";
+                string query2 = $"Delete from Company where user_id = {userID};";
+                string query3 = $"Delete from Skills where user_id = {userID};";
+                string query4 = $"Delete from Trainer_Detailes where user_id = {userID};";
+                SqlCommand cmd1 = new SqlCommand(query1, connect);
+                SqlCommand cmd2 = new SqlCommand(query2, connect);
+                SqlCommand cmd3 = new SqlCommand(query3, connect);
+                SqlCommand cmd4 = new SqlCommand(query4, connect);
+                cmd1.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
+                cmd3.ExecuteNonQuery();
+                cmd4.ExecuteNonQuery();
+                Console.WriteLine("------Deleted trainer Successfully----------");
+                Console.WriteLine("Please Hit Enter To continue");
+                Console.ReadLine();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+                Console.ReadLine();
             }
         }
 

@@ -30,5 +30,6 @@ namespace TrainersData
         /// delete the particular trainer details from database
         /// </summary>
         void DeleteTrainer(string col,string table, int user);
+        void droptrainer(int i);
     }
 }
