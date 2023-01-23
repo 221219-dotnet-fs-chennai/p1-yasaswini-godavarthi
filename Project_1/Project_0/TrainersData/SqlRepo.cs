@@ -419,6 +419,58 @@ namespace TrainersData
             }
         }
 
+        public Details SearchByEmail()
+        {
+            Console.WriteLine("Please Enter an Email To Continue");
+            string email = Console.ReadLine();
+            Details detail = new Details();
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            List<Details> details = new List<Details>();
+            string query = $@"SELECT td.Email, td.Full_name ,td.Age,Gender,td.Mobile_number,td.Website,s.Skill_name,s.Skill_Type,s.Skill_Level,
+                              ed.Highest_Graduation,ed.Department,c.Company_name,c.Experience From Trainer_Detailes td join Skills s
+                              on td.user_id = s.user_id JOIN Education_Details ed on ed.user_id = td.user_id join Company c 
+                              on c.user_id = td.user_id where td.Email = '{email}';";
+            SqlCommand command = new SqlCommand(query, con);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+
+                detail.Email = reader.GetString(0);
+                detail.Full_name = reader.GetString(1);
+                detail.Age = reader.GetInt32(2);
+                detail.Gender = reader.GetString(3);
+                detail.Mobile_number = reader.GetString(4);
+                detail.Website = reader.GetString(5);
+                detail.Skill_name = reader.GetString(6);
+                detail.Skill_Type = reader.GetString(7);
+                detail.Skill_Level = reader.GetString(8);
+                detail.Highest_Graduation = reader.GetString(9);
+                detail.Department = reader.GetString(10);
+                detail.Company_name = reader.GetString(11);
+                detail.Experience = reader.GetString(12);
+
+            }
+            Console.Clear();
+            Console.WriteLine(detail.Email.ToString());
+            Console.WriteLine(detail.Full_name.ToString());
+            Console.WriteLine( detail.Age);
+            Console.WriteLine(detail.Gender.ToString());
+            Console.WriteLine(detail.Mobile_number.ToString());
+            Console.WriteLine(detail.Website.ToString());
+            Console.WriteLine(detail.Skill_name.ToString());
+            Console.WriteLine(detail.Skill_name.ToString());
+            Console.WriteLine(detail.Skill_Level.ToString());
+            Console.WriteLine(detail.Highest_Graduation.ToString());
+            Console.WriteLine(detail.Department.ToString());
+            Console.WriteLine(detail.Company_name.ToString());
+            Console.WriteLine(detail.Experience.ToString());
+            Console.ReadLine();
+            reader.Close();
+            return detail;
+        }
+
     }
 }
 

@@ -26,7 +26,8 @@ namespace Console1
             Console.WriteLine("[1] for to update details");
             Console.WriteLine("[2] for to delete details");
             Console.WriteLine("[3] for to Drop Trainer");
-            Console.WriteLine("[4] To for logout");
+            Console.WriteLine("[4] To search Trainer By Email");
+            Console.WriteLine("[5] To for logout");
             
         }
 
@@ -240,7 +241,11 @@ namespace Console1
             {
                 return "DropTrainer";
             }
-            if (n == 4)
+            if(n == 4)
+            {
+                return "SearchTrainer";
+            }
+            if (n == 5)
             {
                 Console.WriteLine("Logging Out......\n Hit Enter to Continue");
                 Console.ReadLine();

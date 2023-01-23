@@ -14,12 +14,18 @@ namespace TrainersData
         /// <param name="details"></param>
         /// <returns>Returns the Trainer Details which was added</returns>
         Details Add(Details details);
+        /// <summary>
+        /// To login to the application
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>to do crud opearations</returns>
         bool login(string email);
         /// <summary>
         /// Will return all trainers 
+        /// <param name="email";
         /// </summary>
         /// <returns>List of all trainer objects in the collection of Type List<traiiner></returns>
-        Details GetAllTrainer(string eMail);
+        Details GetAllTrainer(string email);
         List<Details> GetAllTrainersDisconnected();
         /// <summary>
         /// update trainer details in the database
@@ -30,6 +36,17 @@ namespace TrainersData
         /// delete the particular trainer details from database
         /// </summary>
         void DeleteTrainer(string col,string table, int user);
+        /// <summary>
+        /// To drop trainer
+        /// </summary>
+        /// <param name="i"></param>
         void droptrainer(int i);
+        /// <summary>
+        /// To search trainers By name
+        /// </summary>
+        
+        Details SearchByEmail();
+
+
     }
 }
