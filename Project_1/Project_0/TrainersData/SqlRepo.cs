@@ -149,7 +149,7 @@ namespace TrainersData
 
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            List<Details> details = new List<Details>();
+            //List<Details> details = new List<Details>();
 
             try
             {

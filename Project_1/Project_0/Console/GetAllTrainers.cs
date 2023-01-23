@@ -6,6 +6,7 @@ namespace Console1
     internal class GetAllTrainers : IAlldetails
     {
         static string conStr = File.ReadAllText("../../../connectionString.txt");
+
         IData repo = new SqlRepo(conStr);
 
         public void Display()
@@ -31,8 +32,8 @@ namespace Console1
                     Log.Information("Reading Trainers about to start");
                     foreach (var r in listOfTrainers)
                     {
-                        System.Console.WriteLine("================");
-                        System.Console.WriteLine(r.ToString());
+                        System.Console.WriteLine("**********************************");
+                        //System.Console.WriteLine(r.ToString());
                         System.Console.WriteLine(r.TrainerDetails());
                     }
                     Log.Information("Reading Trainers ends");
