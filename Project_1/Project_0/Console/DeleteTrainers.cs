@@ -27,30 +27,60 @@ namespace Console1
 
         public void Display()
         {
+            System.Console.WriteLine("\n-----Welcome to Delete Page---------\n");
             System.Console.WriteLine("Please Choose one option to delete the data");
-            System.Console.WriteLine("[0] To go back           :");
-            System.Console.WriteLine("[1]Fullname              : " + trainerProfile.Full_name);
-            System.Console.WriteLine("[2]Age                   : " + trainerProfile.Age);
-            System.Console.WriteLine("[3]Gender                : " + trainerProfile.Gender);
-            System.Console.WriteLine("[4]Website               : " + trainerProfile.Website);
-            System.Console.WriteLine("[5]Highest Qualification : " + trainerProfile.Highest_Graduation);
-            System.Console.WriteLine("[6]Institute             : " + trainerProfile.Institute);
-            System.Console.WriteLine("[7]Department            : " + trainerProfile.Department);
-            System.Console.WriteLine("[8]Start Year            : " + trainerProfile.Start_year);
-            System.Console.WriteLine("[9]End Year              : " + trainerProfile.End_year);
-            System.Console.WriteLine("[10]Skill name           : " + trainerProfile.Skill_name);
-            System.Console.WriteLine("[11]Skill Type           : " + trainerProfile.Skill_Type);
-            System.Console.WriteLine("[12]Skill Level          : " + trainerProfile.Skill_Level);
-            System.Console.WriteLine("[13]Company name         : " + trainerProfile.Company_name);
-            System.Console.WriteLine("[14]Company Type         : " + trainerProfile.Company_type);
-            System.Console.WriteLine("[15]Experience           : " + trainerProfile.Experience);
-            System.Console.WriteLine("[16]company Desc         : " + trainerProfile.Company_Description);
+            System.Console.WriteLine("[0] To go Back");
+            System.Console.WriteLine("[1] To DeletePersonal Details");
+            System.Console.WriteLine("[2] To Delete Education Details");
+            System.Console.WriteLine("[3] To Delete Skills ");
+            System.Console.WriteLine("[4] To Delete Company Details");
+            
         }
 
         public string UserChoice()
         {
             Console.Write("Please Enter your choice:");
-            string choice = Console.ReadLine();
+            string cho = Console.ReadLine();
+            string choice = "0";
+            if (cho == "0")
+            {
+                return "TrainerUpdate";
+            }
+            if(cho == "1")
+            {
+                System.Console.WriteLine("[0] To go back           :");
+                System.Console.WriteLine("[1]Fullname              : " + trainerProfile.Full_name);
+                System.Console.WriteLine("[2]Age                   : " + trainerProfile.Age);
+                System.Console.WriteLine("[3]Gender                : " + trainerProfile.Gender);
+                System.Console.WriteLine("[4]Website               : " + trainerProfile.Website);
+
+            }
+            if(cho == "2")
+            {
+                System.Console.WriteLine("[0] To go back           :");
+                System.Console.WriteLine("[5]Highest Qualification : " + trainerProfile.Highest_Graduation);
+                System.Console.WriteLine("[6]Institute             : " + trainerProfile.Institute);
+                System.Console.WriteLine("[7]Department            : " + trainerProfile.Department);
+                System.Console.WriteLine("[8]Start Year            : " + trainerProfile.Start_year);
+                System.Console.WriteLine("[9]End Year              : " + trainerProfile.End_year);
+            }
+            if(cho == "3")
+            {
+                System.Console.WriteLine("[0] To go back           :");
+                System.Console.WriteLine("[10]Skill name           : " + trainerProfile.Skill_name);
+                System.Console.WriteLine("[11]Skill Type           : " + trainerProfile.Skill_Type);
+                System.Console.WriteLine("[12]Skill Level          : " + trainerProfile.Skill_Level);
+            }
+            if(cho == "4")
+            {
+                System.Console.WriteLine("[0] To go back           :");
+                System.Console.WriteLine("[13]Company name         : " + trainerProfile.Company_name);
+                System.Console.WriteLine("[14]Company Type         : " + trainerProfile.Company_type);
+                System.Console.WriteLine("[15]Experience           : " + trainerProfile.Experience);
+                System.Console.WriteLine("[16]company Desc         : " + trainerProfile.Company_Description);
+            }
+            Console.WriteLine("Please Enter Your Option To Continue: ");
+            choice = Console.ReadLine();
             switch(choice)
             {
                 case "0":
