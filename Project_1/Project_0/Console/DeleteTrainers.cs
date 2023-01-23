@@ -87,71 +87,87 @@ namespace Console1
                     return "TrainerUpdate";
                 case "1":
                     System.Console.WriteLine(".......Deleting Full Name......");
+                    trainerProfile.Full_name = "NULL";
                     repo.DeleteTrainer("Full_name", "Trainer_Detailes", details.user_id);
                     return "TrainerUpdate";
                 case "2":
                     System.Console.WriteLine(".......Deleting Age.......");
+                    trainerProfile.Age = 0;
                     repo.DeleteTrainer("Age", "Trainer_Detailes", details.user_id);
                     return "TrainerUpdate";
                 case "3":
                     System.Console.WriteLine(".......Deleting Gender.......");
+                    trainerProfile.Gender = "NULL";
                     repo.DeleteTrainer("Gender", "Trainer_Detailes", details.user_id);
                     return "TrainerUpdate";
 
                 case "4":
                     System.Console.WriteLine(".......Deleting Website.......");
+                    trainerProfile.Website = "NULL";
                     repo.DeleteTrainer("Age", "Trainer_Detailes", details.user_id);
                     return "TrainerUpdate";
 
                 case "5":
                     System.Console.WriteLine(".......Deleting Qualification.......");
+                    trainerProfile.Highest_Graduation = "NULL";
                     repo.DeleteTrainer("Highest_Graduation", "Education_Details", details.user_id);
                     return "TrainerUpdate";
 
                 case "6":
                     System.Console.WriteLine(".......Deleting Institute.......");
+                    trainerProfile.Institute = "NULL";
                     repo.DeleteTrainer("Institute", "Education_Details", details.user_id);
                     return "TrainerUpdate";
 
                 case "7":
                     System.Console.WriteLine(".......Deleting Department.......");
+                    trainerProfile.Department = "NULL";
                     repo.DeleteTrainer("Department", "Education_Details", details.user_id);
                     return "TrainerUpdate";
 
                 case "8":
                     System.Console.WriteLine(".......Deleting Start_year......");
+                    trainerProfile.Start_year = "NULL";
                     repo.DeleteTrainer("Start_year", "Education_Details", details.user_id);
                     return "TrainerUpdate";
                 case "9":
                     System.Console.WriteLine(".......Deleting Qualification.......");
+                    trainerProfile.End_year = "NULL";
                     repo.DeleteTrainer("End_year", "Education_Details", details.user_id);
                     return "TrainerUpdate";
                 case "10":
                     System.Console.WriteLine(".......Deleting Skill name.......");
+                    trainerProfile.Skill_name = "NULL";
                     repo.DeleteTrainer("Skill_name", "Skills", details.user_id);
                     return "TrainerUpdate";
                 case "11":
                     System.Console.WriteLine(".......Deleting Skill type.......");
+                    trainerProfile.Skill_Type = "NULL";
                     repo.DeleteTrainer("Skill_Type", "Skills", details.user_id);
                     return "TrainerUpdate";
                 case "12":
                     System.Console.WriteLine(".......Deleting Skill Level.......");
+                    trainerProfile.Skill_Level  = "NULL";
                     repo.DeleteTrainer("Skill_Level", "Skills", details.user_id);
                     return "TrainerUpdate";
                 case "13":
                     System.Console.WriteLine(".......Deleting Company name......");
+                    trainerProfile.Company_name = "NULL";
                     repo.DeleteTrainer("Company_name", "Company", details.user_id);
                     return "TrainerUpdate";
                 case "14":
                     System.Console.WriteLine(".......Deleting Company type......");
+                    trainerProfile.Company_type = "NULL";
                     repo.DeleteTrainer("Company_type", "Company", details.user_id);
                     return "TrainerUpdate";
                 case "15":
                     System.Console.WriteLine(".......Deleting Experience......");
+                    trainerProfile.Experience = "NULL";
                     repo.DeleteTrainer("Experience", "Company", details.user_id);
                     return "TrainerUpdate";
                 case "16":
                     System.Console.WriteLine(".......Deleting Company Description......");
+                    trainerProfile.Company_Description = "NULL";
                     repo.DeleteTrainer("Company_Description", "Company", details.user_id);
                     return "TrainerUpdate";
                 default:

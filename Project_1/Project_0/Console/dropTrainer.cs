@@ -40,7 +40,7 @@ namespace Console1
                     return "TrainerUpdate";
                 case "1":
                     repo.droptrainer(details.user_id);
-                    return "MainMenu"; 
+                    return "Menu"; 
             }
             return "DropTrainer";
         }

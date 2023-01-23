@@ -83,7 +83,7 @@ namespace Console1
                                     Log.Logger.Information("user select Drop");
                                     menu = new dropTrainer();
                                     break;
-                                case "MainMenu":
+                                case "Menu":
                                     Log.Logger.Information("User select Main menu");
                                     menu = new Alldetails();
                                     value2 = false;

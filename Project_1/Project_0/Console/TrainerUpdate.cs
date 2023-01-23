@@ -249,7 +249,7 @@ namespace Console1
             {
                 Console.WriteLine("Logging Out......\n Hit Enter to Continue");
                 Console.ReadLine();
-                return "MainMenu";
+                return "Menu";
             }
             return "ShowDetails";
         }
