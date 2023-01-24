@@ -1,5 +1,6 @@
 ﻿using TrainersData;
 using System;
+using Business_Logic;
 
 namespace Console1
 {
