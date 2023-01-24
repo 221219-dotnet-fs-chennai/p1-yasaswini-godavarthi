@@ -111,7 +111,7 @@ namespace TrainersData
             get;
             set;
         }
-        public string detail()
+     /*   public string detail()
         {
             return $@"{user_id},{Email}, {Full_name}, {Age}, {Gender}, {Mobile_number}, {Website},{PASSWORD}";
         }
@@ -126,7 +126,7 @@ namespace TrainersData
         public string edu()
         {
             return $@"{user_id},{Highest_Graduation}, {Institute}, {Department}, {Start_year}, {End_year}";
-        }
+        }*/
 
         public string TrainerDetails()
         {

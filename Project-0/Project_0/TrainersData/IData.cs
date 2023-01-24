@@ -21,11 +21,15 @@ namespace TrainersData
         /// <returns>to do crud opearations</returns>
         bool login(string email);
         /// <summary>
-        /// Will return all trainers 
+        /// It is used for login 
         /// <param name="email";
         /// </summary>
         /// <returns>List of all trainer objects in the collection of Type List<traiiner></returns>
         Details GetAllTrainer(string email);
+        /// <summary>
+        /// To get all the traianers
+        /// </summary>
+        /// <returns>Returns all trainers details</returns>
         List<Details> GetAllTrainersDisconnected();
         /// <summary>
         /// update trainer details in the database
