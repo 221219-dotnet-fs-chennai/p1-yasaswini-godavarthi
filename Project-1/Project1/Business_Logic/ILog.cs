@@ -15,11 +15,22 @@ namespace Business_Logic
         /// </summary>
         /// <returns>IEnumerable<Details></Details></returns>
         IEnumerable<Details> GetAllTrainersDisconnected();
+        /// <summary>
+        /// This method will return all trainers whose skills is matched
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         IEnumerable<Details> GetAllTrainersBySkillname(string name);
         /// <summary>
         /// This method will return the details of a trainer
         /// </summary>
         /// <returns></returns>
         Details SearchByEmail();
+        /// <summary>
+        /// This method will return all trainers whose Experience is matches
+        /// </summary>
+        /// <param name="Exp"></param>
+        /// <returns></returns>
+        IEnumerable<Details> SearchByExperience(string Exp);
     }
 }

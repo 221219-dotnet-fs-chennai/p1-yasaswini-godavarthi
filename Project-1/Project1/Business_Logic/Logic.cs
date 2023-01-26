@@ -20,11 +20,16 @@ namespace Business_Logic
         {
             return data.GetAllTrainersDisconnected().Where(r=>r.Skill_name == Skill_name33);
         }
+        
 
         public Details SearchByEmail()
         {
             return data.SearchByEmail();
         }
 
+        public IEnumerable<Details> SearchByExperience(string Exp)
+        {
+            return data.GetAllTrainersDisconnected().Where((r)=>r.Experience == Exp);
+        }
     }
 }

@@ -22,6 +22,7 @@ namespace Console1
             System.Console.WriteLine("[0] To Go Back");
             System.Console.WriteLine("[1] Search Trainer By Email          : ");
             System.Console.WriteLine("[2] search Trainer By Skillname      : ");
+            System.Console.WriteLine("[3] Search Trainer By Experience     : ");
         }
 
         public string UserChoice()
@@ -47,10 +48,25 @@ namespace Console1
                         //System.Console.WriteLine(r.ToString());
                         System.Console.WriteLine(r.TrainerDetails());
                     }
-                    Log.Information("Reading Trainers ends");
+                    Log.Information("Reading Trainers ends By skills");
+                    System.Console.WriteLine("Please press Enter to continue");
+                    System.Console.ReadLine();
+                    return "SearchTrainer";
+                case "3":
+                    Console.WriteLine("Please Enter Experience to Search");
+                    string Exp = Console.ReadLine();
+                    var searchtrainer = repo.SearchByExperience(Exp);
+                    foreach (var r in searchtrainer)
+                    {
+                        System.Console.WriteLine("**********************************");
+                        //System.Console.WriteLine(r.ToString());
+                        System.Console.WriteLine(r.TrainerDetails());
+                    }
+                    Log.Information("Reading Trainers ends By Experience");
                     System.Console.WriteLine("Please press Enter to continue");
                     System.Console.ReadLine();
                     return "Searchtrainer";
+
             }
 
             return "Menu";
