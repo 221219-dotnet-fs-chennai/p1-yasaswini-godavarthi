@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business_Logic", "Business_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{5BA927CF-46B1-401D-9075-3B04951575C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentApi", "FluentApi\FluentApi.csproj", "{6996BD0F-33B9-452D-BE98-93E4CE46417F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{5BA927CF-46B1-401D-9075-3B04951575C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BA927CF-46B1-401D-9075-3B04951575C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BA927CF-46B1-401D-9075-3B04951575C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6996BD0F-33B9-452D-BE98-93E4CE46417F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6996BD0F-33B9-452D-BE98-93E4CE46417F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6996BD0F-33B9-452D-BE98-93E4CE46417F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6996BD0F-33B9-452D-BE98-93E4CE46417F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

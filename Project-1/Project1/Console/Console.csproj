@@ -32,6 +32,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Business_Logic\Business_Logic.csproj" />
     <ProjectReference Include="..\EntityFrame\EntityFrame.csproj" />
+    <ProjectReference Include="..\FluentApi\FluentApi.csproj" />
     <ProjectReference Include="..\TrainersData\TrainersData.csproj" />
   </ItemGroup>
 
