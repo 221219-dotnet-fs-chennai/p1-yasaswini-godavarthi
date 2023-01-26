@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using Models;
+using Serilog;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
 using System.Data;

@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace TrainersData
+namespace Models
 {
     public class Details
     {

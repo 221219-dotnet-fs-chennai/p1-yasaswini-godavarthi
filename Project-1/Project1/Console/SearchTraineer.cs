@@ -1,4 +1,5 @@
-﻿using Console1;
+﻿using Business_Logic;
+using Console1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,8 @@ namespace Console1
     internal class SearchTraineer : IAlldetails
     {
         static string conStr = File.ReadAllText("../../../connectionString.txt");
-        IData repo = new SqlRepo(conStr);
+        //IData repo = new SqlRepo(conStr);
+        ILog repo = new Logic(conStr);
         public void Display()
         {
             Console.Clear();
@@ -19,6 +21,7 @@ namespace Console1
             System.Console.WriteLine("Choose One Of The Option Below To Continue");
             System.Console.WriteLine("[0] To Go Back");
             System.Console.WriteLine("[1] Search Trainer By Email          : ");
+            System.Console.WriteLine("[2] search Trainer By Skillname      : ");
         }
 
         public string UserChoice()
@@ -34,7 +37,20 @@ namespace Console1
                     
                     Console.ReadLine();
                     return "SearchTrainer";
-
+                case "2":
+                    Console.WriteLine("Please Enter Skill name to Search");
+                    string skillname = Console.ReadLine();
+                    var listoftrainers = repo.GetAllTrainersBySkillname(skillname);
+                    foreach (var r in listoftrainers)
+                    {
+                        System.Console.WriteLine("**********************************");
+                        //System.Console.WriteLine(r.ToString());
+                        System.Console.WriteLine(r.TrainerDetails());
+                    }
+                    Log.Information("Reading Trainers ends");
+                    System.Console.WriteLine("Please press Enter to continue");
+                    System.Console.ReadLine();
+                    return "Searchtrainer";
             }
 
             return "Menu";

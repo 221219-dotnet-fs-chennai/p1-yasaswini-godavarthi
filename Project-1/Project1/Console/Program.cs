@@ -2,6 +2,7 @@
 using TrainersData;
 using System;
 using System.Data.SqlClient;
+using Models;
 
 namespace Console1
 {

@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EntityFrame\EntityFrame.csproj" />
+    <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
 
 </Project>

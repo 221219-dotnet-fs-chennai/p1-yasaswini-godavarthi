@@ -8,7 +8,9 @@ namespace Console1
     {
         static string conStr = File.ReadAllText("../../../connectionString.txt");
 
-        IData repo = new SqlRepo(conStr);
+        // IData repo = new SqlRepo(conStr);
+        ILog repo = new Logic(conStr);
+        
 
         public void Display()
         {
@@ -29,7 +31,7 @@ namespace Console1
                 case "1":
                     Log.Information("Getting all trainers");
                     var listOfTrainers = repo.GetAllTrainersDisconnected();
-                    Log.Information($"Got list of {listOfTrainers.Count} Trainers");
+                    Log.Information($"Got list of {listOfTrainers.Count()} Trainers");
                     Log.Information("Reading Trainers about to start");
                     foreach (var r in listOfTrainers)
                     {

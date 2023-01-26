@@ -1,4 +1,5 @@
-﻿using TrainersData;
+﻿using Models;
+using TrainersData;
 
 namespace Console1
 {

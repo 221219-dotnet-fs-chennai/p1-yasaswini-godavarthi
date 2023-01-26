@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainersData", "TrainersDat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console", "Console\Console.csproj", "{ECDC5D54-590C-4E7E-8673-19CD4C9A4161}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrame", "EntityFrame\EntityFrame.csproj", "{EDBEC3D0-8B91-458A-BF32-7B8272823727}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrame", "EntityFrame\EntityFrame.csproj", "{EDBEC3D0-8B91-458A-BF32-7B8272823727}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business_Logic", "Business_Logic\Business_Logic.csproj", "{58F280E8-2A6B-4B59-AD4B-5B713C4047C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business_Logic", "Business_Logic\Business_Logic.csproj", "{58F280E8-2A6B-4B59-AD4B-5B713C4047C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{5BA927CF-46B1-401D-9075-3B04951575C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{58F280E8-2A6B-4B59-AD4B-5B713C4047C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58F280E8-2A6B-4B59-AD4B-5B713C4047C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58F280E8-2A6B-4B59-AD4B-5B713C4047C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BA927CF-46B1-401D-9075-3B04951575C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BA927CF-46B1-401D-9075-3B04951575C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BA927CF-46B1-401D-9075-3B04951575C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BA927CF-46B1-401D-9075-3B04951575C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
