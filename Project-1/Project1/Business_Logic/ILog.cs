@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TrainersData;
 
 namespace Business_Logic
 {
@@ -14,7 +13,7 @@ namespace Business_Logic
         /// This method will return all the trainers  
         /// </summary>
         /// <returns>IEnumerable<Details></Details></returns>
-        IEnumerable<Details> GetAllTrainersDisconnected();
+        IEnumerable<Details> GetAllTrainers();
         /// <summary>
         /// This method will return all trainers whose skills is matched
         /// </summary>
@@ -25,7 +24,7 @@ namespace Business_Logic
         /// This method will return the details of a trainer
         /// </summary>
         /// <returns></returns>
-        Details SearchByEmail();
+        IEnumerable<Details> SearchByEmail(string mail);
         /// <summary>
         /// This method will return all trainers whose Experience is matches
         /// </summary>

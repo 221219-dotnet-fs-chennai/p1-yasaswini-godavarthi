@@ -1,37 +1,36 @@
-﻿using Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrainersData
+namespace Models
 {
-    public interface IData
+    public interface IData<T>
     {
         /// <summary>
         /// Add the details 
         /// </summary>
         /// <param name="details"></param>
         /// <returns>Returns the Trainer Details which was added</returns>
-        Details Add(Details details);
+        T Add(T details);
         /// <summary>
         /// To login to the application
         /// </summary>
         /// <param name="email"></param>
         /// <returns>to do crud opearations</returns>
-        bool login(string email);
+       /* bool login(string email);
         /// <summary>
         /// Will return all trainers 
         /// <param name="email";
         /// </summary>
         /// <returns>List of all trainer objects in the collection of Type List<traiiner></returns>
-        Details GetAllTrainer(string email);
-        List<Details> GetAllTrainersDisconnected();
+        T GetAllTrainer(string email);*/
+        List<T> GetAllTrainers();
         /// <summary>
         /// update trainer details in the database
         /// </summary>
-        void UpdateTrainer(string tableName, string columnName,string newValue, int user_id);
+       /* void UpdateTrainer(string tableName, string columnName,string newValue, int user_id);
 
         /// <summary>
         /// delete the particular trainer details from database
@@ -44,9 +43,9 @@ namespace TrainersData
         void droptrainer(int i);
         /// <summary>
         /// To search trainers By name
-        /// </summary>
+        /// </summary>*/
         
-        Details SearchByEmail();
+        //T SearchByEmail();
 
 
     }

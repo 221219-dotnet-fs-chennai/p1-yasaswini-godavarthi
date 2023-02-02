@@ -11,7 +11,7 @@ using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext
 
 namespace TrainersData
 {
-    public class SqlRepo : IData
+    public class SqlRepo : IData<T>
     {
         private readonly string connectionString;
 

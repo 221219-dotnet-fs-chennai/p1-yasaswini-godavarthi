@@ -1,35 +1,37 @@
 ﻿using Models;
-using TrainersData;
+using FluentApi;
 
 namespace Business_Logic
 {
     public class Logic : ILog
     {
-        IData data;
-        //string connectionString = File.ReadAllText("../../../connectionString.txt");
-        public Logic(string connectionString)
+        IData<FluentApi.Entities.TrainerDetaile> _data;
+        public Logic(IData<FluentApi.Entities.TrainerDetaile> data) 
         {
-            data = new SqlRepo(connectionString);
-        }
-
-        public IEnumerable<Details> GetAllTrainersDisconnected()
-        {
-            return data.GetAllTrainersDisconnected();
-        }
-        public IEnumerable<Details> GetAllTrainersBySkillname(string Skill_name33)
-        {
-            return data.GetAllTrainersDisconnected().Where(r=>r.Skill_name == Skill_name33);
+            _data = data;
         }
         
 
-        public Details SearchByEmail()
+        public IEnumerable<Details> GetAllTrainers()
         {
-            return data.SearchByEmail();
+            return Mapper.Map(_data.GetAllTrainers());
+        }
+        public IEnumerable<Details> GetAllTrainersBySkillname(string Skill_name33)
+        {
+            return Mapper.Map(_data.GetAllTrainers().Where(r=>r.Skill.SkillName == Skill_name33));
+        }
+        
+
+        public IEnumerable<Details> SearchByEmail(string email)
+        {
+            var s = _data.GetAllTrainers().Where((r) => r.Email == email);
+            return Mapper.Map(s);
         }
 
         public IEnumerable<Details> SearchByExperience(string Exp)
         {
-            return data.GetAllTrainersDisconnected().Where((r)=>r.Experience == Exp);
+            var E = _data.GetAllTrainers().Where((r) => r.Company.Experience == Exp);
+            return Mapper.Map(E);
         }
     }
 }
