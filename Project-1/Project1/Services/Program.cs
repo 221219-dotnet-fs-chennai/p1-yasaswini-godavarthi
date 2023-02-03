@@ -1,8 +1,8 @@
 using Business_Logic;
 using FluentApi;
 using FluentApi.Entities;
-using Models;
 using Microsoft.EntityFrameworkCore;
+using Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +13,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var config = builder.Configuration.GetConnectionString("TrainerDb");
-builder.Services.AddDbContext<TrainerDbContext>(options => options.UseSqlServer(config));
+var config = builder.Configuration.GetConnectionString("Trainerdb");
+builder.Services.AddDbContext<TrainerDbContext>(Options => Options.UseSqlServer(config));
 builder.Services.AddScoped<IData<FluentApi.Entities.TrainerDetaile>, EfRepo>();
 builder.Services.AddScoped<ILog, Logic>();
 

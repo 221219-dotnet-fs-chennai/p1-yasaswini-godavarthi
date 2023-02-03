@@ -22,7 +22,6 @@ namespace Models
        /* bool login(string email);
         /// <summary>
         /// Will return all trainers 
-        /// <param name="email";
         /// </summary>
         /// <returns>List of all trainer objects in the collection of Type List<traiiner></returns>
         T GetAllTrainer(string email);*/

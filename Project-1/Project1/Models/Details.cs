@@ -43,14 +43,14 @@ namespace Models
             set;
         }
 
-        public string detail()
+        /*public string detail()
         {
             return $@"{user_id},{Email}, {Full_name}, {Age}, {Gender}, {Mobile_number}, {Website},{PASSWORD}";
-        }
+        }*/
 
-        public string TrainerDetails()
+        /*public string TrainerDetails()
         {
             return $@"{Email}, {Full_name}, {Age}, {Gender}, {Mobile_number}, {Website}";
-        }
+        }*/
     }
 }

@@ -42,7 +42,7 @@ namespace Models
             set;
         }
 
-        public string edu()
+        public string EducationDetail()
         {
             return $@"{user_id},{Highest_Graduation}, {Institute}, {Department}, {Start_year}, {End_year}";
         }

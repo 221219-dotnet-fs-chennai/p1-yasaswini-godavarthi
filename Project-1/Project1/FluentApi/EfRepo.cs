@@ -17,7 +17,7 @@ namespace FluentApi
             return details;
         }
 
-       /* public void DeleteTrainer(string col, string table, int user)
+        public void DeleteTrainer(string col, string table, int user)
         {
             throw new NotImplementedException();
         }
@@ -30,28 +30,28 @@ namespace FluentApi
         public Entities.TrainerDetaile GetAllTrainer(string email)
         {
             throw new NotImplementedException();
-        }*/
+        }
 
         public List<Entities.TrainerDetaile> GetAllTrainers()
         {
             return _context.TrainerDetailes.ToList();
         }
 
-        /*public bool login(string email)
+        public bool login(string email)
         {
             throw new NotImplementedException();
         }
 
-        public Entities.TrainerDetaile SearchByEmail()
+        public IEnumerable<Entities.TrainerDetaile> SearchByEmail()
         {
-            return context.TrainerDetailes;
-            
+            return _context.TrainerDetailes.ToList();
+
         }
-        
-        public void UpdateTrainer(string tableName, string columnName, string newValue, int user_id)
+
+        /*public void UpdateTrainer(string tableName, string columnName, string newValue, int user_id)
         {
-            context.Update(user_id, tableName, columnName, newValue);
-            
+            _context.Update(user_id, tableName, columnName, newValue);
+
             throw new NotImplementedException();
         }*/
     }

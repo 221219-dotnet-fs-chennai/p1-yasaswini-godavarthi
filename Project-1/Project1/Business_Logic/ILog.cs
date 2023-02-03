@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using FluentApi.Entities;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,5 +32,8 @@ namespace Business_Logic
         /// <param name="Exp"></param>
         /// <returns></returns>
         IEnumerable<Details> SearchByExperience(string Exp);
+
+        TrainerDetaile Add(TrainerDetaile trainer);
+
     }
 }

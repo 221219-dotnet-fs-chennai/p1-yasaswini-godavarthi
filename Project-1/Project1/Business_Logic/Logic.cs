@@ -1,5 +1,6 @@
 ﻿using Models;
 using FluentApi;
+using FluentApi.Entities;
 
 namespace Business_Logic
 {
@@ -10,12 +11,18 @@ namespace Business_Logic
         {
             _data = data;
         }
-        
+
+        public TrainerDetaile Add(TrainerDetaile trainer)
+        {
+            return _data.Add(trainer);
+        }
 
         public IEnumerable<Details> GetAllTrainers()
         {
             return Mapper.Map(_data.GetAllTrainers());
         }
+
+
         public IEnumerable<Details> GetAllTrainersBySkillname(string Skill_name33)
         {
             return Mapper.Map(_data.GetAllTrainers().Where(r=>r.Skill.SkillName == Skill_name33));
