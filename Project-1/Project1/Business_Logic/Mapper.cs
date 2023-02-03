@@ -9,7 +9,7 @@ namespace Business_Logic
 {
     public class Mapper
     {
-        public static Models.Details Map(FluentApi.Entities.TrainerDetaile o)
+        public static Models.Details TrainerMap(FluentApi.Entities.TrainerDetaile o)
         {
             return new Models.Details()
             {
@@ -24,7 +24,7 @@ namespace Business_Logic
             };
         }
 
-        public static FluentApi.Entities.TrainerDetaile Map(Models.Details o)
+        public static FluentApi.Entities.TrainerDetaile TrainerMap(Models.Details o)
         {
             return new FluentApi.Entities.TrainerDetaile()
             {
@@ -39,7 +39,7 @@ namespace Business_Logic
             };
         }
 
-        public static Models.Company Map(FluentApi.Entities.Company o)
+        public static Models.Company CompanyMap(FluentApi.Entities.Company o)
         {
             return new Models.Company()
             {
@@ -50,7 +50,7 @@ namespace Business_Logic
             };
         }
 
-        public static FluentApi.Entities.Company Map(Models.Company o)
+        public static FluentApi.Entities.Company CompanyMap(Models.Company o)
         {
             return new FluentApi.Entities.Company()
             {
@@ -61,7 +61,7 @@ namespace Business_Logic
             };
         }
 
-        public static Models.Skills Map(FluentApi.Entities.Skill o)
+        public static Models.Skills SkillsMap(FluentApi.Entities.Skill o)
         {
             return new Models.Skills()
             {
@@ -71,7 +71,7 @@ namespace Business_Logic
             };
         }
 
-        public static FluentApi.Entities.Skill Map(Models.Skills o)
+        public static FluentApi.Entities.Skill SkillsMap(Models.Skills o)
         {
             return new FluentApi.Entities.Skill()
             {
@@ -81,7 +81,7 @@ namespace Business_Logic
             };
         }
 
-        public static Models.EducationDetails Map(FluentApi.Entities.EducationDetail o)
+        public static Models.EducationDetails EducationMap(FluentApi.Entities.EducationDetail o)
         {
             return new Models.EducationDetails()
             {
@@ -93,7 +93,7 @@ namespace Business_Logic
             };
         }
 
-        public static FluentApi.Entities.EducationDetail Map(Models.EducationDetails o)
+        public static FluentApi.Entities.EducationDetail EducationMap(Models.EducationDetails o)
         {
             return new FluentApi.Entities.EducationDetail()
             {
@@ -106,22 +106,22 @@ namespace Business_Logic
         }
         
 
-        public static IEnumerable<Models.Details> Map(IEnumerable<FluentApi.Entities.TrainerDetaile> trainer)
+        public static IEnumerable<Models.Details> TrainerMap(IEnumerable<FluentApi.Entities.TrainerDetaile> trainer)
         {
-            return trainer.Select(Map);
+            return trainer.Select(TrainerMap);
         }
 
-        public static IEnumerable<Models.Skills> Map(IEnumerable<FluentApi.Entities.Skill> trainer)
+        public static IEnumerable<Models.Skills> SkillsMap(IEnumerable<FluentApi.Entities.Skill> trainer)
         {
-            return trainer.Select(Map);
+            return trainer.Select(SkillsMap);
         }
-        public static IEnumerable<Models.Company> Map(IEnumerable<FluentApi.Entities.Company> trainer)
+        public static IEnumerable<Models.Company> CompanyMap(IEnumerable<FluentApi.Entities.Company> trainer)
         {
-            return trainer.Select(Map);
+            return trainer.Select(CompanyMap);
         }
-        public static IEnumerable<Models.EducationDetails> Map(IEnumerable<FluentApi.Entities.EducationDetail> trainer)
+        public static IEnumerable<Models.EducationDetails> EducationMap(IEnumerable<FluentApi.Entities.EducationDetail> trainer)
         {
-            return trainer.Select(Map);
+            return trainer.Select(EducationMap);
         }
     }
 }

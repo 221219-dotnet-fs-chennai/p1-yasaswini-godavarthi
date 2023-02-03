@@ -19,26 +19,21 @@ namespace Business_Logic
 
         public IEnumerable<Details> GetAllTrainers()
         {
-            return Mapper.Map(_data.GetAllTrainers());
+            return Mapper.TrainerMap(_data.GetAllTrainers());
         }
 
 
-        public IEnumerable<Details> GetAllTrainersBySkillname(string Skill_name33)
+        public Details GetTrainerById(int id)
         {
-            return Mapper.Map(_data.GetAllTrainers().Where(r=>r.Skill.SkillName == Skill_name33));
+            var search = _data.GetAllTrainers().Where(r => r.UserId == id).FirstOrDefault();
+            return Mapper.TrainerMap(search);
         }
         
 
         public IEnumerable<Details> SearchByEmail(string email)
         {
-            var s = _data.GetAllTrainers().Where((r) => r.Email == email);
-            return Mapper.Map(s);
-        }
-
-        public IEnumerable<Details> SearchByExperience(string Exp)
-        {
-            var E = _data.GetAllTrainers().Where((r) => r.Company.Experience == Exp);
-            return Mapper.Map(E);
+            var Ema = _data.GetAllTrainers().Where(r => r.Email==email);
+            return Mapper.TrainerMap(Ema);
         }
     }
 }

@@ -41,6 +41,50 @@ namespace Service.Controllers
             }
         }
 
+        [HttpGet("{id}")]
+        public ActionResult GetById([FromRoute] int id)
+        {
+            try
+            {
+                var search = _logic.GetTrainerById(id);
+                if (search != null)
+                    return Ok(search);
+                else
+                    return NotFound($"Trainer with userId {id} not available, please try with different Id");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
+        [HttpGet("EmailID/{Email}")]
+        public ActionResult GetByEmailId([FromRoute] string Email)
+        {
+            try
+            {
+                var sea = _logic.SearchByEmail(Email);
+                if (sea != null)
+                    return Ok(sea);
+                else
+                    return NotFound($"Trainer with email {Email} not available, please try with different EmailId");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
         [HttpPost("Add")]
         public ActionResult Add([FromBody] TrainerDetaile r)
         {
