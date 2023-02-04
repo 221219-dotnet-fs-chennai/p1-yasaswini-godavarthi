@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Business_Logic;
 using Microsoft.Data.SqlClient;
 using FluentApi.Entities;
+using Models;
 
 namespace Service.Controllers
 {
@@ -86,7 +87,7 @@ namespace Service.Controllers
         }
 
         [HttpPost("Add")]
-        public ActionResult Add([FromBody] TrainerDetaile r)
+        public ActionResult Add([FromBody]Details r)
         {
             try
             {
@@ -100,6 +101,29 @@ namespace Service.Controllers
             catch (Exception e)
             {
                 return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPut("modify/{name}")]
+        public ActionResult Update([FromRoute] string name, [FromBody] Details r)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(name))
+                {
+                    _logic.UpdateTrainer(name, r);
+                    return Ok(r);
+                }
+                else
+                    return BadRequest($"something wrong with {r.Full_name} input, please try again!");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 

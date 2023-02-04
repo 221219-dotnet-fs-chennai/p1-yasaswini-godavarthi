@@ -28,7 +28,8 @@ namespace Business_Logic
         /// <returns></returns>
         IEnumerable<Details> SearchByEmail(string email);
 
-        TrainerDetaile Add(TrainerDetaile trainer);
+        Details Add(Details trainer);
 
+        Details UpdateTrainer(string name, Details details);
     }
 }

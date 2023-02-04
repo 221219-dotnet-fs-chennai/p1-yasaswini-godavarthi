@@ -48,11 +48,11 @@ namespace FluentApi
 
         }
 
-        /*public void UpdateTrainer(string tableName, string columnName, string newValue, int user_id)
+        public TrainerDetaile UpdateTrainer(TrainerDetaile details)
         {
-            _context.Update(user_id, tableName, columnName, newValue);
-
-            throw new NotImplementedException();
-        }*/
+            _context.TrainerDetailes.Update(details);
+            _context.SaveChanges();
+            return details;
+        }
     }
 }

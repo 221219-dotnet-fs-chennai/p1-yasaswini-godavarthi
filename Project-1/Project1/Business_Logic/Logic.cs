@@ -12,9 +12,9 @@ namespace Business_Logic
             _data = data;
         }
 
-        public TrainerDetaile Add(TrainerDetaile trainer)
+        public Details Add(Details trainer)
         {
-            return _data.Add(trainer);
+            return Mapper.TrainerMap(_data.Add(Mapper.TrainerMap(trainer)));
         }
 
         public IEnumerable<Details> GetAllTrainers()
@@ -34,6 +34,29 @@ namespace Business_Logic
         {
             var Ema = _data.GetAllTrainers().Where(r => r.Email==email);
             return Mapper.TrainerMap(Ema);
+        }
+
+        public Details UpdateTrainer(string name, Details trainer)
+        {
+            var train = (from rst in _data.GetAllTrainers()
+                              where rst.FullName == name &&
+                              rst.UserId == trainer.user_id
+                              select rst).FirstOrDefault();
+            if (train != null)
+            {
+                train.Email = trainer.Email;
+                train.FullName = trainer.Full_name;
+                train.Gender = trainer.Gender;
+                train.Age = trainer.Age;
+                train.MobileNumber = trainer.Mobile_number;
+                train.Website = trainer.Website;
+                train.Password = trainer.PASSWORD;
+
+
+                train = _data.UpdateTrainer(train);
+            }
+
+            return Mapper.TrainerMap(train);
         }
     }
 }

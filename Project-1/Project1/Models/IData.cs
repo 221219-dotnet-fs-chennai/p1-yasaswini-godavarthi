@@ -29,8 +29,8 @@ namespace Models
         /// <summary>
         /// update trainer details in the database
         /// </summary>
-       /* void UpdateTrainer(string tableName, string columnName,string newValue, int user_id);
-
+        T UpdateTrainer(T details);
+        /*
         /// <summary>
         /// delete the particular trainer details from database
         /// </summary>
