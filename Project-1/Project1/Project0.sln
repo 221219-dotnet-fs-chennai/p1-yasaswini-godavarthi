@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business_Logic", "Business_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{25D87DE6-52A2-4C9F-B253-53A26A968AD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "services", "services\services.csproj", "{FAE8D194-4D4B-4CD6-9660-71465C9F7E5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "services", "services\services.csproj", "{FAE8D194-4D4B-4CD6-9660-71465C9F7E5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

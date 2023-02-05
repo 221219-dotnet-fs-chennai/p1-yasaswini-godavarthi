@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Models
 {
     public interface IData<T>
@@ -30,12 +31,12 @@ namespace Models
         /// update trainer details in the database
         /// </summary>
         T UpdateTrainer(T details);
-        /*
+        
         /// <summary>
         /// delete the particular trainer details from database
         /// </summary>
-        void DeleteTrainer(string col,string table, int user);
-        /// <summary>
+        T DeleteTrainer(string name);
+        /*/// <summary>
         /// To drop trainer
         /// </summary>
         /// <param name="i"></param>
@@ -45,6 +46,9 @@ namespace Models
         /// </summary>*/
         
         //T SearchByEmail();
+
+        IEnumerable<AllDetails> GetAllDetails();
+
 
 
     }

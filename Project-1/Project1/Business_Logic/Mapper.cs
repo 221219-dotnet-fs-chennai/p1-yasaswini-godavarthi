@@ -9,6 +9,63 @@ namespace Business_Logic
 {
     public class Mapper
     {
+        public static Models.AllDetails Map(FluentApi.TrainerData d)
+        {
+            return new Models.AllDetails()
+            {
+                user_id = d.user_id,
+                //PASSWORD = Validations.IsValidPassword(o.Password),
+                Email = Validations.IsValidEmailId(d.Email),
+                Full_name = d.Full_name,
+                Mobile_number = Validations.IsValidMobileNumber(d.Mobile_number),
+                Age = Convert.ToInt32(d.Age),
+                Gender = d.Gender,
+                Website = d.Website,
+                Company_name = d.Company_name,
+                Company_type = d.Company_type,
+                Experience = d.Experience,
+                Company_Description = d.Company_Description,
+                Skill_name = d.Skill_name,
+                Skill_Level = d.Skill_Level,
+                Skill_Type = d.Skill_Type,
+                Highest_Graduation = d.Highest_Graduation,
+                Institute = d.Full_name,
+                Start_year = d.Start_year,
+                End_year = d.End_year,
+                Department = d.Department
+            };
+        }
+
+
+        public static FluentApi.TrainerData Map(Models.AllDetails a)
+        {
+            return new FluentApi.TrainerData()
+            {
+                user_id = a.user_id,
+                //PASSWORD = Validations.IsValidPassword(o.Password),
+                Email = Validations.IsValidEmailId(a.Email),
+                Full_name = a.Full_name,
+                Mobile_number = Validations.IsValidMobileNumber(a.Mobile_number),
+                Age = Convert.ToInt32(a.Age),
+                Gender = a.Gender,
+                Website = a.Website,
+                Company_name = a.Company_name,
+                Company_type = a.Company_type,
+                Experience = a.Experience,
+                Company_Description = a.Company_Description,
+                Skill_name = a.Skill_name,
+                Skill_Level = a.Skill_Level,
+                Skill_Type = a.Skill_Type,
+                Highest_Graduation = a.Highest_Graduation,
+                Institute = a.Institute,
+                Start_year = a.Start_year,
+                End_year = a.End_year,
+                Department = a.Department,
+
+            };
+        }
+
+
         public static Models.Details TrainerMap(FluentApi.Entities.TrainerDetaile o)
         {
             return new Models.Details()
@@ -122,6 +179,16 @@ namespace Business_Logic
         public static IEnumerable<Models.EducationDetails> EducationMap(IEnumerable<FluentApi.Entities.EducationDetail> trainer)
         {
             return trainer.Select(EducationMap);
+        }
+
+        /*public static IEnumerable<Models.AllDetails> Map(IEnumerable<FluentApi.Entities.TrainerDetaile> trainers,IEnumerable<FluentApi.Entities.Skill> skills,IEnumerable<FluentApi.Entities.Company> companies,IEnumerable<FluentApi.Entities.EducationDetail> educationDetails)
+        {
+            return 
+        }*/
+
+        public static IEnumerable<Models.AllDetails> Map(IEnumerable<FluentApi.TrainerData> datas)
+        {
+            return datas.Select(Map);
         }
     }
 }

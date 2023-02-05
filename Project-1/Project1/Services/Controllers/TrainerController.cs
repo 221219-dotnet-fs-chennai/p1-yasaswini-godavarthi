@@ -87,7 +87,7 @@ namespace Service.Controllers
         }
 
         [HttpPost("Add")]
-        public ActionResult Add([FromBody]Details r)
+        public ActionResult Add([FromBody] Details r)
         {
             try
             {
@@ -126,6 +126,101 @@ namespace Service.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+
+        [HttpDelete("Remove/{name}")]
+        public ActionResult DeleteTrainer([FromRoute] string name)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(name))
+                {
+                   var r =  _logic.DeleteTrainer(name);
+                    return Ok(r);
+                }
+                else
+                    return BadRequest($"something wrong with  input, please try again!");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("GetAllDetails")]
+        public ActionResult GetResult()
+        {
+            try
+            {
+                var tara = _logic.GetAllDetails();
+                if(tara.Count() > 0)
+                {
+                    return Ok(tara);
+                }
+                else
+                    return BadRequest($"There is no trainers in database!");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        
+
+
+        /*[HttpPost("AddTrainer/{r,s,e,c}")]
+        public ActionResult AddTrainer([FromRoute] Details r, Skills s, EducationDetails e, Models.Company c)
+        {
+            try
+            {
+                var added = _logic.AddAll(r, s, e, c);
+                return CreatedAtAction("AddTrainer", added);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception er)
+            {
+                return BadRequest(er.Message);
+            }
+        }*/
+
+        /* [HttpPost("AddTrainer")]
+         public ActionResult Post(AllDetails a)
+         {
+             Details r = new Details();
+             Skills s = new Skills();
+             EducationDetails e = new EducationDetails();
+             Models.Company c = new Models.Company();
+
+             try
+             {
+                 var addtraienr = _logic.AddAll(a);
+
+                 return Created($"/api/Trainers/Add",
+                     _logic.AddAll(a));
+             }
+             catch (SqlException ex)
+             {
+                 return BadRequest(ex.Message);
+             }
+             catch (Exception er)
+             {
+                 return BadRequest(er.Message);
+             }
+         }*/
+
+
+
 
     }
 }

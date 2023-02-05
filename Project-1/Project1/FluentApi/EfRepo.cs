@@ -17,10 +17,6 @@ namespace FluentApi
             return details;
         }
 
-        public void DeleteTrainer(string col, string table, int user)
-        {
-            throw new NotImplementedException();
-        }
 
         public void droptrainer(int i)
         {
@@ -28,6 +24,7 @@ namespace FluentApi
         }
 
         public Entities.TrainerDetaile GetAllTrainer(string email)
+
         {
             throw new NotImplementedException();
         }
@@ -53,6 +50,52 @@ namespace FluentApi
             _context.TrainerDetailes.Update(details);
             _context.SaveChanges();
             return details;
+        }
+
+        public Entities.TrainerDetaile DeleteTrainer(string name)
+        {
+            var s = _context.TrainerDetailes.Where(T=>T.FullName== name).FirstOrDefault();
+            if (s != null)
+            {
+                _context.TrainerDetailes.Remove(s);
+                _context.SaveChanges();
+            }
+            return s;
+        }
+
+        public IEnumerable<AllDetails> GetAllDetails()
+        {
+            var tdetails = _context.TrainerDetailes;
+            var edetails = _context.EducationDetails;
+            var sdetails = _context.Skills;
+            var cdetails = _context.Companies;
+
+            var alldetails = (from t in tdetails
+                              join e in edetails on t.UserId equals e.UserId
+                              join s in sdetails on e.UserId equals s.UserId
+                              join c in cdetails on s.UserId equals c.UserId
+                              select new AllDetails()
+                              {
+                                  Email = t.Email,
+                                  Full_name = t.FullName,
+                                  Age = (int)t.Age,
+                                  Gender = t.Gender,
+                                  Mobile_number = t.MobileNumber,
+                                  Website = t.Website,
+                                  Company_name = c.CompanyName,
+                                  Company_type = c.CompanyType,
+                                  Company_Description = c.CompanyDescription,
+                                  Experience = c.Experience,
+                                  Skill_name = s.SkillName,
+                                  Skill_Type = s.SkillType,
+                                  Skill_Level = s.SkillLevel,
+                                  Highest_Graduation = e.HighestGraduation,
+                                  Start_year = e.StartYear,
+                                  End_year = e.EndYear,
+                                  Department = e.Department,
+                                  Institute = e.Institute
+                              });
+            return alldetails.ToList();
         }
     }
 }

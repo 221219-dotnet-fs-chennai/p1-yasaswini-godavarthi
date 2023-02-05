@@ -7,14 +7,43 @@ namespace Business_Logic
     public class Logic : ILog
     {
         IData<FluentApi.Entities.TrainerDetaile> _data;
+        IAdd<FluentApi.TrainerData> _add;
         public Logic(IData<FluentApi.Entities.TrainerDetaile> data) 
         {
             _data = data;
+        }
+        public Logic(IAdd<FluentApi.TrainerData> add)
+        {
+            _add = add;
         }
 
         public Details Add(Details trainer)
         {
             return Mapper.TrainerMap(_data.Add(Mapper.TrainerMap(trainer)));
+        }
+
+        public AllDetails AddAll(AllDetails a)
+        {
+
+            return (_add.AddTrainer(a));
+        }
+
+        public Details DeleteTrainer(string name)
+        {
+            var t = _data.DeleteTrainer(name);
+            if(t!= null)
+            {
+                return Mapper.TrainerMap(t);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public IEnumerable<AllDetails> GetAllDetails()
+        {
+            return _data.GetAllDetails();
         }
 
         public IEnumerable<Details> GetAllTrainers()
