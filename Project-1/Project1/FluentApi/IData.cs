@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FluentApi.Entities;
+using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,8 +52,9 @@ namespace FluentApi
         IEnumerable<TrainerData> GetAllDetails();
 
         bool Login(string username, string password);
+        EducationDetails edetails(EducationDetails trainerid,int id);
 
-
+       // FluentApi.Entities.Company UTrainer(FluentApi.Entities.Company c);
 
     }
 }

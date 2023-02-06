@@ -23,6 +23,10 @@ namespace Business_Logic
             return Mapper.TrainerMap(_data.Add(Mapper.TrainerMap(trainer)));
         }
 
+        public Models.EducationDetails edetails(EducationDetails trainerid,int id)
+        {
+            return _data.edetails(trainerid,id);
+        }
 
         public bool Login(string email,string password)
         {
@@ -94,5 +98,26 @@ namespace Business_Logic
 
             return Mapper.TrainerMap(train);
         }
+
+        
+        /*public FluentApi.Entities.Company UTrainer(int id, FluentApi.Entities.Company c)
+        {
+            var train = (from rst in _data.GetAllDetails()
+                         where rst.user_id == id &&
+                         rst.user_id == c.UserId
+                         select rst).FirstOrDefault();
+            if (train != null)
+            {
+                train.Company_Description = c.CompanyDescription;
+                train.Company_type=c.CompanyType;
+                train.Company_name = c.CompanyName;
+                train.Experience = c.Experience;
+
+
+                train = _data.UTrainer(train);
+            }
+
+            return Mapper.CompanyMap(train);
+        }*/
     }
 }

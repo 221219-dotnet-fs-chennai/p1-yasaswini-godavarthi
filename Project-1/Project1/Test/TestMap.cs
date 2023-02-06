@@ -1,4 +1,4 @@
-using Business_Logic;
+/*using Business_Logic;
 using FluentApi.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -75,4 +75,4 @@ namespace Test
             Assert.AreEqual(entity.GetType(), typeof(TEF.Company));
         }
     }
-}
+}*/

@@ -40,6 +40,8 @@ namespace Business_Logic
         /// <param name="details"></param>
         /// <returns></returns>
         Details UpdateTrainer(string name, Details details);
+
+        //FluentApi.Entities.Company UTrainer(int id, FluentApi.Entities.Company c);
         /// <summary>
         /// This methos deletes perticular trainer
         /// </summary>
@@ -51,7 +53,7 @@ namespace Business_Logic
         IEnumerable<FluentApi.TrainerData> GetAllDetails();
 
         bool Login(string Email,string Password);
-        
-        
+
+        Models.EducationDetails edetails(EducationDetails trainerid,int id);
     }
 }

@@ -126,5 +126,38 @@ namespace FluentApi
 
 
         }
+
+        public EducationDetails edetails(EducationDetails trainerid,int id)
+        {
+            //throw new NotImplementedException();
+            var t = _context.EducationDetails;
+            var h=from s in t
+                  where s.UserId==id
+
+                  select s;
+
+            EducationDetails e = new EducationDetails();
+            foreach(var s in t)
+            {
+                e = new EducationDetails()
+                {
+                    Institute = s.Institute,
+                    Department = s.Department,
+                    End_year = s.EndYear,
+                    Start_year = s.StartYear,
+                    Highest_Graduation = s.HighestGraduation,
+                };
+            }
+            return e;
+        }
+
+        /* public Entities.Company UTrainer(FluentApi.Entities.Company c)
+         {
+             _context.Companies.Update(c);
+             _context.SaveChanges();
+             return c;
+         }*/
+
+
     }
 }

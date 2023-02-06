@@ -20,14 +20,25 @@ namespace Service.Controllers
             _logic = logic;
             _memory = memory;
         }
+
+        /*[HttpGet]
+        //[EnableCors("policy1")]
+        public string GetString()
+        {
+            return "Hello world";
+        }*/
         [HttpGet]
         public ActionResult Get()
         {
             try
             {
-                var trainer = _logic.GetAllTrainers();
-                if (trainer.Count() > 0)
+               // var trainer = _logic.GetAllTrainers();
+
+               var trainer = new List<Details>();
+                if (!_memory.TryGetValue("rest",out trainer))
                 {
+                    trainer = _logic.GetAllTrainers().ToList();
+                   _memory.Set("rest", trainer, new TimeSpan(0, 0, 30));
                     return Ok(trainer);
                 }
                 else
@@ -177,6 +188,26 @@ namespace Service.Controllers
             }
         }
 
+        [HttpGet("Get Educationdetails")]
+        public ActionResult edudetails(int id)
+        {
+            try
+            {
+
+                EducationDetails r = new EducationDetails();
+                var t = _logic.edetails(r,id);
+                return Ok(t);
+            
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
 
         [HttpGet("Login")]
         public ActionResult Login(string email,string password) {
