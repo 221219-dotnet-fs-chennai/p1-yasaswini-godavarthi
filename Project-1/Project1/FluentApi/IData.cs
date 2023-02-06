@@ -5,16 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Models
+namespace FluentApi
 {
-    public interface IData<T>
+    public interface IData
     {
         /// <summary>
         /// Add the details 
         /// </summary>
         /// <param name="details"></param>
         /// <returns>Returns the Trainer Details which was added</returns>
-        T Add(T details);
+        FluentApi.Entities.TrainerDetaile Add(FluentApi.Entities.TrainerDetaile details);
         /// <summary>
         /// To login to the application
         /// </summary>
@@ -26,16 +26,16 @@ namespace Models
         /// </summary>
         /// <returns>List of all trainer objects in the collection of Type List<traiiner></returns>
         T GetAllTrainer(string email);*/
-        List<T> GetAllTrainers();
+        List<FluentApi.Entities.TrainerDetaile> GetAllTrainers();
         /// <summary>
         /// update trainer details in the database
         /// </summary>
-        T UpdateTrainer(T details);
+        FluentApi.Entities.TrainerDetaile UpdateTrainer(FluentApi.Entities.TrainerDetaile details);
         
         /// <summary>
         /// delete the particular trainer details from database
         /// </summary>
-        T DeleteTrainer(string name);
+        FluentApi.Entities.TrainerDetaile DeleteTrainer(string name);
         /*/// <summary>
         /// To drop trainer
         /// </summary>
@@ -47,7 +47,9 @@ namespace Models
         
         //T SearchByEmail();
 
-        IEnumerable<AllDetails> GetAllDetails();
+        IEnumerable<TrainerData> GetAllDetails();
+
+        bool Login(string username, string password);
 
 
 

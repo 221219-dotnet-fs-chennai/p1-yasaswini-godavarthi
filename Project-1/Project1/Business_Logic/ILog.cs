@@ -48,7 +48,9 @@ namespace Business_Logic
         Details DeleteTrainer(string name);
         AllDetails AddAll(AllDetails a);
 
-        IEnumerable<AllDetails> GetAllDetails();
+        IEnumerable<FluentApi.TrainerData> GetAllDetails();
+
+        bool Login(string Email,string Password);
         
         
     }

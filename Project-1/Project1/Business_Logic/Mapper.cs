@@ -19,7 +19,7 @@ namespace Business_Logic
                 Full_name = d.Full_name,
                 Mobile_number = Validations.IsValidMobileNumber(d.Mobile_number),
                 Age = Convert.ToInt32(d.Age),
-                Gender = d.Gender,
+                Gender = Validations.IsValidGender(d.Gender),
                 Website = d.Website,
                 Company_name = d.Company_name,
                 Company_type = d.Company_type,
@@ -47,8 +47,8 @@ namespace Business_Logic
                 Full_name = a.Full_name,
                 Mobile_number = Validations.IsValidMobileNumber(a.Mobile_number),
                 Age = Convert.ToInt32(a.Age),
-                Gender = a.Gender,
-                Website = a.Website,
+                Gender = Validations.IsValidGender(a.Gender),
+                Website = Validations.IsValidWebsite(a.Website),
                 Company_name = a.Company_name,
                 Company_type = a.Company_type,
                 Experience = a.Experience,
@@ -76,8 +76,8 @@ namespace Business_Logic
                 Full_name = o.FullName,
                 Mobile_number = Validations.IsValidMobileNumber(o.MobileNumber),
                 Age = Convert.ToInt32(o.Age),
-                Gender = o.Gender,
-                Website = o.Website, 
+                Gender = Validations.IsValidGender(o.Gender),
+                Website = Validations.IsValidWebsite(o.Website), 
             };
         }
 
@@ -91,8 +91,8 @@ namespace Business_Logic
                 FullName = o.Full_name,
                 MobileNumber = Validations.IsValidMobileNumber(o.Mobile_number),
                 Age = Convert.ToInt32(o.Age),
-                Gender = o.Gender,
-                Website = o.Website,
+                Gender = Validations.IsValidGender(o.Gender),
+                Website = Validations.IsValidWebsite(o.Website),
             };
         }
 

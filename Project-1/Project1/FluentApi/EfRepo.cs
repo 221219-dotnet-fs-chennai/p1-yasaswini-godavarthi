@@ -3,7 +3,7 @@ using Models;
 
 namespace FluentApi
 {
-    public class EfRepo : IData<Entities.TrainerDetaile>
+    public class EfRepo : IData
     {
         private readonly TrainerDbContext _context;
         public EfRepo(TrainerDbContext context)
@@ -63,7 +63,7 @@ namespace FluentApi
             return s;
         }
 
-        public IEnumerable<AllDetails> GetAllDetails()
+        public IEnumerable<TrainerData> GetAllDetails()
         {
             var tdetails = _context.TrainerDetailes;
             var edetails = _context.EducationDetails;
@@ -74,7 +74,7 @@ namespace FluentApi
                               join e in edetails on t.UserId equals e.UserId
                               join s in sdetails on e.UserId equals s.UserId
                               join c in cdetails on s.UserId equals c.UserId
-                              select new AllDetails()
+                              select new TrainerData()
                               {
                                   Email = t.Email,
                                   Full_name = t.FullName,
@@ -96,6 +96,35 @@ namespace FluentApi
                                   Institute = e.Institute
                               });
             return alldetails.ToList();
+        }
+
+        public bool Login(string username, string password)
+        {
+            var r = _context.TrainerDetailes;
+            var q = r.FirstOrDefault(v => v.Email == username);
+
+            if (q != null)
+            {
+                var tara= r.FirstOrDefault(val => val.Password == password);
+                if (tara != null)
+                {
+                    Console.WriteLine("Successfully Logined");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Wrong Password try again....");
+                    Console.WriteLine("Enter to continue...");
+                    return false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Check your Credentials");
+                return false;
+            }
+
+
         }
     }
 }

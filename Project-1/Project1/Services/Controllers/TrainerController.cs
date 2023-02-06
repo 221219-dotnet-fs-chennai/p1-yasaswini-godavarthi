@@ -4,6 +4,7 @@ using Business_Logic;
 using Microsoft.Data.SqlClient;
 using FluentApi.Entities;
 using Models;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Service.Controllers
 {
@@ -13,9 +14,11 @@ namespace Service.Controllers
     public class TrainerController : ControllerBase
     {
         ILog _logic;
-        public TrainerController(ILog logic)
+        IMemoryCache _memory;
+        public TrainerController(ILog logic,IMemoryCache memory)
         {
             _logic = logic;
+            _memory = memory;
         }
         [HttpGet]
         public ActionResult Get()
@@ -173,7 +176,37 @@ namespace Service.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        
+
+
+        [HttpGet("Login")]
+        public ActionResult Login(string email,string password) {
+            try
+            {
+                if(!string.IsNullOrEmpty(email)) {
+                    var mam = _logic.Login(email, password);
+                    if (mam)
+                    {
+                        return Ok("successfully LogedIn");
+                    }
+                    else
+                    {
+                        return BadRequest("Enter Correct Email and Password");
+                    }
+                }
+                else
+                {
+                    return BadRequest("Please check your Email Once");
+                }
+            }
+            catch(SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
 
 
         /*[HttpPost("AddTrainer/{r,s,e,c}")]

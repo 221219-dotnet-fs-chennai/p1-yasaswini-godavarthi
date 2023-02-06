@@ -6,12 +6,13 @@ namespace Business_Logic
 {
     public class Logic : ILog
     {
-        IData<FluentApi.Entities.TrainerDetaile> _data;
+        IData _data;
         IAdd<FluentApi.TrainerData> _add;
-        public Logic(IData<FluentApi.Entities.TrainerDetaile> data) 
+        public Logic(IData data) 
         {
             _data = data;
         }
+
         public Logic(IAdd<FluentApi.TrainerData> add)
         {
             _add = add;
@@ -20,6 +21,12 @@ namespace Business_Logic
         public Details Add(Details trainer)
         {
             return Mapper.TrainerMap(_data.Add(Mapper.TrainerMap(trainer)));
+        }
+
+
+        public bool Login(string email,string password)
+        {
+            return _data.Login(email, password);
         }
 
         public AllDetails AddAll(AllDetails a)
@@ -41,7 +48,7 @@ namespace Business_Logic
             }
         }
 
-        public IEnumerable<AllDetails> GetAllDetails()
+        public IEnumerable<FluentApi.TrainerData> GetAllDetails()
         {
             return _data.GetAllDetails();
         }
