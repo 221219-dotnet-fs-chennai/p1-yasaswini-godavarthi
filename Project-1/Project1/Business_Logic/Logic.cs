@@ -38,9 +38,9 @@ namespace Business_Logic
         }
 
 
-        public Models.EducationDetails edetails(EducationDetails trainerid,int id)
+        public Models.EducationDetails edetails(EducationDetails trainerid,int Hg)
         {
-            return _data.edetails(trainerid,id);
+            return _data.edetails(trainerid,Hg);
         }
 
         public bool Login(string email,string password)
@@ -82,6 +82,25 @@ namespace Business_Logic
         {
             var search = _data.GetAllTrainers().Where(r => r.UserId == id).FirstOrDefault();
             return Mapper.TrainerMap(search);
+        }
+
+
+        public IEnumerable<FluentApi.TrainerData> GetBySkillName(string skillName)
+        {
+            var search = _data.GetAllDetails().Where(r => r.Skill_name == skillName);
+            return search;
+        }
+
+        public IEnumerable<FluentApi.TrainerData> GetByExperience(string exp)
+        {
+            var search = _data.GetAllDetails().Where(r => r.Experience == exp);
+            return search;
+        }
+
+        public IEnumerable<FluentApi.TrainerData> GetByHg(string hg)
+        {
+            var search = _data.GetAllDetails().Where(r=>r.Highest_Graduation == hg);
+            return search;
         }
         
 

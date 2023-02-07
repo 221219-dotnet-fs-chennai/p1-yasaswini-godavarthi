@@ -74,9 +74,16 @@ namespace FluentApi
 
         public Entities.TrainerDetaile DeleteTrainer(string name)
         {
-            var s = _context.TrainerDetailes.Where(T=>T.FullName== name).FirstOrDefault();
+            var s = _context.TrainerDetailes.Where(T=>T.FullName == name).FirstOrDefault();
+            int k = s.UserId;
+            var e = _context.EducationDetails.Where(T=>T.UserId == k).FirstOrDefault();
+            var c = _context.Companies.Where(T=>T.UserId == k).FirstOrDefault();
+            var sk = _context.Skills.Where(T=>T.UserId== k).FirstOrDefault(); 
             if (s != null)
             {
+                _context.EducationDetails.Remove(e);
+                _context.Companies.Remove(c);
+                _context.Skills.Remove(sk);
                 _context.TrainerDetailes.Remove(s);
                 _context.SaveChanges();
             }

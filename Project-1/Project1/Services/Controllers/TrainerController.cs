@@ -188,26 +188,7 @@ namespace Service.Controllers
             }
         }
 
-        [HttpGet("Get Educationdetails")]
-        public ActionResult edudetails(int id)
-        {
-            try
-            {
-
-                EducationDetails r = new EducationDetails();
-                var t = _logic.edetails(r,id);
-                return Ok(t);
-            
-            }
-            catch (SqlException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-        }
+        
 
         [HttpGet("Login")]
         public ActionResult Login(string email,string password) {

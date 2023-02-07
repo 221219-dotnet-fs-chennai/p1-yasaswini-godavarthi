@@ -34,5 +34,27 @@ namespace services.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpGet("{Experience}")]
+        public ActionResult GetByExperience([FromRoute] string Experience)
+        {
+            try
+            {
+                var search = _logic.GetByExperience(Experience);
+                if (search != null)
+                    return Ok(search);
+                else
+                    return NotFound($"Trainer with Experience {Experience} not available, please try with different Id");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
     }
 }

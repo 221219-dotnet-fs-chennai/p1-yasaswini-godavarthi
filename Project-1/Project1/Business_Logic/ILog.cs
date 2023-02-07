@@ -43,6 +43,12 @@ namespace Business_Logic
 
         Skills Addskill(Skills s);
 
+        IEnumerable<FluentApi.TrainerData> GetBySkillName(string skillName);
+
+        IEnumerable<FluentApi.TrainerData> GetByExperience(string exp);
+
+        IEnumerable<FluentApi.TrainerData> GetByHg(string hg);
+
         Models.Company Addcompany(Models.Company c);
 
         Details UpdateTrainer(string name, Details details);

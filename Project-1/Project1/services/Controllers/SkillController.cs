@@ -34,5 +34,27 @@ namespace services.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpGet("{skillname}")]
+        public ActionResult GetByskillname([FromRoute] string skillname)
+        {
+            try
+            {
+                var search = _logic.GetBySkillName(skillname);
+                if (search != null)
+                    return Ok(search);
+                else
+                    return NotFound($"Trainer with Skillname {skillname} not available, please try with different Id");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
     }
 }
