@@ -60,7 +60,7 @@ namespace Business_Logic
         /// <param name="name"></param>
         /// <returns></returns>
         Details DeleteTrainer(string name);
-        AllDetails AddAll(AllDetails a);
+        //AllDetails AddAll(AllDetails a);
 
         IEnumerable<FluentApi.TrainerData> GetAllDetails();
 

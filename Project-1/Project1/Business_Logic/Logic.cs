@@ -7,15 +7,9 @@ namespace Business_Logic
     public class Logic : ILog
     {
         IData _data;
-        IAdd<FluentApi.TrainerData> _add;
         public Logic(IData data) 
         {
             _data = data;
-        }
-
-        public Logic(IAdd<FluentApi.TrainerData> add)
-        {
-            _add = add;
         }
 
         public Details Add(Details trainer)
@@ -48,11 +42,11 @@ namespace Business_Logic
             return _data.Login(email, password);
         }
 
-        public AllDetails AddAll(AllDetails a)
+        /*public AllDetails AddAll(AllDetails a)
         {
 
             return (_add.AddTrainer(a));
-        }
+        }*/
 
         public Details DeleteTrainer(string name)
         {
