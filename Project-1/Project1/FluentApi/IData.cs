@@ -28,6 +28,12 @@ namespace FluentApi
         /// </summary>
         /// <returns>List of all trainer objects in the collection of Type List<traiiner></returns>
         T GetAllTrainer(string email);*/
+
+        FluentApi.Entities.EducationDetail AddEdu(FluentApi.Entities.EducationDetail details);
+
+        Skill Addskill(FluentApi.Entities.Skill details);
+
+        FluentApi.Entities.Company Addcompany(FluentApi.Entities.Company details);
         List<FluentApi.Entities.TrainerDetaile> GetAllTrainers();
         /// <summary>
         /// update trainer details in the database

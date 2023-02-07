@@ -16,7 +16,27 @@ namespace FluentApi
             _context.SaveChanges();
             return details;
         }
+        public Entities.EducationDetail AddEdu(Entities.EducationDetail details)
+        {
+            _context.EducationDetails.Add(details);
+            _context.SaveChanges();
+            return details;
+        }
 
+        public Skill Addskill(Skill skill)
+        {
+            _context.Skills.Add(skill);
+            _context.SaveChanges();
+            return skill;
+
+        }
+
+        public Entities.Company Addcompany(Entities.Company company)
+        {
+            _context.Companies.Add(company);
+            _context.SaveChanges();
+            return company;
+        }
 
         public void droptrainer(int i)
         {
@@ -150,6 +170,8 @@ namespace FluentApi
             }
             return e;
         }
+
+       
 
         /* public Entities.Company UTrainer(FluentApi.Entities.Company c)
          {

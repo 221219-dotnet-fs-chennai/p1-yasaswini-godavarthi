@@ -39,6 +39,12 @@ namespace Business_Logic
         /// <param name="name"></param>
         /// <param name="details"></param>
         /// <returns></returns>
+        EducationDetails AddEdu(EducationDetails e);
+
+        Skills Addskill(Skills s);
+
+        Models.Company Addcompany(Models.Company c);
+
         Details UpdateTrainer(string name, Details details);
 
         //FluentApi.Entities.Company UTrainer(int id, FluentApi.Entities.Company c);

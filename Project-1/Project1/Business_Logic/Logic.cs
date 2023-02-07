@@ -22,6 +22,21 @@ namespace Business_Logic
         {
             return Mapper.TrainerMap(_data.Add(Mapper.TrainerMap(trainer)));
         }
+        public EducationDetails AddEdu(EducationDetails trainer)
+        {
+            return Mapper.EducationMap(_data.AddEdu(Mapper.EducationMap(trainer)));
+        }
+
+        public Skills Addskill(Skills s) 
+        {
+            return Mapper.SkillsMap(_data.Addskill(Mapper.SkillsMap(s)));
+        }
+
+        public Models.Company Addcompany(Models.Company company)
+        {
+            return Mapper.CompanyMap(_data.Addcompany(Mapper.CompanyMap(company)));
+        }
+
 
         public Models.EducationDetails edetails(EducationDetails trainerid,int id)
         {

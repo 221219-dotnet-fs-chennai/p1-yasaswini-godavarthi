@@ -155,6 +155,7 @@ namespace Business_Logic
             return new FluentApi.Entities.EducationDetail()
             {
                 HighestGraduation = o.Highest_Graduation,
+
                 Institute = o.Institute,
                 StartYear = o.Start_year,
                 EndYear = o.End_year,
