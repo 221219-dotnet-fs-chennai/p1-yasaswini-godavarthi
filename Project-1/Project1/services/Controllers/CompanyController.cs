@@ -16,6 +16,27 @@ namespace services.Controllers
         {
             _logic = logic;
         }
+        [HttpGet("GetAllCompanyDetails")]
+        public ActionResult GetAllCompanies()
+        {
+            try
+            {
+                var search = _logic.GetAllCompanies();
+                if (search.Count() > 0)
+                    return Ok(search);
+                else
+                    return NotFound($"Trainer Company details not available, please try Again");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
 
         [HttpPost("Add")]
         public ActionResult Add([FromBody] Company r)

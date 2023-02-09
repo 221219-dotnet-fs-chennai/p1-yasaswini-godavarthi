@@ -100,6 +100,7 @@ namespace Business_Logic
         {
             return new Models.Company()
             {
+                user_id = o.UserId,
                 Company_name = o.CompanyName,
                 Company_type = o.CompanyType,
                 Experience = o.Experience,
@@ -111,6 +112,7 @@ namespace Business_Logic
         {
             return new FluentApi.Entities.Company()
             {
+                UserId = o.user_id,
                 CompanyName = o.Company_name,
                 CompanyType = o.Company_type,
                 Experience = o.Experience,
@@ -122,6 +124,7 @@ namespace Business_Logic
         {
             return new Models.Skills()
             {
+                user_id = o.UserId,
                 Skill_name = o.SkillName,
                 Skill_Level = o.SkillLevel,
                 Skill_Type = o.SkillType
@@ -132,6 +135,7 @@ namespace Business_Logic
         {
             return new FluentApi.Entities.Skill()
             {
+                UserId = o.user_id,
                 SkillName = o.Skill_name,
                 SkillLevel = o.Skill_Level,
                 SkillType = o.Skill_Type
@@ -142,6 +146,7 @@ namespace Business_Logic
         {
             return new Models.EducationDetails()
             {
+                user_id = o.UserId,
                 Highest_Graduation = o.HighestGraduation,
                 Institute = o.Institute,
                 Start_year = o.StartYear,
@@ -154,8 +159,8 @@ namespace Business_Logic
         {
             return new FluentApi.Entities.EducationDetail()
             {
+                UserId = o.user_id,
                 HighestGraduation = o.Highest_Graduation,
-
                 Institute = o.Institute,
                 StartYear = o.Start_year,
                 EndYear = o.End_year,

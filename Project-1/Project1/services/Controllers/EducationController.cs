@@ -17,6 +17,28 @@ namespace services.Controllers
             _logic = logic;
         }
 
+        [HttpGet("GetAllEducationDetails")]
+        public ActionResult GetAllEducationDetails()
+        {
+            try
+            {
+                var search = _logic.GetEducationDetails();
+                if (search.Count() > 0)
+                    return Ok(search);
+                else
+                    return NotFound($"Trainer Education details not available, please try Again");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
         [HttpPost("Add")]
         public ActionResult Add([FromBody] EducationDetails r)
         {

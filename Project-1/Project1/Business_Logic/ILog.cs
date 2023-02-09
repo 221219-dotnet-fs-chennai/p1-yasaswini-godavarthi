@@ -15,6 +15,11 @@ namespace Business_Logic
         /// </summary>
         /// <returns>IEnumerable<Details></Details></returns>
         IEnumerable<Details> GetAllTrainers();
+        IEnumerable<Skills> GetAllSkills();
+        IEnumerable<EducationDetails> GetEducationDetails();
+
+        IEnumerable<Models.Company> GetAllCompanies();
+
         /// <summary>
         /// This method will return trainer whose email is matched
         /// </summary>
@@ -52,6 +57,12 @@ namespace Business_Logic
         Models.Company Addcompany(Models.Company c);
 
         Details UpdateTrainer(string name, Details details);
+
+        Skills UpdateSkill(int id, Skills skill);
+
+        IEnumerable<FluentApi.TrainerData> UpdateDetailes(string email);
+
+       
 
         //FluentApi.Entities.Company UTrainer(int id, FluentApi.Entities.Company c);
         /// <summary>

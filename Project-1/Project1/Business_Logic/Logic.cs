@@ -1,6 +1,7 @@
 ﻿using Models;
 using FluentApi;
 using FluentApi.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Business_Logic
 {
@@ -71,7 +72,20 @@ namespace Business_Logic
             return Mapper.TrainerMap(_data.GetAllTrainers());
         }
 
+        public IEnumerable<Skills> GetAllSkills()
+        {
+            return Mapper.SkillsMap(_data.GetAllSkills());
+        }
 
+        public IEnumerable<EducationDetails> GetEducationDetails()
+        {
+            return Mapper.EducationMap(_data.GetEducationDetails());
+        }
+
+        public IEnumerable<Models.Company> GetAllCompanies()
+        {
+            return Mapper.CompanyMap(_data.GetAllCompanies());
+        }
         public Details GetTrainerById(int id)
         {
             var search = _data.GetAllTrainers().Where(r => r.UserId == id).FirstOrDefault();
@@ -127,7 +141,29 @@ namespace Business_Logic
             return Mapper.TrainerMap(train);
         }
 
-        
+        public Skills UpdateSkill(int id, Skills skill)
+        {
+            var train = (from rst in _data.GetAllSkills()
+                         where rst.UserId == id
+                         select rst).FirstOrDefault();
+            if (train != null)
+            {
+                train.SkillName = skill.Skill_name;
+                train.SkillLevel = skill.Skill_Level;
+                train.SkillType = skill.Skill_Type;
+
+                train = _data.UpdateSkill(train);
+            }
+
+            return Mapper.SkillsMap(train);
+        }
+
+        public IEnumerable<TrainerData> UpdateDetailes(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+
         /*public FluentApi.Entities.Company UTrainer(int id, FluentApi.Entities.Company c)
         {
             var train = (from rst in _data.GetAllDetails()

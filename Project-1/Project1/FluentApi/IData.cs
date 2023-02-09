@@ -35,11 +35,19 @@ namespace FluentApi
 
         FluentApi.Entities.Company Addcompany(FluentApi.Entities.Company details);
         List<FluentApi.Entities.TrainerDetaile> GetAllTrainers();
+
+        List<FluentApi.Entities.Skill> GetAllSkills();
+
+        List<FluentApi.Entities.EducationDetail> GetEducationDetails();
+
+        List<FluentApi.Entities.Company> GetAllCompanies();
         /// <summary>
         /// update trainer details in the database
         /// </summary>
         FluentApi.Entities.TrainerDetaile UpdateTrainer(FluentApi.Entities.TrainerDetaile details);
-        
+
+        FluentApi.Entities.Skill UpdateSkill(FluentApi.Entities.Skill details);
+
         /// <summary>
         /// delete the particular trainer details from database
         /// </summary>

@@ -49,6 +49,20 @@ namespace FluentApi
             throw new NotImplementedException();
         }
 
+        public List<Entities.Skill> GetAllSkills()
+        {
+            return _context.Skills.ToList();
+        }
+
+        public List<Entities.EducationDetail> GetEducationDetails()
+        {
+            return _context.EducationDetails.ToList();
+        }
+
+        public List<Entities.Company> GetAllCompanies()
+        {
+            return _context.Companies.ToList();
+        }
         public List<Entities.TrainerDetaile> GetAllTrainers()
         {
             return _context.TrainerDetailes.ToList();
@@ -70,6 +84,13 @@ namespace FluentApi
             _context.TrainerDetailes.Update(details);
             _context.SaveChanges();
             return details;
+        }
+
+        public Skill UpdateSkill(Skill skill)
+        {
+            _context.Skills.Update(skill);
+            _context.SaveChanges();
+            return skill;
         }
 
         public Entities.TrainerDetaile DeleteTrainer(string name)

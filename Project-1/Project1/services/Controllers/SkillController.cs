@@ -35,6 +35,28 @@ namespace services.Controllers
             }
         }
 
+        [HttpGet("GetAllSkills")]
+        public ActionResult GetSkills()
+        {
+            try
+            {
+                var search = _logic.GetAllSkills();
+                if (search.Count()>0)
+                    return Ok(search);
+                else
+                    return NotFound($"Trainer Skill not available, please try Again");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
         [HttpGet("{skillname}")]
         public ActionResult GetByskillname([FromRoute] string skillname)
         {
@@ -55,6 +77,29 @@ namespace services.Controllers
                 return BadRequest(ex.Message);
             }
 
+        }
+
+        [HttpPut("modify/{id}")]
+        public ActionResult Update([FromRoute] int id, [FromBody] Skills r)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(Convert.ToString(id)))
+                {
+                    _logic.UpdateSkill(id, r);
+                    return Ok(r);
+                }
+                else
+                    return BadRequest($"something wrong with {r.user_id} input, please try again!");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
