@@ -100,7 +100,7 @@ namespace Business_Logic
         {
             return new Models.Company()
             {
-                user_id = o.UserId,
+               // user_id = o.UserId,
                 Company_name = o.CompanyName,
                 Company_type = o.CompanyType,
                 Experience = o.Experience,
@@ -135,7 +135,7 @@ namespace Business_Logic
         {
             return new FluentApi.Entities.Skill()
             {
-                UserId = o.user_id,
+                //UserId = o.user_id,
                 SkillName = o.Skill_name,
                 SkillLevel = o.Skill_Level,
                 SkillType = o.Skill_Type

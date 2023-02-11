@@ -118,70 +118,131 @@ namespace Business_Logic
             return Mapper.TrainerMap(Ema);
         }
 
-        public Details UpdateTrainer(string name, Details trainer)
+        public Details UpdateTrainer(string email,string password, Details trainer)
         {
-            var train = (from rst in _data.GetAllTrainers()
-                              where rst.FullName == name &&
-                              rst.UserId == trainer.user_id
-                              select rst).FirstOrDefault();
-            if (train != null)
+            var s = _data.Login(email, password);
+            if (s == true)
             {
-                train.Email = trainer.Email;
-                train.FullName = trainer.Full_name;
-                train.Gender = trainer.Gender;
-                train.Age = trainer.Age;
-                train.MobileNumber = trainer.Mobile_number;
-                train.Website = trainer.Website;
-                train.Password = trainer.PASSWORD;
+                var train = (from rst in _data.GetAllTrainers()
+                             where rst.Email == email
+                             select rst).FirstOrDefault();
+                if (train != null)
+                {
+                    train.Email = trainer.Email;
+                    train.FullName = trainer.Full_name;
+                    train.Gender = trainer.Gender;
+                    train.Age = trainer.Age;
+                    train.MobileNumber = trainer.Mobile_number;
+                    train.Website = trainer.Website;
+                    train.Password = trainer.PASSWORD;
 
 
-                train = _data.UpdateTrainer(train);
+                    train = _data.UpdateTrainer(train);
+                }
+
+                return Mapper.TrainerMap(train);
             }
-
-            return Mapper.TrainerMap(train);
+            else
+            {
+                throw new Exception("Login Failed,Please Try Again.......");
+            }
         }
 
-        public Skills UpdateSkill(int id, Skills skill)
+        public Skills UpdateSkill(string email,string password, Skills skill)
         {
-            var train = (from rst in _data.GetAllSkills()
-                         where rst.UserId == id
-                         select rst).FirstOrDefault();
-            if (train != null)
+            var s = _data.Login(email, password);
+            if (s == true)
             {
-                train.SkillName = skill.Skill_name;
-                train.SkillLevel = skill.Skill_Level;
-                train.SkillType = skill.Skill_Type;
+                var dummy = (from data in _data.GetAllTrainers()
+                            where data.Email == email
+                            select data).FirstOrDefault();
+                int id = dummy.UserId;
 
-                train = _data.UpdateSkill(train);
+                var train = (from rst in _data.GetAllSkills()
+                             where rst.UserId == id
+                             select rst).FirstOrDefault();
+                if (train != null)
+                {
+                    train.UserId = id;
+                    train.SkillName = skill.Skill_name;
+                    train.SkillLevel = skill.Skill_Level;
+                    train.SkillType = skill.Skill_Type;
+
+                    train = _data.UpdateSkill(train);
+                }
+
+                return Mapper.SkillsMap(train);
             }
-
-            return Mapper.SkillsMap(train);
+            else
+            {
+                throw new Exception("Login Failed! Please Try Again.....");
+            }
         }
 
-        public IEnumerable<TrainerData> UpdateDetailes(string email)
+        public Models.Company UpdateCompany(string email, string password, Models.Company company)
         {
-            throw new NotImplementedException();
+            var s = _data.Login(email, password);
+            if (s == true)
+            {
+                var dummy = (from data in _data.GetAllTrainers()
+                             where data.Email == email
+                             select data).FirstOrDefault();
+                int id = dummy.UserId;
+
+                var train = (from rst in _data.GetAllCompanies()
+                             where rst.UserId == id
+                             select rst).FirstOrDefault();
+                if (train != null)
+                {
+                    train.UserId = id;
+                    train.CompanyName = company.Company_name;
+                    train.CompanyType = company.Company_type;
+                    train.Experience = company.Experience;
+                    train.CompanyDescription = company.Company_Description;
+
+                    train = _data.UpdateCompany(train);
+                }
+
+                return Mapper.CompanyMap(train);
+            }
+            else
+            {
+                throw new Exception("Login Failed! Please Try Again.....");
+            }
         }
 
-
-        /*public FluentApi.Entities.Company UTrainer(int id, FluentApi.Entities.Company c)
+        public Models.EducationDetails UpdateEducation(string email, string password, Models.EducationDetails educationDetails)
         {
-            var train = (from rst in _data.GetAllDetails()
-                         where rst.user_id == id &&
-                         rst.user_id == c.UserId
-                         select rst).FirstOrDefault();
-            if (train != null)
+            var s = _data.Login(email, password);
+            if (s == true)
             {
-                train.Company_Description = c.CompanyDescription;
-                train.Company_type=c.CompanyType;
-                train.Company_name = c.CompanyName;
-                train.Experience = c.Experience;
+                var dummy = (from data in _data.GetAllTrainers()
+                             where data.Email == email
+                             select data).FirstOrDefault();
+                int id = dummy.UserId;
 
+                var train = (from rst in _data.GetEducationDetails()
+                             where rst.UserId == id
+                             select rst).FirstOrDefault();
+                if (train != null)
+                {
+                    train.UserId = id;
+                    train.HighestGraduation = educationDetails.Highest_Graduation;
+                    train.Institute = educationDetails.Institute;
+                    train.Department = educationDetails.Department;
+                    train.StartYear = educationDetails.Start_year;
+                    train.EndYear = educationDetails.End_year;
 
-                train = _data.UTrainer(train);
+                    train = _data.UpdateEducation(train);
+                }
+
+                return Mapper.EducationMap(train);
             }
+            else
+            {
+                throw new Exception("Login Failed! Please Try Again.....");
+            }
+        }
 
-            return Mapper.CompanyMap(train);
-        }*/
     }
 }

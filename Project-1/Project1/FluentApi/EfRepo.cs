@@ -38,17 +38,6 @@ namespace FluentApi
             return company;
         }
 
-        public void droptrainer(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Entities.TrainerDetaile GetAllTrainer(string email)
-
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Entities.Skill> GetAllSkills()
         {
             return _context.Skills.ToList();
@@ -66,11 +55,6 @@ namespace FluentApi
         public List<Entities.TrainerDetaile> GetAllTrainers()
         {
             return _context.TrainerDetailes.ToList();
-        }
-
-        public bool login(string email)
-        {
-            throw new NotImplementedException();
         }
 
         public IEnumerable<Entities.TrainerDetaile> SearchByEmail()
@@ -91,6 +75,20 @@ namespace FluentApi
             _context.Skills.Update(skill);
             _context.SaveChanges();
             return skill;
+        }
+
+        public FluentApi.Entities.Company UpdateCompany(FluentApi.Entities.Company company) 
+        {
+            _context.Companies.Update(company);
+            _context.SaveChanges();
+            return company;
+        }
+
+        public FluentApi.Entities.EducationDetail UpdateEducation(FluentApi.Entities.EducationDetail educationDetail)
+        {
+            _context.EducationDetails.Update(educationDetail);
+            _context.SaveChanges();
+            return educationDetail;
         }
 
         public Entities.TrainerDetaile DeleteTrainer(string name)

@@ -95,5 +95,28 @@ namespace services.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpPut("modify/{email},{password}")]
+        public ActionResult UpdateEducation([FromRoute] string email, [FromRoute] string password, [FromBody] EducationDetails educationDetails)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(email))
+                {
+                    _logic.UpdateEducation(email, password,educationDetails);
+                    return Ok(educationDetails);
+                }
+                else
+                    return BadRequest($"something wrong with {educationDetails.user_id} input, please try again!");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

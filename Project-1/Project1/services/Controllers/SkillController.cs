@@ -79,14 +79,14 @@ namespace services.Controllers
 
         }
 
-        [HttpPut("modify/{id}")]
-        public ActionResult Update([FromRoute] int id, [FromBody] Skills r)
+        [HttpPut("modify/{email},{password}")]
+        public ActionResult Update([FromRoute] string email,[FromRoute]string password, [FromBody] Skills r)
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(id)))
+                if (!string.IsNullOrEmpty(email))
                 {
-                    _logic.UpdateSkill(id, r);
+                    _logic.UpdateSkill(email,password, r);
                     return Ok(r);
                 }
                 else

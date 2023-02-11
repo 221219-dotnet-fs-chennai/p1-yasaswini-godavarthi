@@ -77,5 +77,27 @@ namespace services.Controllers
             }
 
         }
+        [HttpPut("modify/{email},{password}")]
+        public ActionResult UpdateCompany([FromRoute] string email, [FromRoute] string password, [FromBody] Company company)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(email))
+                {
+                    _logic.UpdateCompany(email, password, company);
+                    return Ok(company);
+                }
+                else
+                    return BadRequest($"something wrong with {company.user_id} input, please try again!");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

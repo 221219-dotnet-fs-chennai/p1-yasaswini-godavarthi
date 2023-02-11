@@ -118,14 +118,14 @@ namespace Service.Controllers
             }
         }
 
-        [HttpPut("modify/{name}")]
-        public ActionResult Update([FromRoute] string name, [FromBody] Details r)
+        [HttpPut("modify/{Email},{Password}")]
+        public ActionResult Update([FromRoute] string Email,string Password, [FromBody] Details r)
         {
             try
             {
-                if (!string.IsNullOrEmpty(name))
+                if (!string.IsNullOrEmpty(Email))
                 {
-                    _logic.UpdateTrainer(name, r);
+                    _logic.UpdateTrainer(Email,Password, r);
                     return Ok(r);
                 }
                 else

@@ -48,35 +48,35 @@ namespace Business_Logic
 
         Skills Addskill(Skills s);
 
+        Models.Company Addcompany(Models.Company c);
+
+
+        IEnumerable<FluentApi.TrainerData> GetAllDetails();
+
         IEnumerable<FluentApi.TrainerData> GetBySkillName(string skillName);
 
         IEnumerable<FluentApi.TrainerData> GetByExperience(string exp);
 
         IEnumerable<FluentApi.TrainerData> GetByHg(string hg);
 
-        Models.Company Addcompany(Models.Company c);
+        Models.EducationDetails edetails(EducationDetails trainerid, int id);
 
-        Details UpdateTrainer(string name, Details details);
+        Details UpdateTrainer(string email,string password, Details details);
 
-        Skills UpdateSkill(int id, Skills skill);
+        Skills UpdateSkill(string email,string password, Skills skill);
 
-        IEnumerable<FluentApi.TrainerData> UpdateDetailes(string email);
+        Models.Company UpdateCompany(string email,string password,Models.Company company);
 
-       
-
-        //FluentApi.Entities.Company UTrainer(int id, FluentApi.Entities.Company c);
+        EducationDetails UpdateEducation(string email,string password,EducationDetails educationDetail);
         /// <summary>
         /// This methos deletes perticular trainer
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
         Details DeleteTrainer(string name);
-        //AllDetails AddAll(AllDetails a);
-
-        IEnumerable<FluentApi.TrainerData> GetAllDetails();
 
         bool Login(string Email,string Password);
 
-        Models.EducationDetails edetails(EducationDetails trainerid,int id);
+       
     }
 }
