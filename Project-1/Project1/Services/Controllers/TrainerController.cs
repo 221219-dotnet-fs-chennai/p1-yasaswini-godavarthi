@@ -20,19 +20,11 @@ namespace Service.Controllers
             _logic = logic;
             _memory = memory;
         }
-
-        /*[HttpGet]
-        //[EnableCors("policy1")]
-        public string GetString()
-        {
-            return "Hello world";
-        }*/
         [HttpGet]
         public ActionResult Get()
         {
             try
             {
-               // var trainer = _logic.GetAllTrainers();
 
                var trainer = new List<Details>();
                 if (!_memory.TryGetValue("rest",out trainer))
@@ -142,14 +134,14 @@ namespace Service.Controllers
         }
 
 
-        [HttpDelete("Remove/{name}")]
-        public ActionResult DeleteTrainer([FromRoute] string name)
+        [HttpDelete("Remove/{email},{password}")]
+        public ActionResult DeleteTrainer([FromRoute] string email, [FromRoute] string password)
         {
             try
             {
-                if (!string.IsNullOrEmpty(name))
+                if (!string.IsNullOrEmpty(email))
                 {
-                   var r =  _logic.DeleteTrainer(name);
+                   var r =  _logic.DeleteTrainer(email,password);
                     return Ok(r);
                 }
                 else
@@ -219,53 +211,6 @@ namespace Service.Controllers
                 return BadRequest(e.Message);
             }
         }
-
-
-        /*[HttpPost("AddTrainer/{r,s,e,c}")]
-        public ActionResult AddTrainer([FromRoute] Details r, Skills s, EducationDetails e, Models.Company c)
-        {
-            try
-            {
-                var added = _logic.AddAll(r, s, e, c);
-                return CreatedAtAction("AddTrainer", added);
-            }
-            catch (SqlException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            catch (Exception er)
-            {
-                return BadRequest(er.Message);
-            }
-        }*/
-
-        /* [HttpPost("AddTrainer")]
-         public ActionResult Post(AllDetails a)
-         {
-             Details r = new Details();
-             Skills s = new Skills();
-             EducationDetails e = new EducationDetails();
-             Models.Company c = new Models.Company();
-
-             try
-             {
-                 var addtraienr = _logic.AddAll(a);
-
-                 return Created($"/api/Trainers/Add",
-                     _logic.AddAll(a));
-             }
-             catch (SqlException ex)
-             {
-                 return BadRequest(ex.Message);
-             }
-             catch (Exception er)
-             {
-                 return BadRequest(er.Message);
-             }
-         }*/
-
-
-
 
     }
 }

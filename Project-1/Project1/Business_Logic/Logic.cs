@@ -49,16 +49,24 @@ namespace Business_Logic
             return (_add.AddTrainer(a));
         }*/
 
-        public Details DeleteTrainer(string name)
+        public Details DeleteTrainer(string email,string password)
         {
-            var t = _data.DeleteTrainer(name);
-            if(t!= null)
+            var s = _data.Login(email, password);
+            if (s == true)
             {
-                return Mapper.TrainerMap(t);
+                var t = _data.DeleteTrainer(email);
+                if (t != null)
+                {
+                    return Mapper.TrainerMap(t);
+                }
+                else
+                {
+                    return null;
+                }
             }
             else
             {
-                return null;
+                throw new Exception("Email Not Found! Try Again....");
             }
         }
 

@@ -91,9 +91,9 @@ namespace FluentApi
             return educationDetail;
         }
 
-        public Entities.TrainerDetaile DeleteTrainer(string name)
+        public Entities.TrainerDetaile DeleteTrainer(string email)
         {
-            var s = _context.TrainerDetailes.Where(T=>T.FullName == name).FirstOrDefault();
+            var s = _context.TrainerDetailes.Where(T=>T.Email == email).FirstOrDefault();
             int k = s.UserId;
             var e = _context.EducationDetails.Where(T=>T.UserId == k).FirstOrDefault();
             var c = _context.Companies.Where(T=>T.UserId == k).FirstOrDefault();
@@ -196,16 +196,6 @@ namespace FluentApi
             }
             return e;
         }
-
-       
-
-        /* public Entities.Company UTrainer(FluentApi.Entities.Company c)
-         {
-             _context.Companies.Update(c);
-             _context.SaveChanges();
-             return c;
-         }*/
-
 
     }
 }

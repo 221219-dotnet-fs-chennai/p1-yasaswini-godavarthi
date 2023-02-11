@@ -187,11 +187,6 @@ namespace Business_Logic
             return trainer.Select(EducationMap);
         }
 
-        /*public static IEnumerable<Models.AllDetails> Map(IEnumerable<FluentApi.Entities.TrainerDetaile> trainers,IEnumerable<FluentApi.Entities.Skill> skills,IEnumerable<FluentApi.Entities.Company> companies,IEnumerable<FluentApi.Entities.EducationDetail> educationDetails)
-        {
-            return 
-        }*/
-
         public static IEnumerable<Models.AllDetails> Map(IEnumerable<FluentApi.TrainerData> datas)
         {
             return datas.Select(Map);
