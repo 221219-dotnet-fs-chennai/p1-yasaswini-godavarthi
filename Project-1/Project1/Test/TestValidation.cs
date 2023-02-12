@@ -18,7 +18,7 @@ namespace Test
         [Test]
         [TestCase("Yas1")]
         [TestCase("yas1")]
-        [TestCase("yasas@")]
+        [TestCase("Yasas@1")]
         [TestCase("Yasaswini@")]
         public void TestPassword(string password)
         {

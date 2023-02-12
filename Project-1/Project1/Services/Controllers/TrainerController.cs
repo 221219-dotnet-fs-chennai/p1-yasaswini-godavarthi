@@ -30,7 +30,7 @@ namespace Service.Controllers
                 if (!_memory.TryGetValue("rest",out trainer))
                 {
                     trainer = _logic.GetAllTrainers().ToList();
-                   _memory.Set("rest", trainer, new TimeSpan(0, 0, 30));
+                    _memory.Set("rest", trainer, new TimeSpan(0, 0, 30));
                     return Ok(trainer);
                 }
                 else
