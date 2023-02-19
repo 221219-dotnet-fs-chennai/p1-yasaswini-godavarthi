@@ -48,7 +48,7 @@ namespace Service.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("getbyid/{id}")]
         public ActionResult GetById([FromRoute] int id)
         {
             try
@@ -92,7 +92,7 @@ namespace Service.Controllers
 
         }
 
-        [HttpPost("Add")]
+        [HttpPost("Adddetails")]
         public ActionResult Add([FromBody] Details r)
         {
             try

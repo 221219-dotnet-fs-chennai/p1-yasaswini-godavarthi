@@ -3,6 +3,7 @@ using FluentApi;
 using FluentApi.Entities;
 using Microsoft.EntityFrameworkCore;
 using Models;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,11 @@ builder.Services.AddCors(options =>
         }
         )
     );
+
+Log.Logger = new LoggerConfiguration()
+            .WriteTo.File(@"..\..\Logs\logs.txt", rollingInterval: RollingInterval.Day, rollOnFileSizeLimit: true)
+            .CreateLogger();
+Log.Information("Program Starts");
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
