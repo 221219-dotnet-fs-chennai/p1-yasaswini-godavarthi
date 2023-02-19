@@ -51,34 +51,44 @@
         <label for="sy">Start Year &emsp;&emsp;&emsp;&emsp; :</label>
         <input type="text" id="sy" placeholder="0000"><br><br>
         <label for="ey">End Year &emsp;&emsp;&emsp;&emsp;&nbsp; :</label>
-        <input type="text" id="sy" placeholder="0000"><br><br>
-        <input type="submit" id="btnsubmit" onclick="addTrainer()" style="width: 70px; height: 40px; background-color: blue; border-radius: 20%; color: antiquewhite;">
+        <input type="text" id="ey" placeholder="0000"><br><br>
+        <input type="button" id="btnsubmit" onclick="addTrainer()" value="Submit" style="width: 70px; height: 40px; background-color: blue; border-radius: 20%; color: antiquewhite;">
         </div>
     </form>
     <script>
         function addTrainer(){
-        var hqua = document.getElementById('hq').value;
-        var iname = document.getElementById('in').value;
-        var dep = document.getElementById('dept').value;
-        var sy = document.getElementById('sy').value;
-        var ey = document.getElementById('ey').value;
-            const body = {
-                highest_Graduation: hqua,
-                institute: iname,
-                department: dep,
-                start_year: sy,
-                end_year: ey
-            };
+            let hg = document.getElementById("hq").value;
+            let inname = document.getElementById("in").value;
+            let deg = document.getElementById("dept").value;
+            let speci = document.getElementById("sy").value;
+            let ye = document.getElementById("ey").value;
+            console.log(hg,inname,deg,speci,ye);
             fetch(`https://localhost:7153/api/Education/Add`,{
-                method: 'POST',
-                body: JSON.stringify(body),
-                headers: {
-                    "content-type": "application/json"
+            
+            method: "POST",
+        
+            body: JSON.stringify({
+                highest_Graduation: hg,
+                institute: inname,
+                department: deg,
+                start_year: speci,
+                end_year: ye,
+                
+            }),
+            headers: {
+                'Accept': 'application/json',
+                "Content-type": "application/json; charset=UTF-8",
+            },
+            }).then(data=>data.json())
+            .then((Response) => {
+                if(response.status===200){
+                    alert("Successfully Created");
+                    window.location.href='profile.html';
+                }
+                else{
+                    alert("Try Again");
                 }
             })
-            .then(data => data.json())
-            .then(response => console.log(response))
-            .catch(error=>console.log(error));
         }
     </script>
 </body>

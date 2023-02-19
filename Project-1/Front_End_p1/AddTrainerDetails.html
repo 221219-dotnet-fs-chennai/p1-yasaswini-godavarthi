@@ -56,7 +56,7 @@
         <input type="phoneNumber" id="mobile" placeholder="0000000000" required><br><br>
         <label for="web">Web Url &emsp;&emsp;&emsp;&nbsp;:</label>
         <input type="text" id="web" placeholder="www.example.com" required><br><br>
-        <input type="submit" id="btnsubmit" onclick="addTrainer()" style="width: 70px; height: 40px; background-color: blue; border-radius: 25%; color: antiquewhite;">
+        <input type="button" id="btnsubmit" value="submit" onclick="addTrainer()" style="width: 70px; height: 40px; background-color: blue; border-radius: 25%; color: antiquewhite;">
     </div>
 
     </form>
@@ -89,7 +89,7 @@
             }).then(data=>data.json())
             .then((response) => {
                 if(response.status===200){
-                    alert("Successfully updated");
+                    alert("Successfully Created");
                     window.location.href='profile.html';
                 }
                 else{

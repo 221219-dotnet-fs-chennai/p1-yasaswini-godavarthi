@@ -50,32 +50,43 @@
         <input type="number" id="ex" placeholder="00"><br><br>
         <label for="des">Description&emsp;&emsp;&emsp;:</label>
         <input type="text" id="des" placeholder="about/Na"><br><br>
-        <input type="submit" id="btnsubmit" onclick="addTrainer()" style="width: 70px; height: 40px; background-color: blue; border-radius: 25%; color: antiquewhite;">
+        <input type="button" id="btnsubmit" value="Submit" onclick="addTrainer()" style="width: 70px; height: 40px; background-color: blue; border-radius: 25%; color: antiquewhite;">
         </div>
     </form>
     <script>
         function addTrainer(){
-        var cname = document.getElementById('cn').value;
-        var ctype = document.getElementById('ct').value;
-        var exp = document.getElementById('ex').value;
-        var des = document.getElementById('des').value;
-            const body = {
-                company_name : cname,
-                company_type : ctype,
-                experince: exp,
-                company_Description: des
-            };
+            let cname = document.getElementById("cn").value;
+            let ctype = document.getElementById("ct").value;
+            let exp = document.getElementById("ex").value;
+            let desc = document.getElementById("des").value;
+            console.log(cname,ctype,exp,desc);
             fetch(`https://localhost:7153/api/Company/Add`,{
-                method: 'POST',
-                body: JSON.stringify(body),
-                headers: {
-                    "content-type": "application/json"
-                }
-            })
-            .then(data => data.json())
-            .then(response => console.log(response))
-            .catch(error=>console.log(error));
-        }
+          
+          method: "POST",
+      
+          body: JSON.stringify({
+            company_name: cname,
+            company_type: ctype,
+            experience: exp,
+            company_Description: desc,
+            
+          }),
+          headers: {
+            'Accept': 'application/json',
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }).then(data=>data.json())
+        .then((Response) => {
+            if(response.status===200){
+                    alert("Successfully Created");
+                    window.location.href='profile.html';
+            }
+            else{
+                alert("Try Again");
+            }
+        })
+    }
     </script>
 </body>
 </html>
+

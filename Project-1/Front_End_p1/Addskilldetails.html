@@ -48,29 +48,40 @@
             <input type="text" id = "st"placeholder="skilltype"><br><br>
             <label for="sl">Skill Level&emsp;&emsp;&emsp;:</label>
             <input type="text" id="sl" placeholder="proficient/begineer/Intermediate"><br><br>
-            <input type="submit" id="btnsubmit" onclick="addTrainer()" style="width: 70px; height: 40px; background-color: blue; border-radius: 25%; color: antiquewhite;">
+            <input type="button" id="btnsubmit" onclick="addTrainer()" value="Submit" style="width: 70px; height: 40px; background-color: blue; border-radius: 25%; color: antiquewhite;">
             </div>
         </form>
         <script>
             function addTrainer(){
-        let skill1 = document.getElementById("skill").value;
-        let skilltype=document.getElementById("st").value;
-        let skilllevel=document.getElementById("sl").value;
-     
-        fetch("https://localhost:7153/api/Skill/AddSkill", {
-          method: "POST",
-          body:JSON.stringify({
-            skill_name:skill1,
-            skill_Type:skilltype,
-            skill_Level:skilllevel
-          
-          }),
-          headers:{
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        }).then((response) => console.log(response))
-        .catch(error=>console.log(error));
-    }
+                let sn = document.getElementById("skill").value;
+                let stype = document.getElementById("st").value;
+                let slevel = document.getElementById("sl").value;
+                console.log(sn,stype,slevel);
+                fetch(`https://localhost:7153/api/Skill/AddSkill`,{
+                
+                method: "POST",
+            
+                body: JSON.stringify({
+                    skill_name: sn,
+                    skill_Type: stype,
+                    skill_Level: slevel,
+                    
+                }),
+                headers: {
+                    'Accept': 'application/json',
+                    "Content-type": "application/json; charset=UTF-8",
+                },
+                }).then(data=>data.json())
+                .then((Response) => {
+                    if(response.status===200){
+                    alert("Successfully Created");
+                    window.location.href='profile.html';
+                    }
+                    else{
+                        alert("Try Again");
+                    }
+                })
+            }
     
         </script>
     </body>
