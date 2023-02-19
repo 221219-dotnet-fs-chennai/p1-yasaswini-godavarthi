@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update education Page</title>
+    <style>
+        body{
+            background: url("https://th.bing.com/th/id/OIP.knXw_6EpqZ0K4urT5sr7SQHaFj?w=257&h=191&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        input{
+            width: 250px;
+            height: 30px;
+            box-sizing: border-box;
+            margin:5px;
+            border-radius: 10px;
+        }
+        label{
+            font-size:20px;
+        }
+        form{
+            text-align: center;
+        }
+        img{
+            float:right;
+            padding-top: 30%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="Updatepage.html" style="font-size: medium;"><button type="menu">Go Back</button></a>
+        <h1 style="margin-top: 1%;">update your Educational Details here</h1></span>
+    </nav>
+    <img height="250px" width="250px" src='https://th.bing.com/th/id/OIP.F75SjmdS6UGa1hKMYjHYngAAAA?w=224&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7' alt="Find Trainer Online">
+    <img height="150px" width="150px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOQBgnp4UJUUAKcw9MLAYYlr8gCS75YyZxdw&usqp=CAU" alt="Find Trainer Online" style="float: right; padding-top: 0%;">
+    <br>
+    <form id="educationform">
+        <div style="padding-top: 9%;">
+            <h2>Enter Your Education Details to update</h2>
+        <label for="hq">HighestQualification :</label>
+        <input type="text" id="hq" placeholder="btech/mtech"><br><br>
+        <label for="in">Institute Name &emsp;&emsp;&nbsp; :</label>
+        <input type="text" id="in" placeholder="university"><br><br>
+        <label for="dept">Department &emsp;&emsp;&emsp;&nbsp; :</label>
+        <input type="text" id="dept" placeholder="branch name"><br><br>
+        <label for="sy">Start Year &emsp;&emsp;&emsp;&emsp; :</label>
+        <input type="text" id="sy" placeholder="0000"><br><br>
+        <label for="ey">End Year &emsp;&emsp;&emsp;&emsp;&nbsp; :</label>
+        <input type="text" id="ey" placeholder="0000"><br><br>
+        <input type="button" id="btnsubmit" onclick="updateTrainer()" value="submit" style="width: 70px; height: 40px; background-color: blue; border-radius: 20%; color: antiquewhite;">
+        </div>
+    </form>
+    <script>
+        function updateTrainer() {
+    
+    let hg = document.getElementById("hq").value;
+    let inname = document.getElementById("in").value;
+    let deg = document.getElementById("dept").value;
+    let speci = document.getElementById("sy").value;
+    let ye = document.getElementById("ey").value;
+    const vre=localStorage.getItem('email');
+    const pass = localStorage.getItem('password');
+    console.log(hg,inname,deg,speci,ye);
+    fetch(`https://localhost:7153/api/Education/modify/${vre},${pass}`,{
+      
+      method: "PUT",
+  
+      body: JSON.stringify({
+        highest_Graduation: hg,
+        institute: inname,
+        department: deg,
+        start_year: speci,
+        end_year: ye,
+        
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+    .then((Response) => {
+        if(Response.status===200){
+            alert("Successfully updated");
+            window.location.href='profile.html';
+        }
+    })
+}
+    </script>
+</body>
+</html>

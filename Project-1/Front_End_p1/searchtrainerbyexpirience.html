@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SearchTrainer</title>
+    <style>
+    body{
+        background: url('https://th.bing.com/th/id/OIP.knXw_6EpqZ0K4urT5sr7SQHaFj?w=257&h=191&c=7&r=0&o=5&dpr=1.3&pid=1.7');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    img{
+        padding-left: 80%;
+    }
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        background-color: #111;
+    }
+
+    .active {
+        background-color: #04AA6D;
+    }
+    input{
+        border-radius: 10%;
+    }
+    </style>
+</head>
+<body>
+    <nav >
+        <ul>
+            <li><a href="UI.html" style="font-size: medium;">Menu Page</a> </li>
+            <li><a href="searchbyid.html" style="font-size: medium;">Search By Id</a></li>
+            <li><a href="searchbyemailid.html" style="font-size: medium;">Search By Email</a></li>
+            <li><a href="searchbyskill.html" style="font-size: medium;">Search By skill</a></li>
+            <li><a href="searchtrainerbyexpirience.html" style="font-size: medium;">Search By Experince</a></li>
+        </ul>
+        <img height="100px" width="100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOQBgnp4UJUUAKcw9MLAYYlr8gCS75YyZxdw&usqp=CAU" alt="Find Trainer Online">
+    </nav>
+    <br>
+    <h1>Please Enter Experince to search</h1>
+    <br><br>
+    <form id="byExperince">
+        <label for="exp">Experince &emsp; :</label>
+        <input type="text" id="exp" placeholder="00">
+        <input type="button" value="Search" onclick="getNoteByExperince()">
+    </form>
+    <ol class="ol">
+
+    </ol>
+
+<script>
+     
+    function getNoteByExperince(){
+        var ex=document.getElementById("exp").value;
+        console.log(ex);
+        fetch(`https://localhost:7153/api/Company/${ex}`)
+        .then(data=> data.json())
+        .then(response=> console.log(response))
+        .catch(error=>console.log(error))
+    }
+</script>
+    
+</body>
+</html>

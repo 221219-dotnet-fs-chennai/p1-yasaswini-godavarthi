@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update companydetails Page</title>
+    <style>
+        body{
+            background: url("https://th.bing.com/th/id/OIP.knXw_6EpqZ0K4urT5sr7SQHaFj?w=257&h=191&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        input{
+            width: 250px;
+            height: 30px;
+            box-sizing: border-box;
+            margin:5px;
+            border-radius: 10px;
+        }
+        label{
+            font-size:20px;
+        }
+        form{
+            text-align: center;
+        }
+        img{
+            float:right;
+            padding-top: 30%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="Updatepage.html" style="font-size: medium;"><button type="menu">Go Back</button></a>
+        <h1 style="margin-top: 1%;">Update your Company Details here</h1></span>
+    </nav>
+    <img height="150px" width="150px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOQBgnp4UJUUAKcw9MLAYYlr8gCS75YyZxdw&usqp=CAU" alt="Find Trainer Online" style="float: right; padding-top: 0%;">
+    <br>
+    <form id="companyform">
+        <div style="padding-top: 10%;">
+            <h2>Enter Your Experience Details</h2><br><br>
+        <label for="cn">Company Name &emsp;:</label>
+        <input type="text" id="cn" placeholder="abc/Na"><br><br>
+        <label for="ct">Company Type &emsp;&nbsp;:</label>
+        <input type="text" id="ct" placeholder="Tech/Na"><br><br>
+        <label for="ex">Experience &emsp;&emsp;&emsp;:</label>
+        <input type="number" id="ex" placeholder="00"><br><br>
+        <label for="des">Description&emsp;&emsp;&emsp;:</label>
+        <input type="text" id="des" placeholder="about/Na"><br><br>
+        <input type="button" id="btnsubmit" value="Submit" onclick="UpdateCompany()" style="width: 70px; height: 40px; background-color: blue; border-radius: 25%; color: antiquewhite;">
+        </div>
+    </form>
+    <script>
+        function UpdateCompany(){
+            let cname = document.getElementById("cn").value;
+            let ctype = document.getElementById("ct").value;
+            let exp = document.getElementById("ex").value;
+            let desc = document.getElementById("des").value;
+            const vre=localStorage.getItem('email');
+            const pass = localStorage.getItem('password');
+            console.log(cname,ctype,exp,desc);
+            fetch(`https://localhost:7153/api/Company/modify/${vre},${pass}`,{
+          
+          method: "PUT",
+      
+          body: JSON.stringify({
+            company_name: cname,
+            company_type: ctype,
+            experience: exp,
+            company_Description: desc,
+            
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+        .then((Response) => {
+            if(Response.status===200){
+                alert("Successfully updated");
+                window.location.href='profile.html';
+            }
+        })
+        }
+    </script>
+</body>
+</html>
