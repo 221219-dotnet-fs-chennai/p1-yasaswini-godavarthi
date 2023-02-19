@@ -71,9 +71,9 @@
                     'Accept': 'application/json',
                     "Content-type": "application/json; charset=UTF-8",
                 },
-                }).then(data=>data.json())
+                })
                 .then((Response) => {
-                    if(response.status===200){
+                    if(response.status===201){
                     alert("Successfully Created");
                     window.location.href='profile.html';
                     }
