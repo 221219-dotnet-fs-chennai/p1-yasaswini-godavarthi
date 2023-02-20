@@ -62,30 +62,30 @@
             console.log(cname,ctype,exp,desc);
             fetch(`https://localhost:7153/api/Company/Add`,{
           
-          method: "POST",
-      
-          body: JSON.stringify({
-            company_name: cname,
-            company_type: ctype,
-            experience: exp,
-            company_Description: desc,
+                method: "POST",
             
-          }),
-          headers: {
-            'Accept': 'application/json',
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        })
-        .then((Response) => {
-            if(response.status===201){
-                    alert("Successfully Created");
-                    window.location.href='profile.html';
-            }
-            else{
-                alert("Try Again");
-            }
-        })
-    }
+                body: JSON.stringify({
+                    company_name: cname,
+                    company_type: ctype,
+                    experience: exp,
+                    company_Description: desc,
+            
+                }),
+                headers: {
+                    'Accept': 'application/json',
+                    "Content-type": "application/json; charset=UTF-8",
+                },
+            })
+            .then((Response) => {
+                if(Response.status===201){
+                        alert("Successfully Created");
+                        window.location.href='profile.html';
+                }
+                else{
+                    alert("Try Again");
+                }
+            })
+        }
     </script>
 </body>
 </html>

@@ -35,7 +35,7 @@ namespace Service.Controllers
                 }
                 else
                 {
-                    return BadRequest("may be your database is emppty");
+                    return BadRequest("may be your database is empty");
                 }
             }
             catch (SqlException e)

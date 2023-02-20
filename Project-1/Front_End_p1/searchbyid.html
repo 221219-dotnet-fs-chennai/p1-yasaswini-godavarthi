@@ -44,6 +44,13 @@
     input{
         border-radius: 10%;
     }
+    .dis{
+        list-style-type: disc;
+        margin: 5%;
+        padding: 5%;
+        background-color: lightblue;
+        font-size: larger;
+    }
     </style>
 </head>
 <body>
@@ -61,24 +68,36 @@
     <h1>Please Enter Id To Search</h1>
     <br><br>
     <form id="byid">
-        <label for="id">Userid  &emsp;&emsp; :</label>
-        <input type="number" id="number" name="number" placeholder="0">
+        <label for="ide">Userid  &emsp;&emsp; :</label>
+        <input type="number" id="ide" name="number" placeholder="0">
         <input type="button" value="Search" onclick="getNoteById()">
     </form>
-     <br><br>
-    <ol class="ol">
+     <br><br><br>
+    <ul class="dis">
 
-    </ol>
+    </ul>
 
 <script>
     function getNoteById(){
-        var id=document.getElementById("number").value;
-        console.log(id);
-        fetch(`https://localhost:7153/api/Trainer/getbyid/${id}`)
+        var ex=document.getElementById("ide").value;
+        fetch(`https://localhost:7153/api/Trainer/getbyid/${ex}`,{
+            method:'Get',
+            headers:{
+                'Content-Type': 'application/json',
+            }
+        })
         .then(data=> data.json())
-        .then(response=> console.log(response))
-        .catch(error=>console.log(error))
-    }
+        .then(response=> {
+                const markup = `<li>Name &emsp;&emsp;:${response.full_name}</li><br>
+                                <li>EmailID &emsp;:${response.email}</li><br>
+                                <li>Age &emsp;&emsp;&nbsp;&nbsp; :${response.age}</li><br>
+                                <li>Gender &emsp;&nbsp; :${response.gender}</li><br>
+                                <li>Contact &emsp; :${response.mobile_number}</li><br>
+                                <li>Website &emsp; :${response.website}</li><br>`;
+                document.querySelector('.dis').insertAdjacentHTML('beforeend',markup); 
+            }).catch(error=>console.log(error))
+        }
+    
 </script>
     
 </body>

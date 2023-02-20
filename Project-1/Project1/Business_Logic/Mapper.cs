@@ -71,7 +71,7 @@ namespace Business_Logic
             return new Models.Details()
             {
                 user_id = o.UserId,
-                //PASSWORD = Validations.IsValidPassword(o.Password),
+                PASSWORD = Validations.IsValidPassword(o.Password),
                 Email = Validations.IsValidEmailId(o.Email),
                 Full_name = o.FullName,
                 Mobile_number = Validations.IsValidMobileNumber(o.MobileNumber),
@@ -86,7 +86,7 @@ namespace Business_Logic
             return new FluentApi.Entities.TrainerDetaile()
             {
                 UserId = o.user_id,
-                //PASSWORD = Validations.IsValidPassword(o.Password),
+                Password = Validations.IsValidPassword(o.PASSWORD),
                 Email = Validations.IsValidEmailId(o.Email),
                 FullName = o.Full_name,
                 MobileNumber = Validations.IsValidMobileNumber(o.Mobile_number),

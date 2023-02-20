@@ -44,6 +44,13 @@
     input{
         border-radius: 10%;
     }
+    .dis{
+        list-style-type: disc;
+        margin: 5%;
+        padding: 5%;
+        background-color: lightblue;
+        font-size: larger;
+    }
     </style>
 </head>
 <body>
@@ -65,18 +72,35 @@
         <input type="text" id="exp" placeholder="00">
         <input type="button" value="Search" onclick="getNoteByExperince()">
     </form>
-    <ol class="ol">
+    <br>
+    <ul class="dis">
 
-    </ol>
+    </ul>
 
 <script>
      
     function getNoteByExperince(){
         var ex=document.getElementById("exp").value;
-        console.log(ex);
-        fetch(`https://localhost:7153/api/Company/${ex}`)
+        fetch(`https://localhost:7153/api/Company/${ex}`,{
+            method:'Get',
+            headers:{
+                'Content-Type': 'application/json',
+            }
+        })
         .then(data=> data.json())
-        .then(response=> console.log(response))
+        .then(response=> {
+            response.forEach(e=>{
+                const markup = `<li>Name &emsp;&emsp;:${e.full_name}</li><br>
+                                <li>EmailID &emsp;:${e.email}</li><br>
+                                <li>Age &emsp;&emsp;&nbsp;&nbsp; :${e.age}</li><br>
+                                <li>Gender &emsp;&nbsp; :${e.gender}</li><br>
+                                <li>Contact &emsp; :${e.mobile_number}</li><br>
+                                <li>Website &emsp; :${e.website}</li><br> 
+                                <li>Skill &emsp;&emsp;&nbsp; :${e.skill_name}</li><br>
+                                <li>Experince &nbsp;:${e.experience}</li><br>`;
+                document.querySelector('.dis').insertAdjacentHTML('beforeend',markup); 
+            });
+    })
         .catch(error=>console.log(error))
     }
 </script>

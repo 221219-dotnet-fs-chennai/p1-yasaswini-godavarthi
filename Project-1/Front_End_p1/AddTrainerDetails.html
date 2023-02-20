@@ -46,8 +46,8 @@
         <input type="fullName" id="name" placeholder="Enter your name" required><br><br>
         <label for="email">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;EmailId  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
         <input type="email" id="email" placeholder="example@gmail.com" required><br><br>
-        <label for="password">Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
-        <input type="password" id="password" placeholder="Exam1@" required><br><br>
+        <label for="pass">Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+        <input type="password" id="pass" placeholder="Exam1@" minlength="4" maxlength="7" required><br><br>
         <label for="age" >Age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
         <input type="text" id="age" placeholder="00" required><br><br>
         <lable for="gender"style="font-size: 20px;">Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</lable>
@@ -65,15 +65,17 @@
         function addTrainer(){
             let fn = document.getElementById("name").value;
             let em = document.getElementById("email").value;
-            let pa = document.getElementById("password").value;
+            let pa = document.getElementById("pass").value;
             let ag = document.getElementById("age").value;
             let gen = document.getElementById("gender").value;
             let mn = document.getElementById("mobile").value;
             let web = document.getElementById("web").value;
+            localStorage.setItem('email',em);
+            localStorage.setItem('password',pa);
             fetch(`https://localhost:7153/api/Trainer/Adddetails`,{
             method: "POST",
             body: JSON.stringify({
-                password: pa,
+                password: localStorage.getItem('password'),
                 email: em,
                 full_name: fn,
                 age: ag,
@@ -89,8 +91,8 @@
             })
             .then((response) => {
                 if(response.status===201){
-                    alert("Successfully Created");
-                    window.location.href='profile.html';
+                    alert("Successfully Created,Please Continue to add Remaining sections");
+                    window.location.href='SignUp.html';
                 }
                 else{
                     alert("Try Again");

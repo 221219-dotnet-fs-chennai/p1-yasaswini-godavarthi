@@ -59,23 +59,23 @@
                 console.log(sn,stype,slevel);
                 fetch(`https://localhost:7153/api/Skill/AddSkill`,{
                 
-                method: "POST",
-            
-                body: JSON.stringify({
-                    skill_name: sn,
-                    skill_Type: stype,
-                    skill_Level: slevel,
+                    method: "POST",
+                
+                    body: JSON.stringify({
+                        skill_name: sn,
+                        skill_Type: stype,
+                        skill_Level: slevel,
                     
-                }),
-                headers: {
-                    'Accept': 'application/json',
-                    "Content-type": "application/json; charset=UTF-8",
-                },
+                    }),
+                    headers: {
+                        'Accept': 'application/json',
+                        "Content-type": "application/json; charset=UTF-8",
+                    },
                 })
                 .then((Response) => {
-                    if(response.status===201){
-                    alert("Successfully Created");
-                    window.location.href='profile.html';
+                    if(Response.status===201){
+                        alert("Successfully Created,Please Continue to add Remaining Sections");
+                        window.location.href='SignUp.html';
                     }
                     else{
                         alert("Try Again");
