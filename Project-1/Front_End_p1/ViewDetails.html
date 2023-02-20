@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Details</title>
+    <style>
+         body{
+            background: url("https://th.bing.com/th/id/OIP.knXw_6EpqZ0K4urT5sr7SQHaFj?w=257&h=191&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        img{
+            float:right;
+            padding-top: 30%;
+        }
+        .dis{
+            list-style-type: disc;
+            margin: 5%;
+            padding: 5%;
+            background-color: lightblue;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="profile.html" style="font-size: medium;"><button type="menu">Go Back</button></a>
+        <h1 style="margin-top: 1%;">Your Details </h1></span>
+    </nav>
+    <img height="150px" width="150px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOQBgnp4UJUUAKcw9MLAYYlr8gCS75YyZxdw&usqp=CAU" alt="Find Trainer Online" style="float: right; padding-top: 0%;">
+    <br>
+    <ul class="dis">
+
+    </ul>
+    <script>
+        function ViewDetail(){
+            const vre=localStorage.getItem('email');
+            fetch(`https://localhost:7153/api/Trainer/EmailID/${vre}`,{
+                method:'Get',
+                headers:{
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(data=> data.json())
+            .then(e=> {
+                    const markup = `<h3> Your Personal Details </h3><br>
+                                    <li>Name &emsp;&emsp;: ${e.full_name}</li><br>
+                                    <li>EmailID &emsp;: ${e.email}</li><br>
+                                    <li>Password &nbsp;&nbsp;: ${e.password}</li><br>
+                                    <li>Age &emsp;&emsp;&nbsp;&nbsp; : ${e.age}</li><br>
+                                    <li>Gender &emsp;&nbsp; : ${e.gender}</li><br>
+                                    <li>Contact &emsp; : ${e.mobile_number}</li><br>
+                                    <li>Website &emsp; : ${e.website}</li><br>
+                                    <h3> Your Educational Details </h3><br>
+                                    <li>University&emsp;  : ${e.institute}</li><br>
+                                    <li>Department &nbsp;&nbsp;: ${e.department}</li><br>
+                                    <li>Qualification: ${e.highest_Graduation}</li><br>
+                                    <li>Start Year&emsp; : ${e.start_year}</li><br>
+                                    <li>End Year&emsp;&nbsp;&nbsp;: ${e.end_year}</li><br>
+                                    <h3> Your Skill Details </h2><b3>
+                                    <li>Skill &emsp;&emsp;&nbsp; : ${e.skill_name}</li><br>
+                                    <li>Skill Type : ${e.skill_Type}</li><br>
+                                    <li>Skill Level: ${e.skill_Level}</li><br>
+                                    <h3> Your Experince Details </h3><br>
+                                    <li>CompanyName: ${e.company_name}</li><br>
+                                    <li>CompanyType  : ${e.company_type}</li><br>
+                                    <li>Experince &nbsp;&emsp;&nbsp;&nbsp;: ${e.experience}</li><br>
+                                    <li>AboutCompany  : ${e.company_Description}</li><br>`;
+                    document.querySelector('.dis').insertAdjacentHTML('beforeend',markup); 
+                }).catch(error=>console.log(error));
+        }
+        ViewDetail();
+    </script>
+</body>
+</html>

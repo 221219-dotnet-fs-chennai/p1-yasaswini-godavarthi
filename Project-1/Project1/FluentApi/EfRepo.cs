@@ -122,6 +122,8 @@ namespace FluentApi
                               join c in cdetails on s.UserId equals c.UserId
                               select new TrainerData()
                               {
+                                  user_id = t.UserId,
+                                  PASSWORD= t.Password,
                                   Email = t.Email,
                                   Full_name = t.FullName,
                                   Age = (int)t.Age,

@@ -36,13 +36,13 @@ namespace Business_Logic
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Details GetTrainerById(int id);
+        FluentApi.TrainerData GetTrainerById(int id);
         /// <summary>
         /// This method will return all trainers whose Emailis matches
         /// </summary>
         /// <param name="Exp"></param>
         /// <returns></returns>
-        IEnumerable<Details> SearchByEmail(string email);
+        FluentApi.TrainerData SearchByEmail(string email);
         /// <summary>
         /// This method will add new trainer to the database
         /// </summary>
@@ -92,14 +92,6 @@ namespace Business_Logic
         /// <param name="hg"></param>
         /// <returns></returns>
         IEnumerable<FluentApi.TrainerData> GetByHg(string hg);
-        /// <summary>
-        /// This method return all trainers education detailes whose id matches
-        /// </summary>
-        /// <param name="trainerid"></param>
-        /// <param name="id"></param>
-        /// <returns></returns>
-
-        Models.EducationDetails edetails(EducationDetails trainerid, int id);
         /// <summary>
         /// this method will updates Trainer details
         /// </summary>

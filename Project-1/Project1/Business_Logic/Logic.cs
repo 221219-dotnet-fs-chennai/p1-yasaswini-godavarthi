@@ -32,22 +32,10 @@ namespace Business_Logic
             return Mapper.CompanyMap(_data.Addcompany(Mapper.CompanyMap(company)));
         }
 
-
-        public Models.EducationDetails edetails(EducationDetails trainerid,int Hg)
-        {
-            return _data.edetails(trainerid,Hg);
-        }
-
         public bool Login(string email,string password)
         {
             return _data.Login(email, password);
         }
-
-        /*public AllDetails AddAll(AllDetails a)
-        {
-
-            return (_add.AddTrainer(a));
-        }*/
 
         public Details DeleteTrainer(string email,string password)
         {
@@ -94,10 +82,10 @@ namespace Business_Logic
         {
             return Mapper.CompanyMap(_data.GetAllCompanies());
         }
-        public Details GetTrainerById(int id)
+        public FluentApi.TrainerData GetTrainerById(int id)
         {
-            var search = _data.GetAllTrainers().Where(r => r.UserId == id).FirstOrDefault();
-            return Mapper.TrainerMap(search);
+            var search = _data.GetAllDetails().Where(r => r.user_id == id).FirstOrDefault();
+            return search;
         }
 
 
@@ -120,10 +108,10 @@ namespace Business_Logic
         }
         
 
-        public IEnumerable<Details> SearchByEmail(string email)
+        public FluentApi.TrainerData SearchByEmail(string email)
         {
-            var Ema = _data.GetAllTrainers().Where(r => r.Email==email);
-            return Mapper.TrainerMap(Ema);
+            var Ema = _data.GetAllDetails().Where(r => r.Email==email).FirstOrDefault();
+            return Ema;
         }
 
         public Details UpdateTrainer(string email,string password, Details trainer)

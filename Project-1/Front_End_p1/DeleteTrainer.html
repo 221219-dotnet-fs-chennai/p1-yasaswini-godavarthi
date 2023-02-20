@@ -18,11 +18,15 @@
         input{
             height: 40px;
             width: 100px;
-            border-radius: 25%;
-            background-color: rgb(235, 232, 227);
+            border-radius: 15%;
+            background-color: rgb(238, 60, 15);
             text-decoration-color: aliceblue;
             text-align: center;
         }
+        #del{
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
@@ -31,12 +35,15 @@
                 <a href="UI.html" style="font-size: medium;"><button type="menu">LogOut</button></a>
                 <img height="100px" width="100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOQBgnp4UJUUAKcw9MLAYYlr8gCS75YyZxdw&usqp=CAU" alt="Find Trainer Online">
             </nav>
+            <br>
            <h3>Please choose your option</h3>
         </div>
-        <br><br>
-        <h3>Do you really want to delete your accout ?</h3>
-        <input type="button" value="YES" onclick="deleteaccount()">
-        <a href="profile.html"><input type="button" value="No" onclick=" "></a>
+        <br><br><br>
+        <div id="del">
+            <h2>Do you really want to delete your accout ?</h2><br>
+            <input type="button" value="YES" onclick="deleteaccount()">&emsp;&emsp;
+            <a href="profile.html"><input type="button" value="No" onclick=" " style="background-color: green;"></a>
+        </div>
         <script>
             function deleteaccount(){
                 const em=localStorage.getItem('email');

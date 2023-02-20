@@ -14,7 +14,7 @@ namespace Business_Logic
             return new Models.AllDetails()
             {
                 user_id = d.user_id,
-                //PASSWORD = Validations.IsValidPassword(o.Password),
+                PASSWORD = Validations.IsValidPassword(d.PASSWORD),
                 Email = Validations.IsValidEmailId(d.Email),
                 Full_name = d.Full_name,
                 Mobile_number = Validations.IsValidMobileNumber(d.Mobile_number),
@@ -42,7 +42,7 @@ namespace Business_Logic
             return new FluentApi.TrainerData()
             {
                 user_id = a.user_id,
-                //PASSWORD = Validations.IsValidPassword(o.Password),
+                PASSWORD = Validations.IsValidPassword(a.PASSWORD),
                 Email = Validations.IsValidEmailId(a.Email),
                 Full_name = a.Full_name,
                 Mobile_number = Validations.IsValidMobileNumber(a.Mobile_number),
@@ -100,7 +100,7 @@ namespace Business_Logic
         {
             return new Models.Company()
             {
-               // user_id = o.UserId,
+                user_id = o.UserId,
                 Company_name = o.CompanyName,
                 Company_type = o.CompanyType,
                 Experience = o.Experience,
@@ -135,7 +135,7 @@ namespace Business_Logic
         {
             return new FluentApi.Entities.Skill()
             {
-                //UserId = o.user_id,
+                UserId = o.user_id,
                 SkillName = o.Skill_name,
                 SkillLevel = o.Skill_Level,
                 SkillType = o.Skill_Type

@@ -44,6 +44,13 @@
     input{
         border-radius: 10%;
     }
+    .dis{
+        list-style-type: disc;
+        margin: 3%;
+        padding: 3%;
+        background-color: lightblue;
+        font-size: larger;
+    }
     </style>
 </head>
 <body>
@@ -59,9 +66,48 @@
         <img height="100px" width="100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOQBgnp4UJUUAKcw9MLAYYlr8gCS75YyZxdw&usqp=CAU" alt="Find Trainer Online">
     </nav>
     <br>
-    <h1>Please Choose Your choice To Search</h1>
-    <br>
-    <p> You can Search Trainers here</p>
+    <h1>Please Enter Qualification to search</h1>
+    <br><br>
+    <form id="byskill">
+        <label for="qu">Qualification  &emsp;&emsp;&emsp; :</label>
+        <input type="text" id="qu" placeholder=".net/c#/sql">
+        <input type="button" value="Search" onclick="getNoteByqua()">
+    </form>
+    <br><br>
+    <ul class="dis">
+        
+    </ul>
+
+<script>
+    
+    function getNoteByqua(){
+        var sl=document.getElementById("qu").value;
+        console.log(sl);
+        fetch(`https://localhost:7153/api/Education/GetByDegree?hg=${sl}`,{
+            method:'Get',
+            headers:{
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(data=> data.json())
+        .then(response=> {
+            response.forEach(e=>{
+                const markup = `<ul class="dis">
+                                <li>Name &emsp;&emsp;:${e.full_name}</li><br>
+                                <li>EmailID &emsp;:${e.email}</li><br>
+                                <li>Age &emsp;&emsp;&nbsp;&nbsp; :${e.age}</li><br>
+                                <li>Gender &emsp;&nbsp; :${e.gender}</li><br>
+                                <li>Contact &emsp; :${e.mobile_number}</li><br>
+                                <li>Website &emsp; :${e.website}</li><br>
+                                <li>Qualification:${e.highest_Graduation}</li><br>
+                                <li>Skill &emsp;&emsp;&nbsp; :${e.skill_name}</li><br>
+                                <li>Experince &nbsp;:${e.experience}</li> </ul>`;
+                document.querySelector('.dis').insertAdjacentHTML('beforeend',markup); 
+            });
+    })
+        .catch(error=>console.log(error))
+    }
+</script>
     
 </body>
 </html>

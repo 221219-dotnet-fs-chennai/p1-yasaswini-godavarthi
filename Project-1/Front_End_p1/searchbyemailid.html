@@ -61,6 +61,7 @@
             <li><a href="searchbyemailid.html" style="font-size: medium;">Search By Email</a></li>
             <li><a href="searchbyskill.html" style="font-size: medium;">Search By skill</a></li>
             <li><a href="searchtrainerbyexpirience.html" style="font-size: medium;">Search By Experince</a></li>
+            <li><a href="SearchByDegree.html" style="font-size: medium;">Search By Degree</a></li>
         </ul>
         <img height="100px" width="100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOQBgnp4UJUUAKcw9MLAYYlr8gCS75YyZxdw&usqp=CAU" alt="Find Trainer Online">
     </nav>
@@ -87,16 +88,17 @@
             }
         })
         .then(data=> data.json())
-        .then(response=> {
-            response.forEach(e=>{
+        .then(e=> {
                 const markup = `<li>Name &emsp;&emsp;:${e.full_name}</li><br>
                                 <li>EmailID &emsp;:${e.email}</li><br>
                                 <li>Age &emsp;&emsp;&nbsp;&nbsp; :${e.age}</li><br>
                                 <li>Gender &emsp;&nbsp; :${e.gender}</li><br>
                                 <li>Contact &emsp; :${e.mobile_number}</li><br>
-                                <li>Website &emsp; :${e.website}</li><br>`;
+                                <li>Website &emsp; :${e.website}</li><br>
+                                <li>Qualification:${e.highest_Graduation}</li><br>
+                                <li>Skill &emsp;&emsp;&nbsp; :${e.skill_name}</li><br>
+                                <li>Experince &nbsp;:${e.experience}</li><br>`;
                 document.querySelector('.dis').insertAdjacentHTML('beforeend',markup); 
-            });
             }).catch(error=>console.log(error));
     }
 </script>
