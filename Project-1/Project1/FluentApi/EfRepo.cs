@@ -100,10 +100,22 @@ namespace FluentApi
             var sk = _context.Skills.Where(T=>T.UserId== k).FirstOrDefault(); 
             if (s != null)
             {
-                _context.EducationDetails.Remove(e);
-                _context.Companies.Remove(c);
-                _context.Skills.Remove(sk);
-                _context.TrainerDetailes.Remove(s);
+                if (e != null)
+                {
+                    _context.EducationDetails.Remove(e);
+                }
+                if (c != null)
+                {
+                    _context.Companies.Remove(c);
+                }
+                if (sk != null)
+                {
+                    _context.Skills.Remove(sk);
+                }
+                if (s != null)
+                {
+                    _context.TrainerDetailes.Remove(s);
+                }
                 _context.SaveChanges();
             }
             return s;
