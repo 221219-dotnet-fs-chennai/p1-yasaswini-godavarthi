@@ -1,0 +1,257 @@
+<!-- <h2 *ngIf="status else elsepart">{{title}}</h2>
+<ng-template #elsepart>
+  <h2>unable to fetch title</h2>
+</ng-template>
+
+<h2>{{title}}</h2>
+<ng-template [ngIf]= "color=='yellow'"">
+  <h2>Color Yellow</h2>
+</ng-template>
+<div [ngSwitch]="color">
+  <h2 *ngSwitchCase="'yellow'" style="color:yellow;">Yellow</h2>
+  <h2 *ngSwitchCase="'Blue'" style="color:blue;">Blue</h2>
+  <h2 *ngSwitchCase="'Green'" style="color:green;">Green</h2>
+  <h2 *ngSwitchDefault>Default</h2>
+</div>
+
+<app-sample></app-sample> -->
+<!-- <ul>
+  <li *ngFor="let i of usearray">{{i}}</li>
+</ul>
+<ul>
+  <li *ngFor="let g of userlist">{{g}}</li>
+</ul>
+
+<table border="1">
+  <thead>
+    <tr>
+      <td>NAme</td>
+      <td>Salary</td>
+      <td>Location</td>
+      <td>Skill</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let g of userlist">
+      <td>{{g.name}}</td>
+      <td>{{g.salary}}</td>
+      <td>{{g.location}}</td>
+      <td>
+        <ul>
+          <li *ngFor="let s of g.skillset"> {{s}}</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table> -->
+
+<!-- <form #basicform='ngForm' (submit)="getData(basicform.value)">
+  <input ngModel type = "text" name="UserName" placeholder="Enter"><br>
+  <input ngModel type = "text" name="Email" placeholder="Enter email"><br>
+  <input ngModel type = "text" name="Phone" placeholder="Enter no">
+  <button type="submit" > Submit </button>
+</form>
+
+<div>
+	<ul>
+	<li>
+		{{dataObject.UserName}}
+	</li>
+	<li>
+		{{dataObject.Email}}
+	</li>
+	<li>
+		{{dataObject.Phone}}
+	</li>
+	</ul>
+</div>
+
+<hr>  -->
+
+<p>
+	<ngb-alert [dismissible]="false">
+		<strong>Warning!</strong>Better check yourself, you're not looking too good.
+	</ngb-alert>
+</p>
+
+<hr> 
+
+<!-- <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+	<li [ngbNavItem]="1">
+		<a ngbNavLink>One</a>
+		<ng-template ngbNavContent>
+			<p>
+				Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+				master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
+				keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat
+				salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+			</p>
+		</ng-template>
+	</li>
+	<li [ngbNavItem]="2">
+		<a ngbNavLink>Two</a>
+		<ng-template ngbNavContent>
+			<p>
+				Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+				farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
+				ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+				helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
+				8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+				stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+			</p>
+		</ng-template>
+	</li>
+	<li [ngbNavItem]="3">
+		<a ngbNavLink>Three</a>
+		<ng-template ngbNavContent>
+			<p>
+				Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi.
+				Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
+				Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna,
+				egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec
+				tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et
+				magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget
+				neque. Phasellus nec tortor vel tellus pulvinar feugiat.
+			</p>
+		</ng-template>
+	</li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+<pre>Active: {{ active }}</pre> -->
+
+<hr>
+
+<p><ngb-progressbar type="success" [value]="25"></ngb-progressbar></p>
+<p><ngb-progressbar type="info" [value]="50"></ngb-progressbar></p>
+<p><ngb-progressbar type="warning" [value]="75"></ngb-progressbar></p>
+<p><ngb-progressbar type="danger" [value]="100"></ngb-progressbar></p>
+<p><ngb-progressbar type="primary" [value]="75"></ngb-progressbar></p>
+<p><ngb-progressbar type="secondary" [value]="50"></ngb-progressbar></p>
+<p><ngb-progressbar type="dark" [value]="25"></ngb-progressbar></p>
+
+
+<hr>
+
+<ngb-rating [(rate)]="currentRate"></ngb-rating>
+<hr />
+<pre>Rate: <b>{{currentRate}}</b></pre>
+
+<hr>
+
+<ngb-rating [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating>
+<hr />
+<pre>
+Selected: <b>{{selected}}</b>
+Hovered: <b>{{hovered}}</b>
+</pre>
+<button class="btn btn-sm btn-outline-{{readonly ? 'danger' : 'success'}}" (click)="readonly = !readonly">
+	{{ readonly ? "readonly" : "editable"}}
+</button>
+
+
+<hr>
+
+<p>
+	Popovers can contain any arbitrary HTML, Angular bindings and even directives! Simply enclose desired content or title
+	in a <code>&lt;ng-template&gt;</code> element.
+</p>
+
+<ng-template #popContent>Hello, <b>{{name}}</b>!</ng-template>
+<ng-template #popTitle>Fancy <b>content!!</b></ng-template>
+<button type="button" class="btn btn-outline-secondary" [ngbPopover]="popContent" [popoverTitle]="popTitle">
+	I've got markup and bindings in my popover!
+</button>
+
+
+<hr>
+
+<p>Bootstrap split buttons and dropdowns on button groups are supported with the existing dropdown directives.</p>
+
+<div class="btn-group me-3">
+	<button type="button" class="btn btn-outline-success">Plain ol' button</button>
+	<div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+		<button type="button" class="btn btn-outline-primary" ngbDropdownToggle>Drop me</button>
+		<div class="dropdown-menu" ngbDropdownMenu>
+			<button ngbDropdownItem>One</button>
+			<button ngbDropdownItem>Two</button>
+			<button ngbDropdownItem>Four!</button>
+		</div>
+	</div>
+</div>
+
+<div class="btn-group me-3">
+	<button type="button" class="btn btn-primary">Split me</button>
+	<div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+		<button type="button" class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+		<div class="dropdown-menu" ngbDropdownMenu>
+			<button ngbDropdownItem>One</button>
+			<button ngbDropdownItem>Two</button>
+			<button ngbDropdownItem>Four!</button>
+		</div>
+	</div>
+</div>
+
+<div class="btn-group me-3">
+	<div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+		<button type="button" class="btn btn-outline-danger" ngbDropdownToggle>Select me</button>
+		<div class="dropdown-menu" ngbDropdownMenu>
+			<button ngbDropdownItem>One</button>
+			<button ngbDropdownItem>Two</button>
+			<button ngbDropdownItem>Four!</button>
+		</div>
+	</div>
+	<div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+		<button type="button" class="btn btn-outline-success" ngbDropdownToggle>Or me</button>
+		<div class="dropdown-menu" ngbDropdownMenu>
+			<button ngbDropdownItem>One</button>
+			<button ngbDropdownItem>Two</button>
+			<button ngbDropdownItem>Four!</button>
+		</div>
+	</div>
+</div>
+
+
+<hr>
+
+<ngb-carousel
+	#carousel
+	[interval]="1000"
+	[pauseOnHover]="pauseOnHover"
+	[pauseOnFocus]="pauseOnFocus"
+	(slide)="onSlide($event)"
+>
+	<ng-template ngbSlide *ngFor="let img of images; index as i">
+		<div class="carousel-caption">
+			<h3>My slide {{i + 1}} title</h3>
+		</div>
+		<a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">
+			<div class="picsum-img-wrapper">
+				<img [src]="img" alt="My image {{i + 1}} description" />
+			</div>
+		</a>
+	</ng-template>
+</ngb-carousel>
+
+<hr />
+
+<div class="form-check">
+	<input type="checkbox" class="form-check-input" id="pauseOnHover" [(ngModel)]="pauseOnHover" />
+	<label class="form-check-label" for="pauseOnHover">Pause on hover</label>
+</div>
+<div class="form-check">
+	<input type="checkbox" class="form-check-input" id="pauseOnFocus" [(ngModel)]="pauseOnFocus" />
+	<label class="form-check-label" for="pauseOnFocus">Pause on focus</label>
+</div>
+<div class="form-check">
+	<input type="checkbox" class="form-check-input" id="unpauseOnArrow" [(ngModel)]="unpauseOnArrow" />
+	<label class="form-check-label" for="unpauseOnArrow">Unpause when clicking on arrows</label>
+</div>
+<div class="form-check">
+	<input type="checkbox" class="form-check-input" id="pauseOnIndicator" [(ngModel)]="pauseOnIndicator" />
+	<label class="form-check-label" for="pauseOnIndicator">Pause when clicking on navigation indicator</label>
+</div>
+<button type="button" (click)="togglePaused()" class="btn btn-outline-dark btn-sm">
+	{{paused ? 'Cycle' : 'Pause' }}
+</button>
