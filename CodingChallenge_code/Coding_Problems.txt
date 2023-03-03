@@ -1,0 +1,383 @@
+1. Merge two sorted arrays 
+
+sol:-
+
+using System;
+public class mergetwo{
+    public static void Main(String[] args){
+        int[] a={2,4,5,7,8};
+        int[] b={1,3,6,6};
+        int c=a.Length+b.Length;
+        int[] d=new int[c];
+        int j=0;
+        for(int i=0;i<a.Length;i=i+1){
+            d[j++]=a[i];
+        }
+        for(int i=0;i<b.Length;i=i+1){
+            d[j++]=b[i];
+        }
+        Array.Sort(d);
+        for(int i=0;i<c;i++){
+            Console.Write(d[i]+" ");
+        }
+    }
+}
+
+
+
+
+2. Remove duplicates from an array
+
+sol:-
+
+using System;
+public class removedup{
+    public static void Main(string[] args){
+        Console.WriteLine("Enter Array Lenght");
+        int N=Convert.ToInt32(Console.ReadLine());
+        int[] a=new int[N];
+        Console.WriteLine("Enter Array Elements");
+        for(int i=0;i<N;i++){
+            a[i]=Convert.ToInt32(Console.ReadLine());
+        }
+        int[] b=a.Distinct().ToArray();
+        foreach (var i in b)
+        {
+            Console.Write(i+" ");
+        }
+    }
+}
+
+3. Count the frequency of an element in an array
+
+sol:-
+
+using System;
+public class freq{
+    public static void Main(string[] args){
+        Console.WriteLine("Enter Array Lenght");
+        int N=Convert.ToInt32(Console.ReadLine());
+        int[] a=new int[N];
+        Console.WriteLine("Enter Array Elements");
+        for(int i=0;i<N;i++){
+            a[i]=Convert.ToInt32(Console.ReadLine());
+        }
+        Console.WriteLine("Enter Element to find frequency");
+        int t=Convert.ToInt32(Console.ReadLine());
+        int count=0;
+        for(int i=0;i<N;i++){
+            if(a[i]==t)
+                count++;
+        }
+        Console.WriteLine("Frequency: "+count);
+    }
+}
+
+
+4. Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+
+using System;
+public class specific{
+    public static void Main(string[] args){
+        Console.WriteLine("Enter Array Lenght");
+        int N=Convert.ToInt32(Console.ReadLine());
+        int[] a=new int[N];
+        Console.WriteLine("Enter Array Elements");
+        for(int i=0;i<N;i++){
+            a[i]=Convert.ToInt32(Console.ReadLine());
+        }
+        Console.WriteLine("Enter Target Element:");
+        int t=Convert.ToInt32(Console.ReadLine());
+        for(int i=0;i<N;i++){
+            for(int j=0;j<N;j++){
+                if(i==j)
+                    continue;
+                else{
+                    if(a[i]+a[j]==t){
+                        Console.WriteLine("["+i+","+j+"]");
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+5. Problem Description: Given an array A[] of size n, you need to find the maximum and minimum element present in the array. Your algorithm should make the minimum number of comparisons.
+
+sol:-
+
+using System;
+public class minmax{
+    public static void Main(string[] args){
+        Console.WriteLine("Enter Array Lenght");
+        int N=Convert.ToInt32(Console.ReadLine());
+        int[] a=new int[N];
+        Console.WriteLine("Enter Array Elements");
+        for(int i=0;i<N;i++){
+            a[i]=Convert.ToInt32(Console.ReadLine());
+        }
+        Array.Sort(a);
+        Console.WriteLine("Min Value: "+a[0]);
+        Console.WriteLine("Max Value: "+a[N-1]);
+    }
+}
+
+6.Given a sorted array arr[] consisting of N distinct integers and an integer K, the task is to find the index of K, if it’s present in the array arr[]. Otherwise, find the index where K must be inserted to keep the array sorted.
+
+sol:-
+
+using System;
+public class sear{
+    public static void Main(string[] args){
+        Console.WriteLine("Enter Array Lenght");
+        int N=Convert.ToInt32(Console.ReadLine());
+        int[] a=new int[N];
+        Console.WriteLine("Enter Array Elements");
+        for(int i=0;i<N;i++){
+            a[i]=Convert.ToInt32(Console.ReadLine());
+        }
+        Console.WriteLine("Enter Element to search");
+        int temp=Convert.ToInt32(Console.ReadLine());
+        int j=-1;
+        string status="False";
+        for(int i=0;i<N;i++){
+            if(a[i]==temp){
+                Console.WriteLine(i);
+                status="True";
+                break;
+            }
+            else if(a[i]<temp){
+                j++;
+                status="False";
+            }
+            else
+                break;
+        }
+        if(status=="False")
+            Console.WriteLine("Element should be in "+ j+1);
+    }
+}
+
+7. Given an array of n integers, find the third largest element. All the elements in the array are distinct integers. 
+
+sol:-)
+
+using System;
+public class sear{
+    public static void Main(string[] args){
+        Console.WriteLine("Enter Array Lenght");
+        int N=Convert.ToInt32(Console.ReadLine());
+        int[] a=new int[N];
+        Console.WriteLine("Enter Array Elements");
+        for(int i=0;i<N;i++){
+            a[i]=Convert.ToInt32(Console.ReadLine());
+        }
+        Array.Sort(a);
+        Console.WriteLine(a[N-3]);
+    }
+}
+
+8. Given an array of integers arr[] of size N and an integer, the task is to rotate the array elements to the left by d positions.
+
+sol:-)
+
+using System;
+public class sear{
+    public static void Main(string[] args){
+        Console.WriteLine("Enter Array Lenght");
+        int N=Convert.ToInt32(Console.ReadLine());
+        int[] a=new int[N];
+        Console.WriteLine("Enter Array Elements");
+        for(int i=0;i<N;i++){
+            a[i]=Convert.ToInt32(Console.ReadLine());
+        }
+        Console.WriteLine("Enter Element to Rotate: ");
+        int temp=Convert.ToInt32(Console.ReadLine());
+        for(int i=temp;i<N;i++){
+            Console.Write(a[i]+" ");
+        }
+        for(int i=0;i<temp;i++){
+            Console.Write(a[i]+" ");
+        }
+    }
+}
+
+9.Given an integer array, find a triplet having the maximum product.
+
+sol:-)
+
+using System;
+public class sear{
+    public static void Main(string[] args){
+        Console.WriteLine("Enter Array Lenght");
+        int N=Convert.ToInt32(Console.ReadLine());
+        int[] a=new int[N];
+        Console.WriteLine("Enter Array Elements");
+        for(int i=0;i<N;i++){
+            a[i]=Convert.ToInt32(Console.ReadLine());
+        }
+        int x=0,y=0,z=0,mul=1;
+        for(int i=0;i<N;i++){
+            for(int j=i+1;j<N;j++){
+                for(int k=j+1;k<N;k++){
+                    if(mul<(a[i]*a[j]*a[k])){
+                        mul=a[i]*a[j]*a[k];
+                        x=a[i];
+                        y=a[j];
+                        z=a[k];
+                    }
+                }
+            }
+        }
+        Console.WriteLine("Triplets are:"+"("+x+","+y+","+z+")");
+    }
+}
+
+
+
+string programs:---------
+
+1). Remove Vowels from a String 
+
+sol:-
+
+using System;
+public class vow{
+    public static void Main(string[] args){
+        string s =Console.ReadLine();
+        string t="aeiouAEIOU";
+        string u="";
+        foreach(var i in s){
+            if(t.Contains(i)){
+                continue;
+            }
+            else{
+                u=u+i;
+            }
+        }
+        Console.WriteLine(u);
+    }
+}
+
+
+2). Given a valid (IPv4) Internet Protocol address S, the task is to find the defanged version of that IP address.
+Defanged Version of IP Address: is in which every period “.” is replaced by “[.]”.
+
+sol:-)
+
+using System;
+public class replce{
+    public static void Main(string[] args){
+        string s=Console.ReadLine();
+        s=s.Replace(".","[.]");
+        Console.WriteLine(s);
+    }
+}
+
+AnotherWay :-
+
+using System;
+public class replace{
+    public static void Main(string[] args){
+        string s=Console.ReadLine();
+        string te="";
+        foreach(var i in s){
+            if(i.Equals('.')){
+                te=te+"[.]";
+            }
+            else{
+                te=te+i;
+            }
+        }
+        Console.WriteLine(te);
+    }
+}
+
+
+3)Given a balanced string str of size N with an equal number of L and R, the task is to find a maximum number X, such that a given string can be partitioned into X balanced substring. A string called to be balanced if the number of ‘L’s in the string equals the number of ‘R’s.
+sol:-
+
+using System;
+public class balence{
+    public static void Main(string[] args){
+        string s=Console.ReadLine();
+        int c=s.Count();
+        if((c/2)%2==1){
+            Console.WriteLine((c/2)-1);
+        }
+        else
+            Console.WriteLine("0");
+    }
+}
+
+
+4)Given a string s, return the string after replacing every uppercase letter with the same lowercase letter.
+
+sol:-
+
+
+using System;
+public class uptolow{
+    public static void Main(string[] args){
+        string s=Console.ReadLine();
+        s = s.ToLower();
+        Console.WriteLine(s);
+    }
+}
+
+5). Problem description Given a string S, write a program to find the first non-repeating character in it and return its index.
+
+using System;
+public class nonrepeat{
+    public static void Main(string[] args){
+        string s=Console.ReadLine();
+        int sts=-1;
+        string status="False";
+        foreach(var i in s){
+            sts=-1;
+            foreach (var item in s)
+            {
+                if(i == item){
+                    sts++;
+                }
+            }
+            if(sts==0){
+                status="True";
+                Console.WriteLine(s.IndexOf(i));
+                break;
+            }
+        }
+        if(status=="False"){
+            Console.WriteLine("-1");
+        }
+    }
+}
+
+
+6). Given two strings s and t, write a function to determine if t is an anagram of s.
+
+sol:-
+
+using System;
+public class samp{
+    public static void Main(string[] args){
+        string s =Console.ReadLine();
+        string v = Console.ReadLine();
+        string status="false";
+        if(s.Length == v.Length){
+            foreach(var i in v){
+                if(s.Contains(i)){
+                    status="True";
+                    continue;
+                }
+                else{
+                    status="false";
+                    break;
+                }
+            }
+        }
+        Console.WriteLine(status);
+    }
+}
