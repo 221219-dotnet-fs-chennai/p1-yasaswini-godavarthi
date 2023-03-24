@@ -39,9 +39,9 @@ namespace BusinessLogic
             return _repo.GetBasicRecords();
         }
 
-        public EntityFrame.AllBasicDetails GetById(string id)
+        public IEnumerable<EntityFrame.AllBasicDetails> GetById(string id)
         {
-            var search = _repo.GetBasicRecords().Where(r => r.Patient_Id == id).FirstOrDefault();
+            var search = _repo.GetBasicRecords().Where(r => r.Patient_Id == id).ToList();
             return search;
         }
 
@@ -50,9 +50,9 @@ namespace BusinessLogic
             return _repo.GetHealthRecords();
         }
 
-        public EntityFrame.AllHealthDetails GetByHealthID(string id)
+        public IEnumerable<EntityFrame.AllHealthDetails> GetByHealthID(string id)
         {
-            var search = _repo.GetHealthRecords().Where(r => r.Patient_Id == id).FirstOrDefault();
+            var search = _repo.GetHealthRecords().Where(r => r.Patient_Id == id).ToList();
             return search;
         }
 
@@ -131,7 +131,7 @@ namespace BusinessLogic
                      select r).FirstOrDefault();
 
             var s = (from r in _repo.GetAllMedication()
-                     where r.HealthId == z.Id
+                     where r.HealthId == z.PatientId
                      select r).FirstOrDefault();
             if (s != null)
             {
@@ -153,7 +153,7 @@ namespace BusinessLogic
                      where r.PatientId == id
                      select r).FirstOrDefault();
             var s = (from r in _repo.GetAllTestRecords()
-                     where r.HealthId == z.Id
+                     where r.HealthId == z.PatientId
                      select r).FirstOrDefault();
             if (s != null)
             {

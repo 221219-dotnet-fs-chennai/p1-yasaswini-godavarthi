@@ -52,7 +52,7 @@ namespace BusinessLogic
         {
             return new Models.Patient_Health_Record()
             {
-                Id = hr.Id,
+                Id = (Guid)hr.Id,
                 Date_Time = (DateTime)hr.DateTime,
                 Patient_Id = hr.PatientId,
                 Doctor_Id = hr.DoctorId,
@@ -78,7 +78,7 @@ namespace BusinessLogic
             return new Models.Patient_Medication()
             {
                 Id = mr.Id,
-                Health_Id = (Guid)mr.HealthId,
+                Health_Id = mr.HealthId,
                 Appointment_Id = mr.AppointmentId,
                 Drugs = mr.Drug
             };
@@ -99,7 +99,7 @@ namespace BusinessLogic
             return new Models.Patient_Test()
             {
                 Id = tm.Id,
-                Health_Id = (Guid)tm.HealthId,
+                Health_Id = tm.HealthId,
                 Appointment_Id = tm.AppointmentId,
                 Test = tm.Test,
                 Result = tm.Result

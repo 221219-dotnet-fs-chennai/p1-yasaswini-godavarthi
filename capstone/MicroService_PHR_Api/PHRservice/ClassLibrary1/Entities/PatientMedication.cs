@@ -7,7 +7,7 @@ public partial class PatientMedication
 {
     public Guid Id { get; set; }
 
-    public Guid? HealthId { get; set; }
+    public string? HealthId { get; set; }
 
     public string? AppointmentId { get; set; }
 

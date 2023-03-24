@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace EntityFrame.Entities;
 
-public partial class PatientAllergy
+public partial class PatientTest
 {
     public Guid Id { get; set; }
 
@@ -11,7 +11,9 @@ public partial class PatientAllergy
 
     public string? AppointmentId { get; set; }
 
-    public string? Allergy { get; set; }
+    public string? Test { get; set; }
 
-    public virtual PatientBasicRecord? Health { get; set; }
+    public string? Result { get; set; }
+
+    public virtual PatientHealthRecord? Health { get; set; }
 }
